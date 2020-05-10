@@ -4,7 +4,9 @@ import momentEU from 'moment/locale/eu'
 const components = {
   antLocale: antdEnUS,
   momentName: 'eu',
-  momentLocale: momentEU
+  momentLocale: momentEU,
+  isRtl: false,
+  name: 'en-US'
 }
 
 const locale = {

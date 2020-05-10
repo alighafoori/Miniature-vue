@@ -30,6 +30,7 @@ const app = {
     weak: false,
     multiTab: true,
     lang: 'en-US',
+    isRtl: false,
     _antLocale: {}
   },
   mutations: {
