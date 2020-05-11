@@ -1,21 +1,21 @@
 <template>
-  <page-header-wrapper content="表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。">
+  <page-header-wrapper :content="$t('basicform.header.content')">
     <a-card :body-style="{padding: '24px 32px'}" :bordered="false">
       <a-form @submit="handleSubmit" :form="form">
         <a-form-item
-          label="标题"
+          :label="$t('basicform.title.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
           <a-input
             v-decorator="[
               'name',
-              {rules: [{ required: true, message: '请输入标题' }]}
+              {rules: [{ required: true, message: $t('basicform.title.error') }]}
             ]"
             name="name"
-            placeholder="给目标起个名字" />
+            :placeholder="$t('basicform.title.placeholder')" />
         </a-form-item>
         <a-form-item
-          label="起止日期"
+          :label="$t('basicform.startandend.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
           <a-range-picker
@@ -23,54 +23,54 @@
             style="width: 100%"
             v-decorator="[
               'buildTime',
-              {rules: [{ required: true, message: '请选择起止日期' }]}
+              {rules: [{ required: true, message: $t('basicform.startandend.error') }]}
             ]" />
         </a-form-item>
         <a-form-item
-          label="目标描述"
+          :label="$t('basicform.goaldesc.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
           <a-textarea
             rows="4"
-            placeholder="请输入你阶段性工作目标"
+            :placeholder="$t('basicform.goaldesc.placeholder')"
             v-decorator="[
               'description',
-              {rules: [{ required: true, message: '请输入目标描述' }]}
+              {rules: [{ required: true, message: $t('basicform.goaldesc.error') }]}
             ]" />
         </a-form-item>
         <a-form-item
-          label="衡量标准"
+          :label="$t('basicform.metrics.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
           <a-textarea
             rows="4"
-            placeholder="请输入衡量标准"
+            :placeholder="$t('basicform.metrics.placeholder')"
             v-decorator="[
               'type',
-              {rules: [{ required: true, message: '请输入衡量标准' }]}
+              {rules: [{ required: true, message: $t('basicform.metrics.error') }]}
             ]" />
         </a-form-item>
         <a-form-item
-          label="客户"
+          :label="$t('basicform.client.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
           <a-input
-            placeholder="请描述你服务的客户，内部客户直接 @姓名／工号"
+            :placeholder="$t('basicform.client.placeholder')"
             v-decorator="[
               'customer',
-              {rules: [{ required: true, message: '请描述你服务的客户' }]}
+              {rules: [{ required: true, message: $t('basicform.client.error') }]}
             ]" />
         </a-form-item>
         <a-form-item
-          label="邀评人"
+          :label="$t('basicform.reviewers.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
           :required="false"
         >
-          <a-input placeholder="请直接 @姓名／工号，最多可邀请 5 人" />
+          <a-input :placeholder="$t('basicform.reviewers.placeholder')" />
         </a-form-item>
         <a-form-item
-          label="权重"
+          :label="$t('basicform.weights.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
           :required="false"
@@ -79,22 +79,22 @@
           <span> %</span>
         </a-form-item>
         <a-form-item
-          label="目标公开"
+          :label="$t('basicform.target.label')"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
           :required="false"
-          help="客户、邀评人默认被分享"
+          :help="$t('basicform.target.help')"
         >
           <a-radio-group v-decorator="['target', { initialValue: 1 }]">
-            <a-radio :value="1">公开</a-radio>
-            <a-radio :value="2">部分公开</a-radio>
-            <a-radio :value="3">不公开</a-radio>
+            <a-radio :value="1">{{ $t('basicform.target.public') }}</a-radio>
+            <a-radio :value="2">{{ $t('basicform.target.partlypublic') }}</a-radio>
+            <a-radio :value="3">{{ $t('basicform.target.private') }}</a-radio>
           </a-radio-group>
           <a-form-item v-show="form.getFieldValue('target') === 2">
             <a-select mode="multiple">
-              <a-select-option value="4">同事一</a-select-option>
-              <a-select-option value="5">同事二</a-select-option>
-              <a-select-option value="6">同事三</a-select-option>
+              <a-select-option value="4">{{ $t('basicform.target.colleagueone') }}</a-select-option>
+              <a-select-option value="5">{{ $t('basicform.target.colleaguetwo') }}</a-select-option>
+              <a-select-option value="6">{{ $t('basicform.target.colleague3') }}</a-select-option>
             </a-select>
           </a-form-item>
         </a-form-item>
@@ -102,8 +102,8 @@
           :wrapperCol="{ span: 24 }"
           style="text-align: center"
         >
-          <a-button htmlType="submit" type="primary">提交</a-button>
-          <a-button style="margin-left: 8px">保存</a-button>
+          <a-button htmlType="submit" type="primary">{{ $t('basicform.submit.label') }}</a-button>
+          <a-button class="save-btn">{{ $t('basicform.save.label') }}</a-button>
         </a-form-item>
       </a-form>
     </a-card>
@@ -111,6 +111,7 @@
 </template>
 
 <script>
+// import { i18nRender } from '@/locales'
 export default {
   name: 'BaseForm',
   data () {
@@ -131,3 +132,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.save-btn{
+margin-left: 8px
+}
+[dir='rtl'] .save-btn{
+  margin-right: 8px
+}
+</style>
