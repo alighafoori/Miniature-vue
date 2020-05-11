@@ -82,7 +82,21 @@ const locale = {
   'basicform.target.colleaguetwo': '同事二',
   'basicform.target.colleague3': '同事三',
   'basicform.submit.label': '提交',
-  'basicform.save.label': '保存'
+  'basicform.save.label': '保存',
+  'advancedform.fieldLabels.name': '仓库名',
+  'advancedform.fieldLabels.url': '仓库域名',
+  'advancedform.fieldLabels.owner': '仓库管理员',
+  'advancedform.fieldLabels.approver': '审批人',
+  'advancedform.fieldLabels.dateRange': '生效日期',
+  'advancedform.fieldLabels.type': '仓库类型',
+  'advancedform.fieldLabels.name2': '任务名',
+  'advancedform.fieldLabels.url2': '任务描述',
+  'advancedform.fieldLabels.owner2': '执行人',
+  'advancedform.fieldLabels.approver2': '责任人',
+  'advancedform.fieldLabels.type2': '任务类型',
+  'advancedform.header.content': '高级表单常见于一次性输入和提交大批量数据的场景',
+  'advancedform.card1.title': '仓库管理',
+  'advancedform.card2.title': '任务管理'
 }
 
 export default {

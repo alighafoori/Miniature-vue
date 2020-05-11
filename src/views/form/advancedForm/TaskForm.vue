@@ -3,19 +3,19 @@
     <a-row class="form-row" :gutter="16">
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
-          label="任务名">
+          :label="$t('advancedform.fieldLabels.name2')">
           <a-input placeholder="请输入任务名称" v-decorator="[ 'name2', {rules: [{ required: true, message: '请输入任务名称', whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
-          label="任务描述">
+          :label="$t('advancedform.fieldLabels.url2')">
           <a-input placeholder="请输入任务描述" v-decorator="[ 'url2', {rules: [{ required: true, message: '请输入任务描述', whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
-          label="执行人">
+          :label="$t('advancedform.fieldLabels.owner2')">
           <a-select
             placeholder="请选择执行人"
             v-decorator="[
@@ -31,7 +31,7 @@
     <a-row class="form-row" :gutter="16">
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
-          label="责任人">
+          :label="$t('advancedform.fieldLabels.approver2')">
           <a-select
             placeholder="请选择责任人"
             v-decorator="[
@@ -56,7 +56,7 @@
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
-          label="任务类型">
+          :label="$t('advancedform.fieldLabels.type2')">
           <a-select
             placeholder="请选择任务类型"
             v-decorator="[ 'type2', {rules: [{ required: true, message: '请选择任务类型'}]} ]" >

@@ -82,7 +82,21 @@ const locale = {
   'basicform.target.colleaguetwo': 'Colleague II',
   'basicform.target.colleague3': 'Colleague III',
   'basicform.submit.label': 'submit',
-  'basicform.save.label': 'Save'
+  'basicform.save.label': 'Save',
+  'advancedform.fieldLabels.name': 'Warehouse name',
+  'advancedform.fieldLabels.url': 'Warehouse domain name',
+  'advancedform.fieldLabels.owner': 'Warehouse Manager',
+  'advancedform.fieldLabels.approver': 'Approver',
+  'advancedform.fieldLabels.dateRange': 'Effective date',
+  'advancedform.fieldLabels.type': 'Warehouse type',
+  'advancedform.fieldLabels.name2': 'Task name',
+  'advancedform.fieldLabels.url2': 'mission details',
+  'advancedform.fieldLabels.owner2': 'Executive',
+  'advancedform.fieldLabels.approver2': 'Responsible',
+  'advancedform.fieldLabels.type2': 'Task type',
+  'advancedform.header.content': 'Advanced forms are commonly used to enter and submit large amounts of data at once',
+  'advancedform.card1.title': 'Warehouse management',
+  'advancedform.card2.title': 'Task management'
 }
 
 export default {

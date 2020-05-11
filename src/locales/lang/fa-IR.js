@@ -82,7 +82,21 @@ const locale = {
   'basicform.target.colleaguetwo': 'همکار دوم',
   'basicform.target.colleague3': 'همکار سوم',
   'basicform.submit.label': 'ارسال',
-  'basicform.save.label': 'ذخیره'
+  'basicform.save.label': 'ذخیره',
+  'advancedform.fieldLabels.name': 'نام انبار',
+  'advancedform.fieldLabels.url': 'نام دامنه انبار',
+  'advancedform.fieldLabels.owner': 'مدیر انبار',
+  'advancedform.fieldLabels.approver': 'تأییدکننده',
+  'advancedform.fieldLabels.dateRange': 'تاریخ کار',
+  'advancedform.fieldLabels.type': 'نوع انبار',
+  'advancedform.fieldLabels.name2': 'نام کار',
+  'advancedform.fieldLabels.url2': 'شرح وظیفه',
+  'advancedform.fieldLabels.owner2': 'مجری',
+  'advancedform.fieldLabels.approver2': 'مسئول',
+  'advancedform.fieldLabels.type2': 'نوع کار',
+  'advancedform.header.content': 'فرم های پیشرفته معمولاً برای وارد کردن و ارسال مقادیر زیادی از داده ها به طور همزمان استفاده می شود',
+  'advancedform.card1.title': 'مدیریت انبار',
+  'advancedform.card2.title': 'مدیریت وظیفه'
 }
 
 export default {

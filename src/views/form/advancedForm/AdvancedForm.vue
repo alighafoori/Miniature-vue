@@ -1,9 +1,9 @@
 <template>
-  <page-header-wrapper content="高级表单常见于一次性输入和提交大批量数据的场景">
-    <a-card class="card" title="仓库管理" :bordered="false">
+  <page-header-wrapper :content="$t('advancedform.header.content')">
+    <a-card class="card" :title="$t('advancedform.card1.title')" :bordered="false">
       <repository-form ref="repository" :showSubmit="false" />
     </a-card>
-    <a-card class="card" title="任务管理" :bordered="false">
+    <a-card class="card" :title="$t('advancedform.card2.title')" :bordered="false">
       <task-form ref="task" :showSubmit="false" />
     </a-card>
 
@@ -79,20 +79,21 @@ import RepositoryForm from './RepositoryForm'
 import TaskForm from './TaskForm'
 import FooterToolBar from '@/components/FooterToolbar'
 import { baseMixin } from '@/store/app-mixin'
+import { i18nRender } from '@/locales'
 
 const fieldLabels = {
-  name: '仓库名',
-  url: '仓库域名',
-  owner: '仓库管理员',
-  approver: '审批人',
-  dateRange: '生效日期',
-  type: '仓库类型',
-  name2: '任务名',
-  url2: '任务描述',
-  owner2: '执行人',
-  approver2: '责任人',
-  dateRange2: '生效日期',
-  type2: '任务类型'
+  name: `${i18nRender('advancedform.fieldLabels.name')}`,
+  url: `${i18nRender('advancedform.fieldLabels.url')}`,
+  owner: `${i18nRender('advancedform.fieldLabels.owner')}`,
+  approver: `${i18nRender('advancedform.fieldLabels.approver')}`,
+  dateRange: `${i18nRender('advancedform.fieldLabels.dateRange')}`,
+  type: `${i18nRender('advancedform.fieldLabels.type')}`,
+  name2: `${i18nRender('advancedform.fieldLabels.name2')}`,
+  url2: `${i18nRender('advancedform.fieldLabels.url2')}`,
+  owner2: `${i18nRender('advancedform.fieldLabels.owner2')}`,
+  approver2: `${i18nRender('advancedform.fieldLabels.approver2')}`,
+  dateRange2: `${i18nRender('advancedform.fieldLabels.dateRange')}`,
+  type2: `${i18nRender('advancedform.fieldLabels.type2')}`
 }
 
 export default {
@@ -107,7 +108,6 @@ export default {
     return {
       loading: false,
       memberLoading: false,
-
       // table
       columns: [
         {

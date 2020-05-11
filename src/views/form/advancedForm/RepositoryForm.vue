@@ -2,7 +2,7 @@
   <a-form @submit="handleSubmit" :form="form" class="form">
     <a-row class="form-row" :gutter="16">
       <a-col :lg="6" :md="12" :sm="24">
-        <a-form-item label="仓库名">
+        <a-form-item :label="$t('advancedform.fieldLabels.name')">
           <a-input
             placeholder="请输入仓库名称"
             v-decorator="[
@@ -13,11 +13,12 @@
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
-          label="仓库域名">
+          :label="$t('advancedform.fieldLabels.url')">
           <a-input
             addonBefore="http://"
             addonAfter=".com"
             placeholder="请输入"
+            style="direction:ltr"
             v-decorator="[
               'url',
               {rules: [{ required: true, message: '请输入仓库域名', whitespace: true}, {validator: validate}]}
@@ -26,7 +27,7 @@
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
-          label="仓库管理员">
+          :label="$t('advancedform.fieldLabels.owner')">
           <a-select placeholder="请选择管理员" v-decorator="[ 'owner', {rules: [{ required: true, message: '请选择管理员'}]} ]">
             <a-select-option value="王同学">王同学</a-select-option>
             <a-select-option value="李同学">李同学</a-select-option>
@@ -38,7 +39,7 @@
     <a-row class="form-row" :gutter="16">
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
-          label="审批人">
+          :label="$t('advancedform.fieldLabels.approver')">
           <a-select placeholder="请选择审批员" v-decorator="[ 'approver', {rules: [{ required: true, message: '请选择审批员'}]} ]">
             <a-select-option value="王晓丽">王晓丽</a-select-option>
             <a-select-option value="李军">李军</a-select-option>
@@ -47,7 +48,7 @@
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
-          label="生效日期">
+          :label="$t('advancedform.fieldLabels.dateRange')">
           <a-range-picker
             style="width: 100%"
             v-decorator="[
@@ -58,7 +59,7 @@
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
-          label="仓库类型">
+          :label="$t('advancedform.fieldLabels.type')">
           <a-select
             placeholder="请选择仓库类型"
             v-decorator="[
