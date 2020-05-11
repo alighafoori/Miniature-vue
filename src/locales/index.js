@@ -25,9 +25,7 @@ const i18n = new VueI18n({
 const loadedLanguages = [enUS]
 
 function setI18nLanguage (lang) {
-  console.log('befor locale=' + i18n.locale)
   i18n.locale = lang.name
-  console.log('after locale=' + i18n.locale)
   storage.set('isRtl', lang.isRtl)
   // request.headers['Accept-Language'] = lang
   document.querySelector('html').setAttribute('lang', lang.name)
