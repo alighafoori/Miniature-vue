@@ -65,6 +65,9 @@ export default {
       font-size: 14px;
       line-height: 22px;
     }
+    [dir='rtl'] .meta {
+      text-align: right;
+    }
   }
 
   .chart-card-action {
@@ -73,7 +76,10 @@ export default {
     top: 0;
     right: 0;
   }
-
+  [dir='rtl'] .chart-card-action {
+    right:unset;
+    left:0;
+  }
   .chart-card-footer {
     border-top: 1px solid #e8e8e8;
     padding-top: 9px;

@@ -6,7 +6,14 @@ const components = {
   momentName: 'fa',
   momentLocale: momentEU,
   isRtl: true,
-  name: 'fa-IR'
+  name: 'fa-IR',
+  currency: 'IRR',
+  currencyFomatter: function (num) {
+    return new Intl.NumberFormat(this.name).format(num) + ' تومان'
+  },
+  dateFormatter: function (date) {
+    return date.toLocaleDateString(this.name)
+  }
 }
 
 const locale = {
@@ -151,7 +158,36 @@ const locale = {
   'repositoryform.type2.placeholder': 'لطفاً نوع کار را انتخاب کنید',
   'repositoryform.type2.error': 'لطفاً نوع کار را انتخاب کنید',
   'repositoryform.type2.opt1': 'فقط یکبار اجرا',
-  'repositoryform.type2.opt2': 'اجرای دوره ای'
+  'repositoryform.type2.opt2': 'اجرای دوره ای',
+  'dashboard.analysis.totalsale.title': 'کل فروش',
+  'dashboard.analysis.totalsale.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.totalsale.yoy.first': 'YOY',
+  'dashboard.analysis.totalsale.yoy.second': 'YOY',
+  'dashboard.analysis.totalsale.avragedaily': 'متوسط ​​فروش روزانه',
+  'dashboard.analysis.views.title': 'بازدیدها',
+  'dashboard.analysis.views.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.views.footer': 'بازدیدهای روزانه',
+  'dashboard.analysis.payments.title': 'تعداد پرداخت ها',
+  'dashboard.analysis.payments.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.payments.footer': 'نرخ تبدیل',
+  'dashboard.analysis.effectiveness.title': 'اثربخشی عملیاتی',
+  'dashboard.analysis.effectiveness.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.effectiveness.sameweek': 'همان هفته',
+  'dashboard.analysis.effectiveness.mom': 'MOM',
+  'dashboard.analysis.sales.title': 'فروش',
+  'dashboard.analysis.sales.bar.title': 'رتبه بندی فروش',
+  'dashboard.analysis.sales.rank.title': 'رتبه بندی فروش فروشگاه',
+  'dashboard.analysis.date.today': 'امروز',
+  'dashboard.analysis.date.thisweek': 'این هفته',
+  'dashboard.analysis.date.thismonth': 'این ماه',
+  'dashboard.analysis.date.thisyear': 'امسال',
+  'dashboard.analysis.sales.ternd': 'روند فروش',
+  'dashboard.analysis.sales.ranking': 'رتبه بندی فروش فروشگاه',
+  'dashboard.analysis.search.title': 'جستجوی محبوب آنلاین',
+  'dashboard.analysis.contextmenu.menu1': 'عملیات یک',
+  'dashboard.analysis.contextmenu.menu2': 'عملیات دو',
+  'dashboard.analysis.search.users.title': 'کاربران را جستجو کنید',
+  'dashboard.analysis.search.users.tooltip.title': 'توضیحات شاخص'
 }
 
 export default {

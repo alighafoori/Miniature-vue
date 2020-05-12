@@ -6,7 +6,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/'
-import i18n from './locales'
+import i18n, { currentLang } from './locales'
 import { VueAxios } from './utils/request'
 import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
 
@@ -27,7 +27,7 @@ Vue.config.productionTip = false
 Vue.use(VueAxios)
 Vue.component('pro-layout', ProLayout)
 Vue.component('page-header-wrapper', PageHeaderWrapper)
-
+Vue.filter('formatCurrency', (value) => currentLang.currencyFomatter ? currentLang.currencyFomatter(value) : new Intl.NumberFormat(i18n.locale, { style: 'currency', currency: currentLang.currency, minimumFractionDigits: 0 }).format(value))
 new Vue({
   router,
   store,

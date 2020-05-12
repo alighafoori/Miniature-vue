@@ -6,7 +6,10 @@ const components = {
   momentName: 'zh-cn',
   momentLocale: momentCN,
   isRtl: false,
-  name: 'zh-CN'
+  name: 'zh-CN',
+  currency: 'CNY',
+  currencyFomatter: null,
+  dateFormatter: null
 }
 
 const locale = {
@@ -151,7 +154,36 @@ const locale = {
   'repositoryform.type2.placeholder': '请选择任务类型',
   'repositoryform.type2.error': '请选择任务类型',
   'repositoryform.type2.opt1': '定时执行',
-  'repositoryform.type2.opt2': '周期执行'
+  'repositoryform.type2.opt2': '周期执行',
+  'dashboard.analysis.totalsale.title': '总销售额',
+  'dashboard.analysis.totalsale.tooltip.title': '指标说明',
+  'dashboard.analysis.totalsale.yoy.first': '周同比',
+  'dashboard.analysis.totalsale.yoy.second': '日同比',
+  'dashboard.analysis.totalsale.avragedaily': '日均销售额',
+  'dashboard.analysis.views.title': '访问量',
+  'dashboard.analysis.views.tooltip.title': '指标说明',
+  'dashboard.analysis.views.footer': '日访问量',
+  'dashboard.analysis.payments.title': '支付笔数',
+  'dashboard.analysis.payments.tooltip.title': '指标说明',
+  'dashboard.analysis.payments.footer': '转化率',
+  'dashboard.analysis.effectiveness.title': '运营活动效果',
+  'dashboard.analysis.effectiveness.tooltip.title': '指标说明',
+  'dashboard.analysis.effectiveness.sameweek': '同周比',
+  'dashboard.analysis.effectiveness.mom': '日环比',
+  'dashboard.analysis.sales.title': '销售额',
+  'dashboard.analysis.sales.bar.title': '销售额排行',
+  'dashboard.analysis.sales.rank.title': '门店销售排行榜',
+  'dashboard.analysis.date.today': '今日',
+  'dashboard.analysis.date.thisweek': '本周',
+  'dashboard.analysis.date.thismonth': '本月',
+  'dashboard.analysis.date.thisyear': '本年',
+  'dashboard.analysis.sales.ternd': '销售额趋势',
+  'dashboard.analysis.sales.ranking': '门店销售排行榜',
+  'dashboard.analysis.search.title': '线上热门搜索',
+  'dashboard.analysis.contextmenu.menu1': '操作二',
+  'dashboard.analysis.contextmenu.menu2': '操作二',
+  'dashboard.analysis.search.users.title': '搜索用户数',
+  'dashboard.analysis.search.users.tooltip.title': '指标说明'
 }
 
 export default {

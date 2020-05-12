@@ -6,7 +6,10 @@ const components = {
   momentName: 'eu',
   momentLocale: momentEU,
   isRtl: false,
-  name: 'en-US'
+  name: 'en-US',
+  currency: 'USD',
+  currencyFomatter: null,
+  dateFormatter: null
 }
 
 const locale = {
@@ -151,7 +154,36 @@ const locale = {
   'repositoryform.type2.placeholder': 'Please select a task type',
   'repositoryform.type2.error': 'Please select a task type',
   'repositoryform.type2.opt1': 'Timed execution',
-  'repositoryform.type2.opt2': 'Periodic execution'
+  'repositoryform.type2.opt2': 'Periodic execution',
+  'dashboard.analysis.totalsale.title': 'Total sales',
+  'dashboard.analysis.totalsale.tooltip.title': 'Indicator description',
+  'dashboard.analysis.totalsale.yoy.first': 'YOY',
+  'dashboard.analysis.totalsale.yoy.second': 'YOY',
+  'dashboard.analysis.totalsale.avragedaily': 'Average daily sales',
+  'dashboard.analysis.views.title': 'Views',
+  'dashboard.analysis.views.tooltip.title': 'Indicator description',
+  'dashboard.analysis.views.footer': 'Daily visits',
+  'dashboard.analysis.payments.title': 'Number of payments',
+  'dashboard.analysis.payments.tooltip.title': 'Indicator description',
+  'dashboard.analysis.payments.footer': 'Conversion rates',
+  'dashboard.analysis.effectiveness.title': 'Operational effectiveness',
+  'dashboard.analysis.effectiveness.tooltip.title': 'Indicator description',
+  'dashboard.analysis.effectiveness.sameweek': 'Same week',
+  'dashboard.analysis.effectiveness.mom': 'MOM',
+  'dashboard.analysis.sales.title': 'Sales',
+  'dashboard.analysis.sales.bar.title': 'Sales ranking',
+  'dashboard.analysis.sales.rank.title': 'Store sales ranking',
+  'dashboard.analysis.date.today': 'today',
+  'dashboard.analysis.date.thisweek': 'This week',
+  'dashboard.analysis.date.thismonth': 'This month',
+  'dashboard.analysis.date.thisyear': 'This year',
+  'dashboard.analysis.sales.ternd': 'Sales trend',
+  'dashboard.analysis.sales.ranking': 'Store sales ranking',
+  'dashboard.analysis.search.title': 'Online Popular Search',
+  'dashboard.analysis.contextmenu.menu1': 'Operation one',
+  'dashboard.analysis.contextmenu.menu2': 'Operation two',
+  'dashboard.analysis.search.users.title': 'Search users',
+  'dashboard.analysis.search.users.tooltip.title': 'Indicator description'
 }
 
 export default {

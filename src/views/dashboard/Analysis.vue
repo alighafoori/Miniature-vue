@@ -2,48 +2,48 @@
   <div>
     <a-row :gutter="24">
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="总销售额" total="￥126,560">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" :title="$t('dashboard.analysis.totalsale.title')" :total="126560 | formatCurrency">
+          <a-tooltip :title="$t('dashboard.analysis.totalsale.tooltip.title')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <trend flag="up" style="margin-right: 16px;">
-              <span slot="term">周同比</span>
+            <trend flag="up">
+              <span slot="term">{{ $t('dashboard.analysis.totalsale.yoy.first') }}</span>
               12%
             </trend>
             <trend flag="down">
-              <span slot="term">日同比</span>
+              <span slot="term">{{ $t('dashboard.analysis.totalsale.yoy.second') }}</span>
               11%
             </trend>
           </div>
-          <template slot="footer">日均销售额<span>￥ 234.56</span></template>
+          <template slot="footer">{{ $t('dashboard.analysis.totalsale.avragedaily') }} <span>{{ 234.56 | formatCurrency }} </span></template>
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="访问量" :total="8846 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" :title="$t('dashboard.analysis.views.title')" :total="8846 | NumberFormat">
+          <a-tooltip :title="$t('dashboard.analysis.views.tooltip.title')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
             <mini-area />
           </div>
-          <template slot="footer">日访问量<span> {{ '1234' | NumberFormat }}</span></template>
+          <template slot="footer">{{ $t('dashboard.analysis.views.footer') }}<span> {{ '1234' | NumberFormat }}</span></template>
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="支付笔数" :total="6560 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" :title="$t('dashboard.analysis.payments.title')" :total="6560 | NumberFormat">
+          <a-tooltip :title="$t('dashboard.analysis.payments.tooltip.title')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
             <mini-bar />
           </div>
-          <template slot="footer">转化率 <span>60%</span></template>
+          <template slot="footer">{{ $t('dashboard.analysis.payments.footer') }} <span>60%</span></template>
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="运营活动效果" total="78%">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" :title="$t('dashboard.analysis.effectiveness.title')" total="78%">
+          <a-tooltip :title="$t('dashboard.analysis.effectiveness.tooltip.title')" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
@@ -51,11 +51,11 @@
           </div>
           <template slot="footer">
             <trend flag="down" style="margin-right: 16px;">
-              <span slot="term">同周比</span>
+              <span slot="term">{{ $t('dashboard.analysis.effectiveness.sameweek') }}</span>
               12%
             </trend>
             <trend flag="up">
-              <span slot="term">日环比</span>
+              <span slot="term">{{ $t('dashboard.analysis.effectiveness.mom') }}</span>
               80%
             </trend>
           </template>
@@ -68,30 +68,30 @@
         <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}">
           <div class="extra-wrapper" slot="tabBarExtraContent">
             <div class="extra-item">
-              <a>今日</a>
-              <a>本周</a>
-              <a>本月</a>
-              <a>本年</a>
+              <a>{{ $t('dashboard.analysis.date.today') }}</a>
+              <a>{{ $t('dashboard.analysis.date.thisweek') }}</a>
+              <a>{{ $t('dashboard.analysis.date.thismonth') }}</a>
+              <a>{{ $t('dashboard.analysis.date.thisyear') }}</a>
             </div>
             <a-range-picker :style="{width: '256px'}" />
           </div>
-          <a-tab-pane loading="true" tab="销售额" key="1">
+          <a-tab-pane loading="true" :tab="$t('dashboard.analysis.sales.title')" key="1">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :data="barData" title="销售额排行" />
+                <bar :data="barData" :title="$t('dashboard.analysis.sales.bar.title')" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
+                <rank-list :title="$t('dashboard.analysis.sales.rank.title')" :list="rankList"/>
               </a-col>
             </a-row>
           </a-tab-pane>
-          <a-tab-pane tab="访问量" key="2">
+          <a-tab-pane :tab="$t('dashboard.analysis.views.title')" key="2">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :data="barData2" title="销售额趋势" />
+                <bar :data="barData2" :title="$t('dashboard.analysis.sales.ternd')" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
+                <rank-list :title="$t('dashboard.analysis.sales.ranking')" :list="rankList"/>
               </a-col>
             </a-row>
           </a-tab-pane>
@@ -102,17 +102,17 @@
     <div class="antd-pro-pages-dashboard-analysis-twoColLayout" :class="!isMobile && 'desktop'">
       <a-row :gutter="24" type="flex" :style="{ marginTop: '24px' }">
         <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-          <a-card :loading="loading" :bordered="false" title="线上热门搜索" :style="{ height: '100%' }">
+          <a-card :loading="loading" :bordered="false" :title="$t('dashboard.analysis.search.title')" :style="{ height: '100%' }">
             <a-dropdown :trigger="['click']" placement="bottomLeft" slot="extra">
               <a class="ant-dropdown-link" href="#">
                 <a-icon type="ellipsis" />
               </a>
               <a-menu slot="overlay">
                 <a-menu-item>
-                  <a href="javascript:;">操作一</a>
+                  <a href="javascript:;">{{ $t('dashboard.analysis.contextmenu.menu1') }}</a>
                 </a-menu-item>
                 <a-menu-item>
-                  <a href="javascript:;">操作二</a>
+                  <a href="javascript:;">{{ $t('dashboard.analysis.contextmenu.menu2') }}</a>
                 </a-menu-item>
               </a-menu>
             </a-dropdown>
@@ -120,8 +120,8 @@
               <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
                 <number-info :total="12321" :sub-total="17.1">
                   <span slot="subtitle">
-                    <span>搜索用户数</span>
-                    <a-tooltip title="指标说明" slot="action">
+                    <span>{{ $t('dashboard.analysis.search.users.title') }}</span>
+                    <a-tooltip :title="$t('dashboard.analysis.search.users.tooltip.title')" slot="action">
                       <a-icon type="info-circle-o" :style="{ marginLeft: '8px' }" />
                     </a-tooltip>
                   </span>

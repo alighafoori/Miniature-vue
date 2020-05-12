@@ -9,7 +9,7 @@ import enUS from './lang/en-US'
 Vue.use(VueI18n)
 
 export const defaultLang = 'en-US'
-
+export let currentLang = enUS
 const messages = {
   'en-US': {
     ...enUS
@@ -25,6 +25,7 @@ const i18n = new VueI18n({
 const loadedLanguages = [enUS]
 
 function setI18nLanguage (lang) {
+  currentLang = lang
   i18n.locale = lang.name
   storage.set('isRtl', lang.isRtl)
   // request.headers['Accept-Language'] = lang
