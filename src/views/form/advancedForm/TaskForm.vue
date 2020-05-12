@@ -4,26 +4,26 @@
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
           :label="$t('advancedform.fieldLabels.name2')">
-          <a-input placeholder="请输入任务名称" v-decorator="[ 'name2', {rules: [{ required: true, message: '请输入任务名称', whitespace: true}]} ]" />
+          <a-input :placeholder="$t('taskform.name2.placeholder')" v-decorator="[ 'name2', {rules: [{ required: true, message: $t('taskform.name2.error'), whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
           :label="$t('advancedform.fieldLabels.url2')">
-          <a-input placeholder="请输入任务描述" v-decorator="[ 'url2', {rules: [{ required: true, message: '请输入任务描述', whitespace: true}]} ]" />
+          <a-input :placeholder="$t('taskform.url2.placeholder')" v-decorator="[ 'url2', {rules: [{ required: true, message: $t('taskform.url2.error'), whitespace: true}]} ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
           :label="$t('advancedform.fieldLabels.owner2')">
           <a-select
-            placeholder="请选择执行人"
+            :placeholder="$t('taskform.owner2.placeholder')"
             v-decorator="[
               'owner2',
-              {rules: [{ required: true, message: '请选择执行人'}]}
+              {rules: [{ required: true, message: $t('taskform.owner2.placeholder')}]}
             ]" >
-            <a-select-option value="黄丽丽">黄丽丽</a-select-option>
-            <a-select-option value="李大刀">李大刀</a-select-option>
+            <a-select-option :value="$t('taskform.owner2.opt1')">{{ $t('taskform.owner2.opt1') }}</a-select-option>
+            <a-select-option :value="$t('taskform.owner2.opt2')">{{ $t('taskform.owner2.opt2') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>
@@ -33,24 +33,24 @@
         <a-form-item
           :label="$t('advancedform.fieldLabels.approver2')">
           <a-select
-            placeholder="请选择责任人"
+            :placeholder="$t('taskform.approver2.placeholder')"
             v-decorator="[
               'approver2',
-              {rules: [{ required: true, message: '请选择责任人'}]}
+              {rules: [{ required: true, message: $t('taskform.approver2.placeholder')}]}
             ]" >
-            <a-select-option value="王伟">王伟</a-select-option>
-            <a-select-option value="李红军">李红军</a-select-option>
+            <a-select-option :value="$t('taskform.approver2.opt1')">{{ $t('taskform.approver2.opt1') }}</a-select-option>
+            <a-select-option :value="$t('taskform.approver2.opt2')">{{ $t('taskform.approver2.opt2') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 7, offset: 1}" :lg="{span: 8}" :md="{span: 12}" :sm="24">
         <a-form-item
-          label="提醒时间">
+          :label="$t('taskform.dateRange2.label')">
           <a-time-picker
             style="width: 100%"
             v-decorator="[
               'dateRange2',
-              {rules: [{ required: true, message: '请选择提醒时间'}]}
+              {rules: [{ required: true, message: $t('taskform.dateRange2.error')}]}
             ]" />
         </a-form-item>
       </a-col>
@@ -58,10 +58,10 @@
         <a-form-item
           :label="$t('advancedform.fieldLabels.type2')">
           <a-select
-            placeholder="请选择任务类型"
-            v-decorator="[ 'type2', {rules: [{ required: true, message: '请选择任务类型'}]} ]" >
-            <a-select-option value="定时执行">定时执行</a-select-option>
-            <a-select-option value="周期执行">周期执行</a-select-option>
+            :placeholder="$t('repositoryform.type2.placeholder')"
+            v-decorator="[ 'type2', {rules: [{ required: true, message: $t('repositoryform.type2.error')}]} ]" >
+            <a-select-option :value="$t('repositoryform.type2.opt1')">{{ $t('repositoryform.type2.opt1') }}</a-select-option>
+            <a-select-option :value="$t('repositoryform.type2.opt2')">{{ $t('repositoryform.type2.opt2') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>

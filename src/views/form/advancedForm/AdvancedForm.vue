@@ -29,34 +29,34 @@
         <template slot="operation" slot-scope="text, record">
           <template v-if="record.editable">
             <span v-if="record.isNew">
-              <a @click="saveRow(record)">添加</a>
+              <a @click="saveRow(record)">{{ $t('advancedform.table.addto') }}</a>
               <a-divider type="vertical" />
-              <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-                <a>删除</a>
+              <a-popconfirm :title="$t('advancedform.table.popconfirm.title')" @confirm="remove(record.key)">
+                <a>{{ $t('advancedform.table.popconfirm.content') }}</a>
               </a-popconfirm>
             </span>
             <span v-else>
-              <a @click="saveRow(record)">保存</a>
+              <a @click="saveRow(record)">{{ $t('advancedform.table.save') }}</a>
               <a-divider type="vertical" />
-              <a @click="cancel(record.key)">取消</a>
+              <a @click="cancel(record.key)">{{ $t('advancedform.table.cancel') }}</a>
             </span>
           </template>
           <span v-else>
-            <a @click="toggle(record.key)">编辑</a>
+            <a @click="toggle(record.key)">{{ $t('advancedform.table.edit') }}</a>
             <a-divider type="vertical" />
-            <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-              <a>删除</a>
+            <a-popconfirm :title="$t('advancedform.table.popconfirm.title')" @confirm="remove(record.key)">
+              <a>{{ $t('advancedform.table.popconfirm.content') }}</a>
             </a-popconfirm>
           </span>
         </template>
       </a-table>
-      <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newMember">新增成员</a-button>
+      <a-button style="width: 100%; margin-top: 16px; margin-bottom: 8px" type="dashed" icon="plus" @click="newMember">{{ $t('advancedform.table.newrow') }}</a-button>
     </a-card>
 
     <!-- fixed footer toolbar -->
     <footer-tool-bar :is-mobile="isMobile" :collapsed="sideCollapsed">
       <span class="popover-wrapper">
-        <a-popover title="表单校验信息" overlayClassName="antd-pro-pages-forms-style-errorPopover" trigger="click" :getPopupContainer="trigger => trigger.parentNode">
+        <a-popover :title="$t('advancedform.footer.popover.title')" overlayClassName="antd-pro-pages-forms-style-errorPopover" trigger="click" :getPopupContainer="trigger => trigger.parentNode">
           <template slot="content">
             <li v-for="item in errors" :key="item.key" @click="scrollToField(item.key)" class="antd-pro-pages-forms-style-errorListItem">
               <a-icon type="cross-circle-o" class="antd-pro-pages-forms-style-errorIcon" />
@@ -69,7 +69,7 @@
           </span>
         </a-popover>
       </span>
-      <a-button type="primary" @click="validate" :loading="loading">提交</a-button>
+      <a-button type="primary" @click="validate" :loading="loading">{{ $t('advancedform.footer.send') }}</a-button>
     </footer-tool-bar>
   </page-header-wrapper>
 </template>
@@ -111,28 +111,28 @@ export default {
       // table
       columns: [
         {
-          title: '成员姓名',
+          title: `${i18nRender('advancedform.table.columns.name')}`,
           dataIndex: 'name',
           key: 'name',
           width: '20%',
           scopedSlots: { customRender: 'name' }
         },
         {
-          title: '工号',
+          title: `${i18nRender('advancedform.table.columns.workId')}`,
           dataIndex: 'workId',
           key: 'workId',
           width: '20%',
           scopedSlots: { customRender: 'workId' }
         },
         {
-          title: '所属部门',
+          title: `${i18nRender('advancedform.table.columns.department')}`,
           dataIndex: 'department',
           key: 'department',
           width: '40%',
           scopedSlots: { customRender: 'department' }
         },
         {
-          title: '操作',
+          title: `${i18nRender('advancedform.table.columns.action')}`,
           key: 'action',
           scopedSlots: { customRender: 'operation' }
         }
@@ -140,24 +140,24 @@ export default {
       data: [
         {
           key: '1',
-          name: '小明',
+          name: `${i18nRender('advancedform.table.data1.name')}`,
           workId: '001',
           editable: false,
-          department: '行政部'
+          department: `${i18nRender('advancedform.table.data1.department')}`
         },
         {
           key: '2',
-          name: '李莉',
+          name: `${i18nRender('advancedform.table.data2.name')}`,
           workId: '002',
           editable: false,
-          department: 'IT部'
+          department: `${i18nRender('advancedform.table.data2.department')}`
         },
         {
           key: '3',
-          name: '王小帅',
+          name: `${i18nRender('advancedform.table.data3.name')}`,
           workId: '003',
           editable: false,
-          department: '财务部'
+          department: `${i18nRender('advancedform.table.data3.department')}`
         }
       ],
 
@@ -188,7 +188,7 @@ export default {
       const { key, name, workId, department } = record
       if (!name || !workId || !department) {
         this.memberLoading = false
-        this.$message.error('请填写完整成员信息。')
+        this.$message.error(`${i18nRender('advancedform.saverow.error')}`)
         return
       }
       // 模拟网络请求、卡顿 800ms
@@ -297,13 +297,21 @@ export default {
   }
   .antd-pro-pages-forms-style-errorIcon {
     user-select: none;
-    margin-right: 24px;
     color: #f5222d;
     cursor: pointer;
-    i {
+  }
+  [dir=rtl] .antd-pro-pages-forms-style-errorIcon{
+      margin-left: 24px;
+      i {
+          margin-left: 4px;
+    }
+    }
+    [dir=ltr] .antd-pro-pages-forms-style-errorIcon{
+      margin-right: 24px;
+      i {
           margin-right: 4px;
     }
-  }
+    }
   .antd-pro-pages-forms-style-errorListItem {
     padding: 8px 16px;
     list-style: none;

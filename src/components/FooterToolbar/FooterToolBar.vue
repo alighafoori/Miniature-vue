@@ -1,9 +1,9 @@
 <template>
   <div :class="prefixCls" :style="{ width: barWidth, transition: '0.3s all' }">
-    <div style="float: left">
+    <div class="first-col">
       <slot name="extra">{{ extra }}</slot>
     </div>
-    <div style="float: right">
+    <div class="second-col">
       <slot></slot>
     </div>
   </div>
@@ -43,5 +43,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.first-col{
+float: left
+}
+[dir='rtl'] .first-col{
+  float: right
+}
+.second-col{
+float: right
+}
+[dir='rtl'] .second-col{
+  float: left
+}
 </style>

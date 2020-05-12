@@ -4,10 +4,10 @@
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item :label="$t('advancedform.fieldLabels.name')">
           <a-input
-            placeholder="请输入仓库名称"
+            :placeholder="$t('repositoryform.name.placeholder')"
             v-decorator="[
               'name',
-              {rules: [{ required: true, message: '请输入仓库名称', whitespace: true}]}
+              {rules: [{ required: true, message: $t('repositoryform.name.error'), whitespace: true}]}
             ]" />
         </a-form-item>
       </a-col>
@@ -17,21 +17,21 @@
           <a-input
             addonBefore="http://"
             addonAfter=".com"
-            placeholder="请输入"
+            :placeholder="$t('repositoryform.url.placeholder')"
             style="direction:ltr"
             v-decorator="[
               'url',
-              {rules: [{ required: true, message: '请输入仓库域名', whitespace: true}, {validator: validate}]}
+              {rules: [{ required: true, message: $t('repositoryform.url.error'), whitespace: true}, {validator: validate}]}
             ]" />
         </a-form-item>
       </a-col>
       <a-col :xl="{span: 9, offset: 1}" :lg="{span: 10}" :md="{span: 24}" :sm="24">
         <a-form-item
           :label="$t('advancedform.fieldLabels.owner')">
-          <a-select placeholder="请选择管理员" v-decorator="[ 'owner', {rules: [{ required: true, message: '请选择管理员'}]} ]">
-            <a-select-option value="王同学">王同学</a-select-option>
-            <a-select-option value="李同学">李同学</a-select-option>
-            <a-select-option value="黄同学">黄同学</a-select-option>
+          <a-select :placeholder="$t('repositoryform.owner.placeholder')" v-decorator="[ 'owner', {rules: [{ required: true, message: $t('repositoryform.owner.error')}]} ]">
+            <a-select-option :value="$t('repositoryform.owner.opt1')">{{ $t('repositoryform.owner.opt1') }}</a-select-option>
+            <a-select-option :value="$t('repositoryform.owner.opt2')">{{ $t('repositoryform.owner.opt2') }}</a-select-option>
+            <a-select-option :value="$t('repositoryform.owner.opt3')">{{ $t('repositoryform.owner.opt3') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>
@@ -40,9 +40,9 @@
       <a-col :lg="6" :md="12" :sm="24">
         <a-form-item
           :label="$t('advancedform.fieldLabels.approver')">
-          <a-select placeholder="请选择审批员" v-decorator="[ 'approver', {rules: [{ required: true, message: '请选择审批员'}]} ]">
-            <a-select-option value="王晓丽">王晓丽</a-select-option>
-            <a-select-option value="李军">李军</a-select-option>
+          <a-select :placeholder="$t('repositoryform.approver.placeholder')" v-decorator="[ 'approver', {rules: [{ required: true, message: $t('repositoryform.approver.error')}]} ]">
+            <a-select-option :value="$t('repositoryform.approver.opt1')">{{ $t('repositoryform.approver.opt1') }}</a-select-option>
+            <a-select-option :value="$t('repositoryform.approver.opt2')">{{ $t('repositoryform.approver.opt2') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>
@@ -53,7 +53,7 @@
             style="width: 100%"
             v-decorator="[
               'dateRange',
-              {rules: [{ required: true, message: '请选择生效日期'}]}
+              {rules: [{ required: true, message: $t('repositoryform.dateRange.error')}]}
             ]" />
         </a-form-item>
       </a-col>
@@ -61,13 +61,13 @@
         <a-form-item
           :label="$t('advancedform.fieldLabels.type')">
           <a-select
-            placeholder="请选择仓库类型"
+            :placeholder="$t('repositoryform.type.placeholder')"
             v-decorator="[
               'type',
-              {rules: [{ required: true, message: '请选择仓库类型'}]}
+              {rules: [{ required: true, message: $t('repositoryform.type.error')}]}
             ]" >
-            <a-select-option value="公开">公开</a-select-option>
-            <a-select-option value="私密">私密</a-select-option>
+            <a-select-option :value="$t('repositoryform.type.opt1')">{{ $t('repositoryform.type.opt1') }}</a-select-option>
+            <a-select-option :value="$t('repositoryform.type.opt2')">{{ $t('repositoryform.type.opt2') }}</a-select-option>
           </a-select>
         </a-form-item>
       </a-col>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { i18nRender } from '@/locales'
 export default {
   name: 'RepositoryForm',
   props: {
@@ -107,7 +108,7 @@ export default {
     validate (rule, value, callback) {
       const regex = /^user-(.*)$/
       if (!regex.test(value)) {
-        callback(new Error('需要以 user- 开头'))
+        callback(new Error(`${i18nRender('repositoryform.url.validatemsg')}`))
       }
       callback()
     }
