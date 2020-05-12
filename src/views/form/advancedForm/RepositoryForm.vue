@@ -97,6 +97,7 @@ export default {
     handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
+        console.log('err=' + JSON.stringify(err))
         if (!err) {
           this.$notification['error']({
             message: 'Received values of form:',

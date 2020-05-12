@@ -10,8 +10,8 @@
     <!-- table -->
     <a-card>
       <a-table
-        :columns="columns"
-        :dataSource="data"
+        :columns="columnsi18n"
+        :dataSource="datai18n"
         :pagination="false"
         :loading="memberLoading"
       >
@@ -21,7 +21,7 @@
             v-if="record.editable"
             style="margin: -5px 0"
             :value="text"
-            :placeholder="columns[i].title"
+            :placeholder="columnsi18n[i].title"
             @change="e => handleChange(e.target.value, record.key, col)"
           />
           <template v-else>{{ text }}</template>
@@ -111,28 +111,28 @@ export default {
       // table
       columns: [
         {
-          title: `${i18nRender('advancedform.table.columns.name')}`,
+          title: 'advancedform.table.columns.name',
           dataIndex: 'name',
           key: 'name',
           width: '20%',
           scopedSlots: { customRender: 'name' }
         },
         {
-          title: `${i18nRender('advancedform.table.columns.workId')}`,
+          title: 'advancedform.table.columns.workId',
           dataIndex: 'workId',
           key: 'workId',
           width: '20%',
           scopedSlots: { customRender: 'workId' }
         },
         {
-          title: `${i18nRender('advancedform.table.columns.department')}`,
+          title: 'advancedform.table.columns.department',
           dataIndex: 'department',
           key: 'department',
           width: '40%',
           scopedSlots: { customRender: 'department' }
         },
         {
-          title: `${i18nRender('advancedform.table.columns.action')}`,
+          title: 'advancedform.table.columns.action',
           key: 'action',
           scopedSlots: { customRender: 'operation' }
         }
@@ -140,28 +140,36 @@ export default {
       data: [
         {
           key: '1',
-          name: `${i18nRender('advancedform.table.data1.name')}`,
+          name: 'advancedform.table.data1.name',
           workId: '001',
           editable: false,
-          department: `${i18nRender('advancedform.table.data1.department')}`
+          department: 'advancedform.table.data1.department'
         },
         {
           key: '2',
-          name: `${i18nRender('advancedform.table.data2.name')}`,
+          name: 'advancedform.table.data2.name',
           workId: '002',
           editable: false,
-          department: `${i18nRender('advancedform.table.data2.department')}`
+          department: 'advancedform.table.data2.department'
         },
         {
           key: '3',
-          name: `${i18nRender('advancedform.table.data3.name')}`,
+          name: 'advancedform.table.data3.name',
           workId: '003',
           editable: false,
-          department: `${i18nRender('advancedform.table.data3.department')}`
+          department: 'advancedform.table.data3.department'
         }
       ],
 
       errors: []
+    }
+  },
+  computed: {
+    datai18n () {
+     return this.data.map(x => Object.assign({}, x, { name: i18nRender(x.name), department: i18nRender(x.department) }))
+    },
+    columnsi18n () {
+      return this.columns.map(x => Object.assign({}, x, { title: i18nRender(x.title) }))
     }
   },
   methods: {
