@@ -134,8 +134,8 @@
               <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
                 <number-info :total="2.7" :sub-total="26.2" status="down">
                   <span slot="subtitle">
-                    <span>人均搜索次数</span>
-                    <a-tooltip title="指标说明" slot="action">
+                    <span>{{ $t('dashboard.analysis.search.capita.title') }}</span>
+                    <a-tooltip :title="$t('dashboard.analysis.search.capita.tooltip.title')" slot="action">
                       <a-icon type="info-circle-o" :style="{ marginLeft: '8px' }" />
                     </a-tooltip>
                   </span>
@@ -164,7 +164,7 @@
           </a-card>
         </a-col>
         <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-          <a-card class="antd-pro-pages-dashboard-analysis-salesCard" :loading="loading" :bordered="false" title="销售额类别占比" :style="{ height: '100%' }">
+          <a-card class="antd-pro-pages-dashboard-analysis-salesCard" :loading="loading" :bordered="false" :title="$t('dashboard.analysis.salescat.title')" :style="{ height: '100%' }">
             <div slot="extra" style="height: inherit;">
               <!-- style="bottom: 12px;display: inline-block;" -->
               <span class="dashboard-analysis-iconGroup">
@@ -172,24 +172,24 @@
                   <a-icon type="ellipsis" class="ant-dropdown-link" />
                   <a-menu slot="overlay">
                     <a-menu-item>
-                      <a href="javascript:;">操作一</a>
+                      <a href="javascript:;">{{ $t('dashboard.analysis.contextmenu.menu1') }}</a>
                     </a-menu-item>
                     <a-menu-item>
-                      <a href="javascript:;">操作二</a>
+                      <a href="javascript:;">{{ $t('dashboard.analysis.contextmenu.menu2') }}</a>
                     </a-menu-item>
                   </a-menu>
                 </a-dropdown>
               </span>
               <div class="analysis-salesTypeRadio">
                 <a-radio-group defaultValue="a">
-                  <a-radio-button value="a">全部渠道</a-radio-button>
-                  <a-radio-button value="b">线上</a-radio-button>
-                  <a-radio-button value="c">门店</a-radio-button>
+                  <a-radio-button value="a">{{ $t('dashboard.analysis.salescat.allchannel') }}</a-radio-button>
+                  <a-radio-button value="b">{{ $t('dashboard.analysis.salescat.online') }}</a-radio-button>
+                  <a-radio-button value="c">{{ $t('dashboard.analysis.salescat.store') }}</a-radio-button>
                 </a-radio-group>
               </div>
 
             </div>
-            <h4>销售额</h4>
+            <h4>{{ $t('dashboard.analysis.salescat.h4') }}</h4>
             <div>
               <!-- style="width: calc(100% - 240px);" -->
               <div>
@@ -213,6 +213,7 @@
 
 <script>
 import moment from 'moment'
+import { i18nRender } from '../../locales'
 import {
   ChartCard,
   MiniArea,
@@ -228,21 +229,22 @@ import { baseMixin } from '@/store/app-mixin'
 
 const barData = []
 const barData2 = []
+
 for (let i = 0; i < 12; i += 1) {
   barData.push({
-    x: `${i + 1}月`,
+    x: `${i + 1} `,
     y: Math.floor(Math.random() * 1000) + 200
   })
   barData2.push({
-    x: `${i + 1}月`,
+    x: `${i + 1} `,
     y: Math.floor(Math.random() * 1000) + 200
   })
 }
-
+// '白鹭岛 ' + (i + 1) + ' 号店',
 const rankList = []
 for (let i = 0; i < 7; i++) {
   rankList.push({
-    name: '白鹭岛 ' + (i + 1) + ' 号店',
+    name: (i + 1).toString(),
     total: 1234.56 - i * 100
   })
 }
@@ -257,11 +259,11 @@ for (let i = 0; i < 7; i++) {
 const searchUserScale = [
   {
     dataKey: 'x',
-    alias: '时间'
+    alias: 'dashboard.searchUserScale.alias1'
   },
   {
     dataKey: 'y',
-    alias: '用户数',
+    alias: 'dashboard.searchUserScale.alias2',
     min: 0,
     max: 10
   }]
@@ -269,20 +271,20 @@ const searchUserScale = [
 const searchTableColumns = [
   {
     dataIndex: 'index',
-    title: '排名',
+    title: 'dashboard.searchTableColumns.index',
     width: 90
   },
   {
     dataIndex: 'keyword',
-    title: '搜索关键词'
+    title: 'dashboard.searchTableColumns.keyword'
   },
   {
     dataIndex: 'count',
-    title: '用户数'
+    title: 'dashboard.searchTableColumns.count'
   },
   {
     dataIndex: 'range',
-    title: '周涨幅',
+    title: 'dashboard.searchTableColumns.range',
     align: 'right',
     sorter: (a, b) => a.range - b.range,
     scopedSlots: { customRender: 'range' }
@@ -292,7 +294,7 @@ const searchData = []
 for (let i = 0; i < 50; i += 1) {
   searchData.push({
     index: i + 1,
-    keyword: `搜索关键词-${i}`,
+    keyword: '',
     count: Math.floor(Math.random() * 1000),
     range: Math.floor(Math.random() * 100),
     status: Math.floor((Math.random() * 10) % 2)
@@ -302,12 +304,12 @@ for (let i = 0; i < 50; i += 1) {
 const DataSet = require('@antv/data-set')
 
 const sourceData = [
-  { item: '家用电器', count: 32.2 },
-  { item: '食用酒水', count: 21 },
-  { item: '个护健康', count: 17 },
-  { item: '服饰箱包', count: 13 },
-  { item: '母婴产品', count: 9 },
-  { item: '其他', count: 7.8 }
+  { item: 'dashboard.sourceData.item1', count: 32.2 },
+  { item: 'dashboard.sourceData.item2', count: 21 },
+  { item: 'dashboard.sourceData.item3', count: 17 },
+  { item: 'dashboard.sourceData.item4', count: 13 },
+  { item: 'dashboard.sourceData.item5', count: 9 },
+  { item: 'dashboard.sourceData.item6', count: 7.8 }
 ]
 
 const pieScale = [{
@@ -315,15 +317,6 @@ const pieScale = [{
   min: 0,
   formatter: '.0%'
 }]
-
-const dv = new DataSet.View().source(sourceData)
-dv.transform({
-  type: 'percent',
-  field: 'count',
-  dimension: 'item',
-  as: 'percent'
-})
-const pieData = dv.rows
 
 export default {
   name: 'Analysis',
@@ -342,21 +335,11 @@ export default {
   data () {
     return {
       loading: true,
-      rankList,
 
       // 搜索用户数
       searchUserData,
-      searchUserScale,
-      searchTableColumns,
-      searchData,
-
-      barData,
-      barData2,
-
       //
       pieScale,
-      pieData,
-      sourceData,
       pieStyle: {
         stroke: '#fff',
         lineWidth: 1
@@ -367,6 +350,39 @@ export default {
     setTimeout(() => {
       this.loading = !this.loading
     }, 1000)
+  },
+  computed: {
+    searchData () {
+      return searchData.map(x => Object.assign({}, x, { keyword: `${i18nRender('dashboard.searchData')}-${x.index}` }))
+    },
+    searchTableColumns () {
+      return searchTableColumns.map(x => Object.assign({}, x, { title: `${i18nRender(x.title)}` }))
+    },
+    barData () {
+      return barData.map(obj => Object.assign({}, obj, { x: obj.x + i18nRender('dashboard.data.month') }))
+    },
+    barData2 () {
+      return barData2.map(obj => Object.assign({}, obj, { x: obj.x + i18nRender('dashboard.data.month') }))
+    },
+    rankList () {
+      return rankList.map(x => Object.assign({}, x, { name: `${i18nRender('dashboard.rankList.part1')} ${x.name} ${i18nRender('dashboard.rankList.part2')}` }))
+    },
+    searchUserScale () {
+      return searchUserScale.map(x => Object.assign({}, x, { alias: i18nRender(x.alias) }))
+    },
+    sourceData () {
+      return sourceData.map(x => Object.assign({}, x, { item: `${i18nRender(x.item)}` }))
+    },
+    pieData () {
+      const dv = new DataSet.View().source(this.sourceData)
+      dv.transform({
+        type: 'percent',
+        field: 'count',
+        dimension: 'item',
+        as: 'percent'
+      })
+      return dv.rows
+    }
   }
 }
 </script>

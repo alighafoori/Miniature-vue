@@ -187,7 +187,30 @@ const locale = {
   'dashboard.analysis.contextmenu.menu1': 'عملیات یک',
   'dashboard.analysis.contextmenu.menu2': 'عملیات دو',
   'dashboard.analysis.search.users.title': 'کاربران را جستجو کنید',
-  'dashboard.analysis.search.users.tooltip.title': 'توضیحات شاخص'
+  'dashboard.analysis.search.users.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.search.capita.title': 'جستجو برای سرانه',
+  'dashboard.analysis.search.capita.tooltip.title': 'توضیحات شاخص',
+  'dashboard.analysis.salescat.title': 'درصد دسته فروش',
+  'dashboard.analysis.salescat.allchannel': 'همه کانالها',
+  'dashboard.analysis.salescat.online': 'آنلاین',
+  'dashboard.analysis.salescat.store': 'فروشگاه',
+  'dashboard.analysis.salescat.h4': 'حراجی',
+  'dashboard.searchData': 'واژه',
+  'dashboard.searchTableColumns.index': 'شماره',
+  'dashboard.searchTableColumns.keyword': 'واژه',
+  'dashboard.searchTableColumns.count': 'تعداد',
+  'dashboard.searchTableColumns.range': 'بازه',
+  'dashboard.data.month': 'ماه',
+  'dashboard.rankList.part1': 'اگرت',
+  'dashboard.rankList.part2': 'رتبه',
+  'dashboard.searchUserScale.alias1': 'زمان',
+  'dashboard.searchUserScale.alias2': 'شماره کاربر',
+  'dashboard.sourceData.item1': 'لوازم خانگی',
+  'dashboard.sourceData.item2': 'الکل',
+  'dashboard.sourceData.item3': 'مراقبت های بهداشتی',
+  'dashboard.sourceData.item4': 'کیف های لباس',
+  'dashboard.sourceData.item5': 'محصولات مادر و کودک',
+  'dashboard.sourceData.item6': 'دیگر'
 }
 
 export default {

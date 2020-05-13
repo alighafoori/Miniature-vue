@@ -183,7 +183,30 @@ const locale = {
   'dashboard.analysis.contextmenu.menu1': 'Operation one',
   'dashboard.analysis.contextmenu.menu2': 'Operation two',
   'dashboard.analysis.search.users.title': 'Search users',
-  'dashboard.analysis.search.users.tooltip.title': 'Indicator description'
+  'dashboard.analysis.search.users.tooltip.title': 'Indicator description',
+  'dashboard.analysis.search.capita.title': 'Searches per capita',
+  'dashboard.analysis.search.capita.tooltip.title': 'Indicator description',
+  'dashboard.analysis.salescat.title': 'Percentage of sales category',
+  'dashboard.analysis.salescat.allchannel': 'All channels',
+  'dashboard.analysis.salescat.online': 'Online',
+  'dashboard.analysis.salescat.store': 'Store',
+  'dashboard.analysis.salescat.h4': 'Sales',
+  'dashboard.searchData': 'search keyword',
+  'dashboard.searchTableColumns.index': 'Index',
+  'dashboard.searchTableColumns.keyword': 'Keyword',
+  'dashboard.searchTableColumns.count': 'Count',
+  'dashboard.searchTableColumns.range': 'Range',
+  'dashboard.data.month': 'Month',
+  'dashboard.rankList.part1': 'Egret',
+  'dashboard.rankList.part2': 'rank',
+  'dashboard.searchUserScale.alias1': 'time',
+  'dashboard.searchUserScale.alias2': 'User number',
+  'dashboard.sourceData.item1': 'Household appliances',
+  'dashboard.sourceData.item2': 'Alcohol',
+  'dashboard.sourceData.item3': 'Health care',
+  'dashboard.sourceData.item4': 'Clothing bags',
+  'dashboard.sourceData.item5': 'Maternal and child products',
+  'dashboard.sourceData.item6': 'other'
 }
 
 export default {
