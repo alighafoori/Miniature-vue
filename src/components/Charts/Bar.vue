@@ -1,6 +1,6 @@
 <template>
   <div :style="{ padding: '0 0 32px 32px' }">
-    <h4 :style="{ marginBottom: '20px' }">{{ title }}</h4>
+    <h4 :style="{ marginBottom: '20px' }" class="header">{{ title }}</h4>
     <v-chart
       height="254"
       :data="data"
@@ -60,3 +60,11 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+[dir='rtl']{
+  .header{
+    text-align: right;
+    padding-right: 10px;
+  }
+}
+</style>

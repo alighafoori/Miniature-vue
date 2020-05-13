@@ -65,7 +65,7 @@
 
     <a-card :loading="loading" :bordered="false" :body-style="{padding: '0'}">
       <div class="salesCard">
-        <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}">
+        <a-tabs default-active-key="1" size="large" :tab-bar-style="tabStyle" tabPosition="top">
           <div class="extra-wrapper" slot="tabBarExtraContent">
             <div class="extra-item">
               <a>{{ $t('dashboard.analysis.date.today') }}</a>
@@ -73,12 +73,12 @@
               <a>{{ $t('dashboard.analysis.date.thismonth') }}</a>
               <a>{{ $t('dashboard.analysis.date.thisyear') }}</a>
             </div>
-            <a-range-picker :style="{width: '256px'}" />
+            <a-range-picker />
           </div>
           <a-tab-pane loading="true" :tab="$t('dashboard.analysis.sales.title')" key="1">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar :data="barData" :title="$t('dashboard.analysis.sales.bar.title')" />
+                <bar :data="barData" :title="$t('dashboard.analysis.sales.bar.title')" style="direction:ltr" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
                 <rank-list :title="$t('dashboard.analysis.sales.rank.title')" :list="rankList"/>
@@ -193,7 +193,7 @@
             <div>
               <!-- style="width: calc(100% - 240px);" -->
               <div>
-                <v-chart :force-fit="true" :height="405" :data="pieData" :scale="pieScale">
+                <v-chart :force-fit="true" :height="405" :data="pieData" :scale="pieScale" :style="{ direction: 'ltr' }">
                   <v-tooltip :showTitle="false" dataKey="item*percent" />
                   <v-axis />
                   <!-- position="right" :offsetX="-140" -->
@@ -213,7 +213,7 @@
 
 <script>
 import moment from 'moment'
-import { i18nRender } from '../../locales'
+import { i18nRender, currentLang } from '../../locales'
 import {
   ChartCard,
   MiniArea,
@@ -382,6 +382,13 @@ export default {
         as: 'percent'
       })
       return dv.rows
+    },
+    tabStyle () {
+      if (currentLang.isRtl) {
+        return { marginBottom: '24px', paddingRight: '16px' }
+      } else {
+        return { marginBottom: '24px', paddingLeft: '16px' }
+      }
     }
   }
 }
@@ -429,5 +436,10 @@ export default {
     position: absolute;
     right: 54px;
     bottom: 12px;
+  }
+  [dir='rtl']{
+    .analysis-salesTypeRadio {
+     left: 54px;
+    }
   }
 </style>

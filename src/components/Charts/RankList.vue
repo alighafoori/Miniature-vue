@@ -69,7 +69,23 @@ export default {
       }
     }
   }
-
+[dir='rtl']{
+  .rank {
+    .list {
+      li {
+        span {
+          &:first-child {
+            margin-right: unset;
+            margin-left: 24px;
+          }
+          &:last-child {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}
   .mobile .rank {
     padding: 0 32px 32px 32px;
   }
