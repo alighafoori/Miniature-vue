@@ -206,7 +206,8 @@ const locale = {
   'dashboard.sourceData.item3': 'Health care',
   'dashboard.sourceData.item4': 'Clothing bags',
   'dashboard.sourceData.item5': 'Maternal and child products',
-  'dashboard.sourceData.item6': 'other'
+  'dashboard.sourceData.item6': 'other',
+  'miniarea.scale.title': 'Time'
 }
 
 export default {

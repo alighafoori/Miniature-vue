@@ -128,7 +128,7 @@
                 </number-info>
                 <!-- miniChart -->
                 <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
+                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData()" :scale="searchUserScale" />
                 </div>
               </a-col>
               <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
@@ -142,7 +142,7 @@
                 </number-info>
                 <!-- miniChart -->
                 <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
+                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData()" :scale="searchUserScale" />
                 </div>
               </a-col>
             </a-row>
@@ -248,11 +248,11 @@ for (let i = 0; i < 7; i++) {
     total: 1234.56 - i * 100
   })
 }
-
+// .format('YYYY-MM-DD')
 const searchUserData = []
 for (let i = 0; i < 7; i++) {
   searchUserData.push({
-    x: moment().add(i, 'days').format('YYYY-MM-DD'),
+    x: moment().add(i, 'days').toDate(),
     y: Math.ceil(Math.random() * 10)
   })
 }
@@ -335,9 +335,6 @@ export default {
   data () {
     return {
       loading: true,
-
-      // 搜索用户数
-      searchUserData,
       //
       pieScale,
       pieStyle: {
@@ -389,6 +386,12 @@ export default {
       } else {
         return { marginBottom: '24px', paddingLeft: '16px' }
       }
+    }
+  },
+  methods: {
+    searchUserData () {
+      console.log('wtf')
+      return searchUserData.map(obj => Object.assign({}, obj, { x: currentLang.dateFormatter ? currentLang.dateFormatter(obj.x) : moment(obj.x).format('YYYY-MM-DD') }))
     }
   }
 }

@@ -210,7 +210,8 @@ const locale = {
   'dashboard.sourceData.item3': 'مراقبت های بهداشتی',
   'dashboard.sourceData.item4': 'کیف های لباس',
   'dashboard.sourceData.item5': 'محصولات مادر و کودک',
-  'dashboard.sourceData.item6': 'دیگر'
+  'dashboard.sourceData.item6': 'دیگر',
+  'miniarea.scale.title': 'زمان'
 }
 
 export default {

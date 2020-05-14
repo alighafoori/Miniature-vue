@@ -206,7 +206,8 @@ const locale = {
   'dashboard.sourceData.item3': '个护健康',
   'dashboard.sourceData.item4': '服饰箱包',
   'dashboard.sourceData.item5': '母婴产品',
-  'dashboard.sourceData.item6': '其他'
+  'dashboard.sourceData.item6': '其他',
+  'miniarea.scale.title': '时间'
 }
 
 export default {
