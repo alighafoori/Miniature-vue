@@ -9,7 +9,8 @@ const components = {
   name: 'en-US',
   currency: 'USD',
   currencyFomatter: null,
-  dateFormatter: null
+  dateFormatter: null,
+  isoCode: 'en'
 }
 
 const locale = {
@@ -207,7 +208,16 @@ const locale = {
   'dashboard.sourceData.item4': 'Clothing bags',
   'dashboard.sourceData.item5': 'Maternal and child products',
   'dashboard.sourceData.item6': 'other',
-  'miniarea.scale.title': 'Time'
+  'miniarea.scale.title': 'Time',
+  'workplace.user.description': 'Front-end engineer | Ant Financial-XYZ Business Group-VUE Platform',
+  'workplace.user.numItems': 'Items',
+  'workplace.user.ranking': 'Ranking',
+  'workplace.user.visit': 'Visits',
+  'workplace.projects.title': 'Projects',
+  'workplace.projects.allitems': 'All items',
+  'workplace.dynamic.title': 'dynamic',
+  'workplace.dynamic.in': 'in',
+  'workplace.quickstart.title': 'Quick start / easy navigation'
 }
 
 export default {

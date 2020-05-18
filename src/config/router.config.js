@@ -32,9 +32,10 @@ export const asyncRouterMap = [
           },
           // 外部链接
           {
-            path: 'https://www.baidu.com/',
+            path: '/dashboard/monitor/:pageNo([1-9]\\d*)?',
             name: 'Monitor',
-            meta: { title: 'menu.dashboard.monitor', target: '_blank' }
+            component: () => import('@/views/dashboard/Monitor'),
+            meta: { title: 'menu.dashboard.monitor', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/workplace',

@@ -13,7 +13,8 @@ const components = {
   },
   dateFormatter: function (date) {
     return date.toLocaleDateString(this.name)
-  }
+  },
+  isoCode: 'fa'
 }
 
 const locale = {
@@ -211,7 +212,16 @@ const locale = {
   'dashboard.sourceData.item4': 'کیف های لباس',
   'dashboard.sourceData.item5': 'محصولات مادر و کودک',
   'dashboard.sourceData.item6': 'دیگر',
-  'miniarea.scale.title': 'زمان'
+  'miniarea.scale.title': 'زمان',
+  'workplace.user.description': 'توسعه دهنده فرانت ',
+  'workplace.user.numItems': 'تعداد اقلام',
+  'workplace.user.ranking': 'رتبه',
+  'workplace.user.visit': 'بازدید',
+  'workplace.projects.title': 'پروژه در حال انجام',
+  'workplace.projects.allitems': 'همه موارد',
+  'workplace.dynamic.title': 'پویا',
+  'workplace.dynamic.in': 'که در',
+  'workplace.quickstart.title': 'شروع سریع / ناوبری آسان'
 }
 
 export default {

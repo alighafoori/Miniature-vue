@@ -9,7 +9,8 @@ const components = {
   name: 'zh-CN',
   currency: 'CNY',
   currencyFomatter: null,
-  dateFormatter: null
+  dateFormatter: null,
+  isoCode: 'zh'
 }
 
 const locale = {
@@ -207,7 +208,16 @@ const locale = {
   'dashboard.sourceData.item4': '服饰箱包',
   'dashboard.sourceData.item5': '母婴产品',
   'dashboard.sourceData.item6': '其他',
-  'miniarea.scale.title': '时间'
+  'miniarea.scale.title': '时间',
+  'workplace.user.description': '前端工程师 | 蚂蚁金服 - 某某某事业群 - VUE平台',
+  'workplace.user.numItems': '项目数',
+  'workplace.user.ranking': '团队内排名',
+  'workplace.user.visit': '项目访问',
+  'workplace.projects.title': '进行中的项目',
+  'workplace.projects.allitems': '全部项目',
+  'workplace.dynamic.title': '动态',
+  'workplace.dynamic.in': '在',
+  'workplace.quickstart.title': '快速开始 / 便捷导航'
 }
 
 export default {
