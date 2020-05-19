@@ -12,7 +12,8 @@ import {
   TOGGLE_WEAK,
   TOGGLE_MULTI_TAB,
   // i18n
-  APP_LANGUAGE
+  APP_LANGUAGE,
+  APP_LANGUAGE_OBJ
 } from '@/store/mutation-types'
 import { loadLanguageAsync } from '@/locales'
 
@@ -31,6 +32,7 @@ const app = {
     multiTab: true,
     lang: 'en-US',
     isRtl: false,
+    langObj: null,
     _antLocale: {}
   },
   mutations: {
@@ -81,6 +83,10 @@ const app = {
     [TOGGLE_MULTI_TAB]: (state, bool) => {
       storage.set(TOGGLE_MULTI_TAB, bool)
       state.multiTab = bool
+    },
+    [APP_LANGUAGE_OBJ]: (state, lang) => {
+      console.log('change lang in state ' + lang.name)
+      state.langObj = lang
     }
   },
   actions: {

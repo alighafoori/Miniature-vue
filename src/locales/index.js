@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import storage from 'store'
 import moment from 'moment'
-
+import store from '../store'
+import { APP_LANGUAGE_OBJ } from '../store/mutation-types'
 // default lang
 import enUS from './lang/en-US'
 
@@ -28,6 +29,7 @@ function setI18nLanguage (lang) {
   currentLang = lang
   i18n.locale = lang.name
   storage.set('isRtl', lang.isRtl)
+  store.commit(APP_LANGUAGE_OBJ, lang)
   // request.headers['Accept-Language'] = lang
   document.querySelector('html').setAttribute('lang', lang.name)
   document.querySelector('html').setAttribute('dir', lang.isRtl ? 'rtl' : 'ltr')

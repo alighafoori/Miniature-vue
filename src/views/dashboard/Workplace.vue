@@ -220,8 +220,7 @@ export default {
   },
   mounted () {
     this.getAll()
-    this.$store.watch(() => this.$store.getters.lang, () => {
-      console.log('change language=' + this.$store.getters.lang)
+    this.$store.watch(() => this.$store.getters.langObj, () => {
       this.getAll()
     })
   },
