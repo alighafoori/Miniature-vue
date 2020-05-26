@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { currentLang } from '@/locales'
 
 const api = {
   user: '/user',
@@ -13,7 +14,7 @@ export default api
 
 export function getUserList (parameter) {
   return request({
-    url: api.user,
+    url: `/${currentLang.isoCode}/${api.user}`,
     method: 'get',
     params: parameter
   })
@@ -21,7 +22,7 @@ export function getUserList (parameter) {
 
 export function getRoleList (parameter) {
   return request({
-    url: api.role,
+    url: `/${currentLang.isoCode}/${api.role}`,
     method: 'get',
     params: parameter
   })
@@ -29,7 +30,7 @@ export function getRoleList (parameter) {
 
 export function getServiceList (parameter) {
   return request({
-    url: api.service,
+    url: `/${currentLang.isoCode}/${api.service}`,
     method: 'get',
     params: parameter
   })
@@ -37,7 +38,7 @@ export function getServiceList (parameter) {
 
 export function getPermissions (parameter) {
   return request({
-    url: api.permissionNoPager,
+    url: `/${currentLang.isoCode}/${api.permissionNoPager}`,
     method: 'get',
     params: parameter
   })
@@ -45,7 +46,7 @@ export function getPermissions (parameter) {
 
 export function getOrgTree (parameter) {
   return request({
-    url: api.orgTree,
+    url: `/${currentLang.isoCode}/${api.orgTree}`,
     method: 'get',
     params: parameter
   })

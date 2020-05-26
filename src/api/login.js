@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { currentLang } from '@/locales'
 
 const userApi = {
   Login: '/auth/login',
@@ -42,7 +43,7 @@ export function getSmsCaptcha (parameter) {
 
 export function getInfo () {
   return request({
-    url: userApi.UserInfo,
+    url: `/${currentLang.isoCode}/${userApi.UserInfo}`,
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -52,7 +53,7 @@ export function getInfo () {
 
 export function getCurrentUserNav () {
   return request({
-    url: userApi.UserMenu,
+    url: `/${currentLang.isoCode}/${userApi.UserMenu}`,
     method: 'get'
   })
 }

@@ -222,6 +222,13 @@ export default {
     this.getAll()
     this.$store.watch(() => this.$store.getters.langObj, () => {
       this.getAll()
+      getRoleList().then(res => {
+      // console.log('workplace -> call getRoleList()', res)
+    })
+
+    getServiceList().then(res => {
+      // console.log('workplace -> call getServiceList()', res)
+    })
     })
   },
   methods: {
