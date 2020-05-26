@@ -85,17 +85,17 @@
           :xs="24">
           <a-card :title="$t('workplace.quickstart.title')" style="margin-bottom: 24px" :bordered="false" :body-style="{padding: 0}">
             <div class="item-group">
-              <a>操作一</a>
-              <a>操作二</a>
-              <a>操作三</a>
-              <a>操作四</a>
-              <a>操作五</a>
-              <a>操作六</a>
-              <a-button size="small" type="primary" ghost icon="plus">添加</a-button>
+              <a>{{ $t('workplace.quickstart.opt1') }}</a>
+              <a>{{ $t('workplace.quickstart.opt2') }}</a>
+              <a>{{ $t('workplace.quickstart.opt3') }}</a>
+              <a>{{ $t('workplace.quickstart.opt4') }}</a>
+              <a>{{ $t('workplace.quickstart.opt5') }}</a>
+              <a>{{ $t('workplace.quickstart.opt6') }}</a>
+              <a-button size="small" type="primary" ghost icon="plus">{{ $t('workplace.quickstart.addto') }}</a-button>
             </div>
           </a-card>
           <a-card
-            title="XX 指数"
+            :title="$t('workplace.index.title')"
             style="margin-bottom: 24px"
             :loading="radarLoading"
             :bordered="false"
@@ -105,7 +105,7 @@
               <radar :data="radarData"/>
             </div>
           </a-card>
-          <a-card :loading="loading" title="团队" :bordered="false">
+          <a-card :loading="loading" :title="$t('workplace.team.title')" :bordered="false">
             <div class="members">
               <a-row>
                 <a-col :span="12" v-for="(item, index) in teams" :key="index">
@@ -130,7 +130,7 @@ import { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
 import { Radar } from '@/components'
 
 import { getRoleList, getServiceList } from '@/api/manage'
-import { currentLang } from '../../locales'
+import { currentLang, i18nRender } from '../../locales'
 
 const DataSet = require('@antv/data-set')
 
@@ -233,7 +233,6 @@ export default {
     },
     getProjects () {
       const url = `/${currentLang.isoCode}/list/search/projects`
-      console.log('url=' + url)
       this.$http.get(url)
         .then(res => {
           this.projects = res.result && res.result.data
@@ -241,26 +240,29 @@ export default {
         })
     },
     getActivity () {
-      this.$http.get('/workplace/activity')
+      const url = `/${currentLang.isoCode}/workplace/activity`
+      this.$http.get(url)
         .then(res => {
           this.activities = res.result
         })
     },
     getTeams () {
-      this.$http.get('/workplace/teams')
+      const url = `/${currentLang.isoCode}/workplace/teams`
+      this.$http.get(url)
         .then(res => {
           this.teams = res.result
         })
     },
     initRadar () {
       this.radarLoading = true
+      const url = `/${currentLang.isoCode}/workplace/radar`
 
-      this.$http.get('/workplace/radar')
+      this.$http.get(url)
         .then(res => {
           const dv = new DataSet.View().source(res.result)
           dv.transform({
             type: 'fold',
-            fields: ['个人', '团队', '部门'],
+            fields: [i18nRender('workplace.radar.personal'), i18nRender('workplace.radar.team'), i18nRender('workplace.radar.departmant')],
             key: 'user',
             value: 'score'
           })

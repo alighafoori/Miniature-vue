@@ -221,7 +221,19 @@ const locale = {
   'workplace.projects.allitems': 'همه موارد',
   'workplace.dynamic.title': 'پویا',
   'workplace.dynamic.in': 'که در',
-  'workplace.quickstart.title': 'شروع سریع / ناوبری آسان'
+  'workplace.quickstart.title': 'شروع سریع / ناوبری آسان',
+  'workplace.quickstart.opt1': 'عملیات یک',
+  'workplace.quickstart.opt2': 'عملیات دو',
+  'workplace.quickstart.opt3': 'عملیات سه',
+  'workplace.quickstart.opt4': 'عملیات چهار',
+  'workplace.quickstart.opt5': 'عملیات پنج',
+  'workplace.quickstart.opt6': 'عملیات شش',
+  'workplace.quickstart.addto': 'اضافه کردن',
+  'workplace.index.title': 'XX فهرست',
+  'workplace.team.title': 'تیم',
+  'workplace.radar.personal': 'شخصی',
+  'workplace.radar.team': 'تیم',
+  'workplace.radar.departmant': 'دپارتمان'
 }
 
 export default {

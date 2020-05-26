@@ -217,7 +217,19 @@ const locale = {
   'workplace.projects.allitems': 'All items',
   'workplace.dynamic.title': 'dynamic',
   'workplace.dynamic.in': 'in',
-  'workplace.quickstart.title': 'Quick start / easy navigation'
+  'workplace.quickstart.title': 'Quick start / easy navigation',
+  'workplace.quickstart.opt1': 'option 1',
+  'workplace.quickstart.opt2': 'option 2',
+  'workplace.quickstart.opt3': 'option 3',
+  'workplace.quickstart.opt4': 'option 4',
+  'workplace.quickstart.opt5': 'option 5',
+  'workplace.quickstart.opt6': 'option 6',
+  'workplace.quickstart.addto': 'Add to',
+  'workplace.index.title': 'XX index',
+  'workplace.team.title': 'Team',
+  'workplace.radar.personal': 'personal',
+  'workplace.radar.team': 'team',
+  'workplace.radar.departmant': 'departmant'
 }
 
 export default {

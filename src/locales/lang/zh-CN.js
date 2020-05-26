@@ -217,7 +217,19 @@ const locale = {
   'workplace.projects.allitems': '全部项目',
   'workplace.dynamic.title': '动态',
   'workplace.dynamic.in': '在',
-  'workplace.quickstart.title': '快速开始 / 便捷导航'
+  'workplace.quickstart.title': '快速开始 / 便捷导航',
+  'workplace.quickstart.opt1': '操作一',
+  'workplace.quickstart.opt2': '操作二',
+  'workplace.quickstart.opt3': '操作三',
+  'workplace.quickstart.opt4': '操作四',
+  'workplace.quickstart.opt5': '操作五',
+  'workplace.quickstart.opt6': '操作六',
+  'workplace.quickstart.addto': '添加',
+  'workplace.index.title': 'XX 指数',
+  'workplace.team.title': '团队',
+  'workplace.radar.personal': '个人',
+  'workplace.radar.team': '团队',
+  'workplace.radar.departmant': '部门'
 }
 
 export default {
