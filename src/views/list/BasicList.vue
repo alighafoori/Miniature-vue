@@ -29,7 +29,7 @@
       </div>
 
       <div class="operate">
-        <a-button type="dashed" style="width: 100%" icon="plus" @click="$refs.taskForm.add()">{{ $t('basiclist.Add to') }}</a-button>
+        <a-button type="dashed" style="width: 100%" icon="plus" @click="add">{{ $t('basiclist.Add to') }}</a-button>
       </div>
 
       <a-list size="large" :pagination="{showSizeChanger: true, showQuickJumper: true, pageSize: 5, total: 50}">
@@ -87,9 +87,36 @@ export default {
     }
   },
   methods: {
+        add () {
+      this.$dialog(TaskForm,
+        // component props
+        {
+          record: {},
+          on: {
+            ok () {
+              console.log('ok 回调')
+            },
+            cancel () {
+              console.log('cancel 回调')
+            },
+            close () {
+              console.log('modal close 回调')
+            }
+          }
+        },
+        // modal props
+        {
+          title: '新增',
+          width: 700,
+          centered: true,
+          maskClosable: false
+        })
+    },
     edit (record) {
       // mockdata
-      record.taskName = '测试'
+      // record.taskName = 'فثسفهدل '
+      console.log('edit')
+      console.log(record)
       // mockend
       this.$dialog(TaskForm,
         // component props
@@ -109,7 +136,6 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.data = res.result && res.result.data
-          console.log(res.result.data)
         })
     }
   },
