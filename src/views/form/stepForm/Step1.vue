@@ -2,18 +2,18 @@
   <div>
     <a-form :form="form" style="max-width: 500px; margin: 40px auto 0;">
       <a-form-item
-        label="付款账户"
+        :label="$t('stepform1.payment.account')"
         :labelCol="labelCol"
         :wrapperCol="wrapperCol"
       >
         <a-select
           placeholder="ant-design@alipay.com"
-          v-decorator="['paymentUser', { rules: [{required: true, message: '付款账户必须填写'}] }]">
+          v-decorator="['paymentUser', { rules: [{required: true, message: $t('stepform1.payment.account.error') }] }]">
           <a-select-option value="1">ant-design@alipay.com</a-select-option>
         </a-select>
       </a-form-item>
       <a-form-item
-        label="收款账户"
+        :label="$t('stepform1.receiver')"
         :labelCol="labelCol"
         :wrapperCol="wrapperCol"
       >
@@ -22,40 +22,40 @@
           :compact="true"
         >
           <a-select defaultValue="alipay" style="width: 100px">
-            <a-select-option value="alipay">支付宝</a-select-option>
-            <a-select-option value="wexinpay">微信</a-select-option>
+            <a-select-option value="alipay">{{ $t('stepform1.method.alipay') }}</a-select-option>
+            <a-select-option value="wexinpay">{{ $t('stepform1.method.wechat') }}</a-select-option>
           </a-select>
           <a-input
             :style="{width: 'calc(100% - 100px)'}"
-            v-decorator="['payType', { initialValue: 'test@example.com', rules: [{required: true, message: '收款账户必须填写'}]}]"
+            v-decorator="['payType', { initialValue: 'test@example.com', rules: [{required: true, message: $t('stepform1.receiver.error')}]}]"
           />
         </a-input-group>
       </a-form-item>
       <a-form-item
-        label="收款人姓名"
+        :label="$t('stepform1.payee.name')"
         :labelCol="labelCol"
         :wrapperCol="wrapperCol"
       >
-        <a-input v-decorator="['name', { initialValue: 'Alex', rules: [{required: true, message: '收款人名称必须核对'}] }]"/>
+        <a-input v-decorator="['name', { initialValue: 'Alex', rules: [{required: true, message: $t('stepform1.payee.name.error')}] }]"/>
       </a-form-item>
       <a-form-item
-        label="转账金额"
+        :label="$t('stepform1.amount')"
         :labelCol="labelCol"
         :wrapperCol="wrapperCol"
       >
-        <a-input prefix="￥" v-decorator="['momey', { initialValue: '5000', rules: [{required: true, message: '转账金额必须填写'}] }]"/>
+        <a-input prefix="￥" v-decorator="['momey', { initialValue: '5000', rules: [{required: true, message: $t('stepform1.amount.error')}] }]"/>
       </a-form-item>
       <a-form-item :wrapperCol="{span: 19, offset: 5}">
-        <a-button type="primary" @click="nextStep">下一步</a-button>
+        <a-button type="primary" @click="nextStep">{{ $t('stepform1.nextstep') }}</a-button>
       </a-form-item>
     </a-form>
     <a-divider />
     <div class="step-form-style-desc">
-      <h3>说明</h3>
-      <h4>转账到支付宝账户</h4>
-      <p>如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。</p>
-      <h4>转账到银行卡</h4>
-      <p>如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。</p>
+      <h3>{{ $t('stepform1.explanation') }}</h3>
+      <h4>{{ $t('stepform1.explanation.title') }}</h4>
+      <p>{{ $t('stepform1.explanation.body') }}</p>
+      <h4>{{ $t('stepform1.explanation2.title') }}</h4>
+      <p>{{ $t('stepform1.explanation2.body') }}</p>
     </div>
   </div>
 </template>
@@ -73,7 +73,6 @@ export default {
   methods: {
     nextStep () {
       const { form: { validateFields } } = this
-      // 先校验，通过表单校验后，才进入下一步
       validateFields((err, values) => {
         if (!err) {
           this.$emit('nextStep')
