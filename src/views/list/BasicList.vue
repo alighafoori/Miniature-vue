@@ -3,13 +3,13 @@
     <a-card :bordered="false">
       <a-row>
         <a-col :sm="8" :xs="24">
-          <info title="我的待办" value="8个任务" :bordered="true" />
+          <info :title="$t('basiclist.My to-do')" :value="8+$t('basiclist.Tasks')" :bordered="true" />
         </a-col>
         <a-col :sm="8" :xs="24">
-          <info title="本周任务平均处理时间" value="32分钟" :bordered="true" />
+          <info :title="$t('basiclist.Average')" :value="32+$t('basiclist.minute')" :bordered="true" />
         </a-col>
         <a-col :sm="8" :xs="24">
-          <info title="本周完成任务数" value="24个" />
+          <info :title="$t('basiclist.TasksWeek')" :value="24+$t('basiclist.Pc')" />
         </a-col>
       </a-row>
     </a-card>
@@ -17,19 +17,19 @@
     <a-card
       style="margin-top: 24px"
       :bordered="false"
-      title="标准列表">
+      :title="$t('basiclist.Standard list')">
 
       <div slot="extra">
         <a-radio-group v-model="status">
-          <a-radio-button value="all">全部</a-radio-button>
-          <a-radio-button value="processing">进行中</a-radio-button>
-          <a-radio-button value="waiting">等待中</a-radio-button>
+          <a-radio-button value="all">{{ $t('basiclist.All') }}</a-radio-button>
+          <a-radio-button value="processing">{{ $t('basiclist.processing') }}</a-radio-button>
+          <a-radio-button value="waiting">{{ $t('basiclist.Waiting') }}</a-radio-button>
         </a-radio-group>
         <a-input-search style="margin-left: 16px; width: 272px;" />
       </div>
 
       <div class="operate">
-        <a-button type="dashed" style="width: 100%" icon="plus" @click="$refs.taskForm.add()">添加</a-button>
+        <a-button type="dashed" style="width: 100%" icon="plus" @click="$refs.taskForm.add()">{{ $t('basiclist.Add to') }}</a-button>
       </div>
 
       <a-list size="large" :pagination="{showSizeChanger: true, showQuickJumper: true, pageSize: 5, total: 50}">
@@ -39,15 +39,15 @@
             <a slot="title">{{ item.title }}</a>
           </a-list-item-meta>
           <div slot="actions">
-            <a @click="edit(item)">编辑</a>
+            <a @click="edit(item)">{{ $t('basiclist.edit') }}</a>
           </div>
           <div slot="actions">
             <a-dropdown>
               <a-menu slot="overlay">
-                <a-menu-item><a>编辑</a></a-menu-item>
-                <a-menu-item><a>删除</a></a-menu-item>
+                <a-menu-item><a>{{ $t('basiclist.edit') }}</a></a-menu-item>
+                <a-menu-item><a>{{ $t('basiclist.delete') }}</a></a-menu-item>
               </a-menu>
-              <a>更多<a-icon type="down"/></a>
+              <a>{{ $t('basiclist.More') }}<a-icon type="down"/></a>
             </a-dropdown>
           </div>
           <div class="list-content">
@@ -56,7 +56,7 @@
               <p>{{ item.owner }}</p>
             </div>
             <div class="list-content-item">
-              <span>开始时间</span>
+              <span>{{ $t('basiclist.Starting time') }}</span>
               <p>{{ item.startAt }}</p>
             </div>
             <div class="list-content-item">
@@ -72,59 +72,7 @@
 <script>
 import TaskForm from './modules/TaskForm'
 import Info from './components/Info'
-
-const data = []
-data.push({
-  title: 'Alipay',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png',
-  description: '那是一种内在的东西， 他们到达不了，也无法触及的',
-  owner: '付晓晓',
-  startAt: '2018-07-26 22:44',
-  progress: {
-    value: 90
-  }
-})
-data.push({
-  title: 'Angular',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png',
-  description: '希望是一个好东西，也许是最好的，好东西是不会消亡的',
-  owner: '曲丽丽',
-  startAt: '2018-07-26 22:44',
-  progress: {
-    value: 54
-  }
-})
-data.push({
-  title: 'Ant Design',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
-  description: '生命就像一盒巧克力，结果往往出人意料',
-  owner: '林东东',
-  startAt: '2018-07-26 22:44',
-  progress: {
-    value: 66
-  }
-})
-data.push({
-  title: 'Ant Design Pro',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png',
-  description: '城镇中有那么多的酒馆，她却偏偏走进了我的酒馆',
-  owner: '周星星',
-  startAt: '2018-07-26 22:44',
-  progress: {
-    value: 30
-  }
-})
-data.push({
-  title: 'Bootstrap',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png',
-  description: '那时候我只会想自己想要什么，从不想自己拥有什么',
-  owner: '吴加好',
-  startAt: '2018-07-26 22:44',
-  progress: {
-    status: 'exception',
-    value: 100
-  }
-})
+import { currentLang } from '@/locales'
 
 export default {
   name: 'StandardList',
@@ -134,13 +82,12 @@ export default {
   },
   data () {
     return {
-      data,
+      data: [],
       status: 'all'
     }
   },
   methods: {
     edit (record) {
-      console.log('record', record)
       // mockdata
       record.taskName = '测试'
       // mockend
@@ -156,7 +103,21 @@ export default {
           centered: true,
           maskClosable: false
         })
+    },
+    getData () {
+      const url = `/${currentLang.isoCode}/basiclistdata`
+      this.$http.get(url)
+        .then(res => {
+          this.data = res.result && res.result.data
+          console.log(res.result.data)
+        })
     }
+  },
+  mounted () {
+    this.getData()
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      this.getData()
+    })
   }
 }
 </script>
