@@ -2284,10 +2284,9 @@ const zhUserNav = (options) => {
   return json
 }
 
-Mock.mock(/\/zh\/api\/user\/info/, 'get', zhInfo)
-Mock.mock(/\/fa\/api\/user\/info/, 'get', faInfo)
-Mock.mock(/\/api\/\/fa\/user\/info/, 'get', faInfo)
-Mock.mock(/\/en\/api\/user\/info/, 'get', enInfo)
-Mock.mock(/\/zh\/api\/user\/nav/, 'get', zhUserNav)
-Mock.mock(/\/fa\/api\/user\/nav/, 'get', faUserNav)
-Mock.mock(/\/en\/api\/user\/nav/, 'get', enUserNav)
+Mock.mock(/\/api\/zh\/user\/info/, 'get', zhInfo)
+Mock.mock(/\/api\/fa\/user\/info/, 'get', faInfo)
+Mock.mock(/\/api\/en\/user\/info/, 'get', enInfo)
+Mock.mock(/\/api\/zh\/user\/nav/, 'get', zhUserNav)
+Mock.mock(/\/api\/fa\/user\/nav/, 'get', faUserNav)
+Mock.mock(/\/api\/en\/user\/nav/, 'get', enUserNav)

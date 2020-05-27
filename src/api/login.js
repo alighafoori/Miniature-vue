@@ -43,7 +43,7 @@ export function getSmsCaptcha (parameter) {
 
 export function getInfo () {
   return request({
-    url: `/${currentLang.isoCode}/${userApi.UserInfo}`,
+    url: `/${currentLang.isoCode}${userApi.UserInfo}`,
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -53,7 +53,7 @@ export function getInfo () {
 
 export function getCurrentUserNav () {
   return request({
-    url: `/${currentLang.isoCode}/${userApi.UserMenu}`,
+    url: `/${currentLang.isoCode}${userApi.UserMenu}`,
     method: 'get'
   })
 }

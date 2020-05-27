@@ -229,6 +229,11 @@ export default {
     getServiceList().then(res => {
       // console.log('workplace -> call getServiceList()', res)
     })
+    this.$store.dispatch('GetInfo').then(() => {
+    this.timeFix = timeFix()
+    this.user = this.userInfo
+    this.avatar = this.user.avatar
+    })
     })
   },
   methods: {
