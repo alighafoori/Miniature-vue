@@ -338,7 +338,14 @@ const locale = {
   'tablelistview.Subscriptionfailed': 'Subscription failed, the rule is closed',
   'table.render.alert.title': 'Total',
   'table.render.alert.span': 'Selected',
-  'table.render.clear': 'Clear'
+  'table.render.clear': 'Clear',
+  'cardlist.header.content': 'Paragraph sketch: Ant Gold Service Design Platform ant.design, with minimal workload, seamlessly connects to Ant Gold Service ecosystem, providing experience solutions that span design and development.',
+  'cardlist.newBtn': 'New product',
+  'cardlist.dataSource.content': 'In the R & D process of mid-stage products, different design specifications and implementation methods will appear, but there are often many similar pages and components, and these similar components will be extracted into a set of standard specifications.',
+  'cardlist.tabList.tab1': 'Quick start',
+  'cardlist.tabList.tab2': 'Product introduction',
+  'cardlist.tabList.tab3': 'Product documentation',
+  'cardlist.testfun': 'Quick start was clicked! '
 }
 
 export default {

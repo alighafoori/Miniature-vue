@@ -342,7 +342,14 @@ const locale = {
   'tablelistview.Subscriptionfailed': 'اشتراک ناموفق بود ، این قانون بسته است',
   'table.render.alert.title': 'جمع',
   'table.render.alert.span': 'انتخاب شده',
-  'table.render.clear': 'پاک'
+  'table.render.clear': 'پاک',
+  'cardlist.header.content': 'طرح پاراگراف: Platform Design Service Ant Gold ant.design ، با حداقل بار کار ، یکپارچه به اکوسیستم سرویس مورچه گلد متصل می شود ، و راه حل های تجربه ای را ارائه می دهد که طراح و توسعه را شامل می شود.',
+  'cardlist.newBtn': 'محصول جدید',
+  'cardlist.dataSource.content': 'در فرآیند تحقیق و توسعه محصولات مرحله میانی ، مشخصات مختلفی از طراحی و روش های اجرایی ظاهر می شود ، اما اغلب بسیاری از صفحات و مؤلفه های مشابه وجود دارد .این اجزای مشابه به مجموعه ای از مشخصات استاندارد تقسیم می شوند.',
+  'cardlist.tabList.tab1': 'شروع سریع',
+  'cardlist.tabList.tab2': 'معرفی محصول',
+  'cardlist.tabList.tab3': 'اسناد محصول',
+  'cardlist.testfun': 'شروع سریع کلیک شد!'
 }
 
 export default {

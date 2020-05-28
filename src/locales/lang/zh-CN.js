@@ -338,7 +338,14 @@ const locale = {
   'tablelistview.Subscriptionfailed': '订阅失败，规则已关闭`)',
   'table.render.alert.title': '总计',
   'table.render.alert.span': '已选择',
-  'table.render.clear': '清空'
+  'table.render.clear': '清空',
+  'cardlist.header.content': '段落示意：蚂蚁金服务设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态， 提供跨越设计与开发的体验解决方案。',
+  'cardlist.newBtn': '新增产品',
+  'cardlist.dataSource.content': '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。',
+  'cardlist.tabList.tab1': '快速开始',
+  'cardlist.tabList.tab2': '产品简介',
+  'cardlist.tabList.tab3': '产品文档',
+  'cardlist.testfun': '快速开始被点击！'
 }
 
 export default {
