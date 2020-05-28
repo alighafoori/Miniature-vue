@@ -5,55 +5,55 @@
         <a-form layout="inline">
           <a-row :gutter="48">
             <a-col :md="8" :sm="24">
-              <a-form-item label="规则编号">
+              <a-form-item :label="$t('tablelistview.Rule number')">
                 <a-input v-model="queryParam.id" placeholder=""/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
-              <a-form-item label="使用状态">
-                <a-select v-model="queryParam.status" placeholder="请选择" default-value="0">
-                  <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
-                  <a-select-option value="2">运行中</a-select-option>
+              <a-form-item :label="$t('tablelistview.status of use')">
+                <a-select v-model="queryParam.status" :placeholder="$t('tablelistview.please choose')" default-value="0">
+                  <a-select-option value="0">{{ $t('tablelistview.All') }}</a-select-option>
+                  <a-select-option value="1">{{ $t('tablelistview.shut down') }}</a-select-option>
+                  <a-select-option value="2">{{ $t('tablelistview.Running') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <template v-if="advanced">
               <a-col :md="8" :sm="24">
-                <a-form-item label="调用次数">
+                <a-form-item :label="$t('tablelistview.Calls')">
                   <a-input-number v-model="queryParam.callNo" style="width: 100%"/>
                 </a-form-item>
               </a-col>
               <a-col :md="8" :sm="24">
-                <a-form-item label="更新日期">
-                  <a-date-picker v-model="queryParam.date" style="width: 100%" placeholder="请输入更新日期"/>
+                <a-form-item :label="$t('tablelistview.Updated')">
+                  <a-date-picker v-model="queryParam.date" style="width: 100%" :placeholder="$t('tablelistview.Please enter the update date')"/>
                 </a-form-item>
               </a-col>
               <a-col :md="8" :sm="24">
-                <a-form-item label="使用状态">
-                  <a-select v-model="queryParam.useStatus" placeholder="请选择" default-value="0">
-                    <a-select-option value="0">全部</a-select-option>
-                    <a-select-option value="1">关闭</a-select-option>
-                    <a-select-option value="2">运行中</a-select-option>
+                <a-form-item :label="$t('tablelistview.status of use')">
+                  <a-select v-model="queryParam.useStatus" :placeholder="$t('tablelistview.please choose')" default-value="0">
+                    <a-select-option value="0">{{ $t('tablelistview.All') }}</a-select-option>
+                    <a-select-option value="1">{{ $t('tablelistview.shut down') }}</a-select-option>
+                    <a-select-option value="2">{{ $t('tablelistview.Running') }}</a-select-option>
                   </a-select>
                 </a-form-item>
               </a-col>
               <a-col :md="8" :sm="24">
-                <a-form-item label="使用状态">
-                  <a-select placeholder="请选择" default-value="0">
-                    <a-select-option value="0">全部</a-select-option>
-                    <a-select-option value="1">关闭</a-select-option>
-                    <a-select-option value="2">运行中</a-select-option>
+                <a-form-item :label="$t('tablelistview.status of use')">
+                  <a-select :placeholder="$t('tablelistview.please choose')" default-value="0">
+                    <a-select-option value="0">{{ $t('tablelistview.All') }}</a-select-option>
+                    <a-select-option value="1">{{ $t('tablelistview.shut down') }}</a-select-option>
+                    <a-select-option value="2">{{ $t('tablelistview.Running') }}</a-select-option>
                   </a-select>
                 </a-form-item>
               </a-col>
             </template>
             <a-col :md="!advanced && 8 || 24" :sm="24">
               <span class="table-page-search-submitButtons" :style="advanced && { float: 'right', overflow: 'hidden' } || {} ">
-                <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
-                <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
+                <a-button type="primary" @click="$refs.table.refresh(true)">{{ $t('tablelistview.Inquire') }}</a-button>
+                <a-button style="margin-left: 8px" @click="() => queryParam = {}">{{ $t('tablelistview.Reset') }}</a-button>
                 <a @click="toggleAdvanced" style="margin-left: 8px">
-                  {{ advanced ? '收起' : '展开' }}
+                  {{ advanced ? $t('tablelistview.Collapse') : $t('tablelistview.Unfold') }}
                   <a-icon :type="advanced ? 'up' : 'down'"/>
                 </a>
               </span>
@@ -63,16 +63,16 @@
       </div>
 
       <div class="table-operator">
-        <a-button type="primary" icon="plus" @click="$refs.createModal.add()">新建</a-button>
-        <a-button type="dashed" @click="tableOption">{{ optionAlertShow && '关闭' || '开启' }} alert</a-button>
+        <a-button type="primary" icon="plus" @click="$refs.createModal.add()">{{ $t('tablelistview.New') }}</a-button>
+        <a-button type="dashed" @click="tableOption">{{ optionAlertShow && $t('tablelistview.shut down') || $t('tablelistview.Open') }} alert</a-button>
         <a-dropdown v-action:edit v-if="selectedRowKeys.length > 0">
           <a-menu slot="overlay">
-            <a-menu-item key="1"><a-icon type="delete" />删除</a-menu-item>
+            <a-menu-item key="1"><a-icon type="delete" />{{ $t('tablelistview.delete') }}</a-menu-item>
             <!-- lock | unlock -->
-            <a-menu-item key="2"><a-icon type="lock" />锁定</a-menu-item>
+            <a-menu-item key="2"><a-icon type="lock" />{{ $t('tablelistview.locking') }}</a-menu-item>
           </a-menu>
           <a-button style="margin-left: 8px">
-            批量操作 <a-icon type="down" />
+            {{ $t('tablelistview.Bulk operations') }} <a-icon type="down" />
           </a-button>
         </a-dropdown>
       </div>
@@ -99,9 +99,9 @@
 
         <span slot="action" slot-scope="text, record">
           <template>
-            <a @click="handleEdit(record)">配置</a>
+            <a @click="handleEdit(record)">{{ $t('tablelistview.Configuration') }}</a>
             <a-divider type="vertical" />
-            <a @click="handleSub(record)">订阅报警</a>
+            <a @click="handleSub(record)">{{ $t('tablelistview.Subscribe to alarm') }}</a>
           </template>
         </span>
       </s-table>
@@ -117,23 +117,23 @@ import { STable, Ellipsis } from '@/components'
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateForm'
 import { getRoleList, getServiceList } from '@/api/manage'
-
+import { i18nRender } from '@/locales'
 const statusMap = {
   0: {
     status: 'default',
-    text: '关闭'
+    text: 'tablelistview.shut down'
   },
   1: {
     status: 'processing',
-    text: '运行中'
+    text: 'tablelistview.Running'
   },
   2: {
     status: 'success',
-    text: '已上线'
+    text: 'tablelistview.Online'
   },
   3: {
     status: 'error',
-    text: '异常'
+    text: 'tablelistview.abnormal'
   }
 }
 
@@ -148,52 +148,9 @@ export default {
   data () {
     return {
       mdl: {},
-      // 高级搜索 展开/关闭
       advanced: false,
-      // 查询参数
       queryParam: {},
-      // 表头
-      columns: [
-        {
-          title: '#',
-          scopedSlots: { customRender: 'serial' }
-        },
-        {
-          title: '规则编号',
-          dataIndex: 'no'
-        },
-        {
-          title: '描述',
-          dataIndex: 'description',
-          scopedSlots: { customRender: 'description' }
-        },
-        {
-          title: '服务调用次数',
-          dataIndex: 'callNo',
-          sorter: true,
-          needTotal: true,
-          customRender: (text) => text + ' 次'
-        },
-        {
-          title: '状态',
-          dataIndex: 'status',
-          scopedSlots: { customRender: 'status' }
-        },
-        {
-          title: '更新时间',
-          dataIndex: 'updatedAt',
-          sorter: true
-        },
-        {
-          title: '操作',
-          dataIndex: 'action',
-          width: '150px',
-          scopedSlots: { customRender: 'action' }
-        }
-      ],
-      // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
-        console.log('loadData.parameter', parameter)
         return getServiceList(Object.assign(parameter, this.queryParam))
           .then(res => {
             return res.result
@@ -201,8 +158,6 @@ export default {
       },
       selectedRowKeys: [],
       selectedRows: [],
-
-      // custom table alert & rowSelection
       options: {
         alert: { show: true, clear: () => { this.selectedRowKeys = [] } },
         rowSelection: {
@@ -213,9 +168,51 @@ export default {
       optionAlertShow: false
     }
   },
+  computed: {
+    columns () {
+      return ([
+        {
+          title: '#',
+          scopedSlots: { customRender: 'serial' }
+        },
+        {
+          title: i18nRender('tablelistview.Rule number'),
+          dataIndex: 'no'
+        },
+        {
+          title: i18nRender('tablelistview.description'),
+          dataIndex: 'description',
+          scopedSlots: { customRender: 'description' }
+        },
+        {
+          title: i18nRender('tablelistview.Service calls'),
+          dataIndex: 'callNo',
+          sorter: true,
+          needTotal: true,
+          customRender: (text) => text + ' ' + i18nRender('tablelistview.Times')
+        },
+        {
+          title: i18nRender('tablelistview.status'),
+          dataIndex: 'status',
+          scopedSlots: { customRender: 'status' }
+        },
+        {
+          title: i18nRender('tablelistview.Update time'),
+          dataIndex: 'updatedAt',
+          sorter: true
+        },
+        {
+          title: i18nRender('tablelistview.operating'),
+          dataIndex: 'action',
+          width: '150px',
+          scopedSlots: { customRender: 'action' }
+        }
+      ])
+    }
+  },
   filters: {
     statusFilter (type) {
-      return statusMap[type].text
+      return i18nRender(statusMap[type].text)
     },
     statusTypeFilter (type) {
       return statusMap[type].status
@@ -257,9 +254,9 @@ export default {
     },
     handleSub (record) {
       if (record.status !== 0) {
-        this.$message.info(`${record.no} 订阅成功`)
+        this.$message.info(`${record.no} wtf ${i18nRender('tablelistview.Subscriptionsuccessful')}`)
       } else {
-        this.$message.error(`${record.no} 订阅失败，规则已关闭`)
+        this.$message.error(`${record.no} ${i18nRender('tablelistview.Subscriptionfailed')}`)
       }
     },
     handleOk () {

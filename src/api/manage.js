@@ -29,8 +29,10 @@ export function getRoleList (parameter) {
 }
 
 export function getServiceList (parameter) {
+  const url = `/${currentLang.isoCode}${api.service}`
+  console.log(`service url = ` + url)
   return request({
-    url: `/${currentLang.isoCode}${api.service}`,
+    url: url,
     method: 'get',
     params: parameter
   })
