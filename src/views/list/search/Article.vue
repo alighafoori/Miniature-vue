@@ -2,19 +2,19 @@
   <div>
     <a-card :bordered="false" class="ant-pro-components-tag-select">
       <a-form :form="form" layout="inline">
-        <standard-form-row title="所属类目" block style="padding-bottom: 11px;">
+        <standard-form-row :title="$t('search.article.catagory.Category')" block style="padding-bottom: 11px;">
           <a-form-item>
             <tag-select>
-              <tag-select-option value="Category1">类目一</tag-select-option>
-              <tag-select-option value="Category2">类目二</tag-select-option>
-              <tag-select-option value="Category3">类目三</tag-select-option>
-              <tag-select-option value="Category4">类目四</tag-select-option>
-              <tag-select-option value="Category5">类目五</tag-select-option>
-              <tag-select-option value="Category6">类目六</tag-select-option>
-              <tag-select-option value="Category7">类目七</tag-select-option>
-              <tag-select-option value="Category8">类目八</tag-select-option>
-              <tag-select-option value="Category9">类目九</tag-select-option>
-              <tag-select-option value="Category10">类目十</tag-select-option>
+              <tag-select-option value="Category1">{{ $t('search.article.catagory.Category 1') }}</tag-select-option>
+              <tag-select-option value="Category2">{{ $t('search.article.catagory.Category 2') }}</tag-select-option>
+              <tag-select-option value="Category3">{{ $t('search.article.catagory.Category 3') }}</tag-select-option>
+              <tag-select-option value="Category4">{{ $t('search.article.catagory.Category 4') }}</tag-select-option>
+              <tag-select-option value="Category5">{{ $t('search.article.catagory.Category 5') }}</tag-select-option>
+              <tag-select-option value="Category6">{{ $t('search.article.catagory.Category 6') }}</tag-select-option>
+              <tag-select-option value="Category7">{{ $t('search.article.catagory.Category 7') }}</tag-select-option>
+              <tag-select-option value="Category8">{{ $t('search.article.catagory.Category 8') }}</tag-select-option>
+              <tag-select-option value="Category9">{{ $t('search.article.catagory.Category 9') }}</tag-select-option>
+              <tag-select-option value="Category10">{{ $t('search.article.catagory.Category 10') }}</tag-select-option>
             </tag-select>
           </a-form-item>
         </standard-form-row>
@@ -26,31 +26,31 @@
                 <a-select
                   style="max-width: 268px; width: 100%;"
                   mode="multiple"
-                  placeholder="选择 onwer"
+                  :placeholder="$t('search.article.Select onwer')"
                   v-decorator="['owner']"
                   @change="handleChange"
                 >
                   <a-select-option v-for="item in owners" :key="item.id">{{ item.name }}</a-select-option>
                 </a-select>
-                <a class="list-articles-trigger" @click="setOwner">只看自己的</a>
+                <a class="list-articles-trigger" @click="setOwner">{{ $t('search.article.Just look at your own') }}</a>
               </a-form-item>
             </a-col>
           </a-row>
         </standard-form-row>
 
-        <standard-form-row title="其它选项" grid last>
+        <standard-form-row :title="$t('search.article.Other options')" grid last>
           <a-row :gutter="16">
             <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="8">
-              <a-form-item label="活跃用户" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
-                <a-select placeholder="不限" style="max-width: 200px; width: 100%;">
-                  <a-select-option value="李三">李三</a-select-option>
+              <a-form-item :label="$t('search.article.active user')" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
+                <a-select :placeholder="$t('search.article.Unlimited')" style="max-width: 200px; width: 100%;">
+                  <a-select-option :value="$t('search.article.Li San')">{{ $t('search.article.Li San') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="8">
-              <a-form-item label="好评度" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
-                <a-select placeholder="不限" style="max-width: 200px; width: 100%;">
-                  <a-select-option value="优秀">优秀</a-select-option>
+              <a-form-item :label="$t('search.article.Praise of')" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
+                <a-select :placeholder="$t('search.article.Unlimited')" style="max-width: 200px; width: 100%;">
+                  <a-select-option :value="$t('search.article.excellent')">{{ $t('search.article.excellent') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
@@ -78,15 +78,15 @@
             <template slot="description">
               <span>
                 <a-tag>Ant Design</a-tag>
-                <a-tag>设计语言</a-tag>
-                <a-tag>蚂蚁金服</a-tag>
+                <a-tag>{{ $t('search.article.Design language') }}</a-tag>
+                <a-tag>{{ $t('search.article.Ant Financial') }}</a-tag>
               </span>
             </template>
           </a-list-item-meta>
           <article-list-content :description="item.description" :owner="item.owner" :avatar="item.avatar" :href="item.href" :updateAt="item.updatedAt" />
         </a-list-item>
         <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px;">
-          <a-button @click="loadMore" :loading="loadingMore">加载更多</a-button>
+          <a-button @click="loadMore" :loading="loadingMore">{{ $t('search.article.load more') }}</a-button>
         </div>
       </a-list>
     </a-card>
@@ -96,29 +96,30 @@
 <script>
 import { TagSelect, StandardFormRow, ArticleListContent } from '@/components'
 import IconText from './components/IconText'
-import { currentLang } from '@/locales'
+import { currentLang, i18nRender } from '@/locales'
+
 const TagSelectOption = TagSelect.Option
 
 const owners = [
   {
     id: 'wzj',
-    name: '我自己'
+    name: 'search.article.Myself'
   },
   {
     id: 'wjh',
-    name: '吴家豪'
+    name: 'search.article.Wu Jiahao'
   },
   {
     id: 'zxx',
-    name: '周星星'
+    name: 'search.article.Zhou Xingxing'
   },
   {
     id: 'zly',
-    name: '赵丽颖'
+    name: 'search.article.Zhao Liying'
   },
   {
     id: 'ym',
-    name: '姚明'
+    name: 'search.article.Yao Ming'
   }
 ]
 
@@ -132,7 +133,6 @@ export default {
   },
   data () {
     return {
-      owners,
       loading: true,
       loadingMore: false,
       data: [],
@@ -141,6 +141,9 @@ export default {
   },
   mounted () {
     this.getList()
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      this.getList()
+    })
   },
   methods: {
     handleChange (value) {
@@ -168,6 +171,11 @@ export default {
       setFieldsValue({
         owner: ['wzj']
       })
+    }
+  },
+  computed: {
+    owners () {
+      return owners.map(x => Object.assign({}, x, { 'name': i18nRender(x.name) }))
     }
   }
 }

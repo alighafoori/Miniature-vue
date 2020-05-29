@@ -349,8 +349,35 @@ const locale = {
   'searchlayout.enterbutton': '搜索',
   'searchlayout.article': '文章',
   'searchlayout.project': '项目',
-  'searchlayout.application': '应用'
-
+  'searchlayout.application': '应用',
+  'search.article.catagory.Category': '所属类目',
+  'search.article.catagory.Category 1': '类目一',
+  'search.article.catagory.Category 2': '类目二',
+  'search.article.catagory.Category 3': '类目三',
+  'search.article.catagory.Category 4': '类目四',
+  'search.article.catagory.Category 5': '类目五',
+  'search.article.catagory.Category 6': '类目六',
+  'search.article.catagory.Category 7': '类目七',
+  'search.article.catagory.Category 8': '类目八',
+  'search.article.catagory.Category 9': '类目九',
+  'search.article.catagory.Category 10': '类目十',
+  'search.article.Select onwer': '选择 onwer',
+  'search.article.Just look at your own': '只看自己的',
+  'search.article.Other options': '其它选项',
+  'search.article.active user': '活跃用户',
+  'search.article.Unlimited': '不限',
+  'search.article.Li San': '李三',
+  'search.article.Praise of': '好评度',
+  'search.article.excellent': '优秀',
+  'search.article.Design language': '设计语言',
+  'search.article.Ant Financial': '蚂蚁金服',
+  'search.article.load more': '加载更多',
+  'search.article.Myself': '我自己',
+  'search.article.Wu Jiahao': '吴家豪',
+  'search.article.Zhou Xingxing': '周星星',
+  'search.article.Zhao Liying': '赵丽颖',
+  'search.article.Yao Ming': '姚明',
+  'articlelistcontent.posted on': '发布在'
 }
 
 export default {
