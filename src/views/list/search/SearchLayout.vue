@@ -1,14 +1,10 @@
 <template>
-  <page-header-wrapper
-    :tab-list="tabList"
-    :tab-active-key="tabActiveKey"
-    :tab-change="handleTabChange"
-  >
+  <page-header-wrapper :tab-list="tabList" :tab-active-key="tabActiveKey" :tab-change="handleTabChange">
     <template v-slot:content>
       <div class="ant-pro-page-header-search">
         <a-input-search size="large" style="width: 80%; max-width: 522px;">
           <template v-slot:enterButton>
-            搜索
+            {{ $t('searchlayout.enterbutton') }}
           </template>
         </a-input-search>
       </div>
@@ -18,15 +14,11 @@
 </template>
 
 <script>
+import { i18nRender } from '@/locales'
 export default {
   name: 'SearchLayout',
   data () {
     return {
-      tabList: [
-        { key: '1', tab: '文章' },
-        { key: '2', tab: '项目' },
-        { key: '3', tab: '应用' }
-      ],
       tabActiveKey: '1',
       search: true
     }
@@ -47,6 +39,15 @@ export default {
         default:
           this.$router.push('/workplace')
       }
+    }
+  },
+  computed: {
+    tabList () {
+      return [
+        { key: '1', tab: 'searchlayout.article' },
+        { key: '2', tab: 'searchlayout.project' },
+        { key: '3', tab: 'searchlayout.application' }
+      ]
     }
   }
 }

@@ -349,7 +349,11 @@ const locale = {
   'cardlist.tabList.tab1': 'شروع سریع',
   'cardlist.tabList.tab2': 'معرفی محصول',
   'cardlist.tabList.tab3': 'اسناد محصول',
-  'cardlist.testfun': 'شروع سریع کلیک شد!'
+  'cardlist.testfun': 'شروع سریع کلیک شد!',
+  'searchlayout.enterbutton': 'جستجو',
+  'searchlayout.article': 'مقاله',
+  'searchlayout.project': 'پروژه',
+  'searchlayout.application': 'کاربرد'
 }
 
 export default {

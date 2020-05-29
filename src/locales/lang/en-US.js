@@ -345,7 +345,11 @@ const locale = {
   'cardlist.tabList.tab1': 'Quick start',
   'cardlist.tabList.tab2': 'Product introduction',
   'cardlist.tabList.tab3': 'Product documentation',
-  'cardlist.testfun': 'Quick start was clicked! '
+  'cardlist.testfun': 'Quick start was clicked! ',
+  'searchlayout.enterbutton': 'search for',
+  'searchlayout.article': 'article',
+  'searchlayout.project': 'project',
+  'searchlayout.application': 'application'
 }
 
 export default {

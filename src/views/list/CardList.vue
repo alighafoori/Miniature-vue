@@ -77,7 +77,7 @@ export default {
       return result
     },
     dataSource () {
-      return dataSource.map((x) => Object.assign({}, x, { 'content': i18nRender(x.content) }))
+      return dataSource.map((x) => Object.assign({}, x, { 'content': x.content ? i18nRender(x.content) : '' }))
       // return dataSource
     }
   }

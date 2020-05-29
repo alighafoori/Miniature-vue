@@ -345,7 +345,12 @@ const locale = {
   'cardlist.tabList.tab1': '快速开始',
   'cardlist.tabList.tab2': '产品简介',
   'cardlist.tabList.tab3': '产品文档',
-  'cardlist.testfun': '快速开始被点击！'
+  'cardlist.testfun': '快速开始被点击！',
+  'searchlayout.enterbutton': '搜索',
+  'searchlayout.article': '文章',
+  'searchlayout.project': '项目',
+  'searchlayout.application': '应用'
+
 }
 
 export default {
