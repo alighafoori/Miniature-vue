@@ -377,7 +377,14 @@ const locale = {
   'search.article.Zhou Xingxing': 'Zhou Xingxing',
   'search.article.Zhao Liying': 'Zhao Liying',
   'search.article.Yao Ming': 'Yao Ming',
-  'articlelistcontent.posted on': 'Posted on'
+  'articlelistcontent.posted on': 'Posted on',
+  'search.project.normal': 'normal',
+  'search.project.Wang Zhaojun': 'Wang Zhaojun',
+  'search.project.Author': 'Author',
+  'search.aplication.download': 'download',
+  'search.aplication.shareit': 'share it',
+  'cardinfo.activeUser': 'active users',
+  'cardinfo.newUser': 'new user'
 }
 
 export default {

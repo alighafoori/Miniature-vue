@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { i18nRender } from '@/locales'
+// import { i18nRender } from '@/locales'
 export default {
   name: 'SearchLayout',
   data () {

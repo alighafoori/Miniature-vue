@@ -381,7 +381,14 @@ const locale = {
   'search.article.Zhou Xingxing': 'ژو زینگکسینگ',
   'search.article.Zhao Liying': 'ژائو لیینگ',
   'search.article.Yao Ming': 'یائو مینگ',
-  'articlelistcontent.posted on': 'نوشته شده در'
+  'articlelistcontent.posted on': 'نوشته شده در',
+  'search.project.normal': 'معمولی',
+  'search.project.Wang Zhaojun': 'وانگ ژائوون',
+  'search.project.Author': 'نویسنده',
+  'search.aplication.download': 'دانلود',
+  'search.aplication.shareit': 'همرسانی',
+  'cardinfo.activeUser': 'کاربران فعال',
+  'cardinfo.newUser': 'کاربر جدید'
 }
 
 export default {

@@ -377,7 +377,14 @@ const locale = {
   'search.article.Zhou Xingxing': '周星星',
   'search.article.Zhao Liying': '赵丽颖',
   'search.article.Yao Ming': '姚明',
-  'articlelistcontent.posted on': '发布在'
+  'articlelistcontent.posted on': '发布在',
+  'search.project.normal': '普通',
+  'search.project.Wang Zhaojun': '王昭君',
+  'search.project.Author': '作者',
+  'search.aplication.download': '下载',
+  'search.aplication.shareit': '分享',
+  'cardinfo.activeUser': '活跃用户',
+  'cardinfo.newUser': '新增用户'
 }
 
 export default {

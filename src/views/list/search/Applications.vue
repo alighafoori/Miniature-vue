@@ -2,47 +2,47 @@
   <div>
     <a-card :bordered="false" class="ant-pro-components-tag-select">
       <a-form :form="form" layout="inline">
-        <standard-form-row title="所属类目" block style="padding-bottom: 11px;">
+        <standard-form-row :title="$t('search.article.catagory.Category')" block style="padding-bottom: 11px;">
           <a-form-item>
             <tag-select>
-              <tag-select-option value="Category1">类目一</tag-select-option>
-              <tag-select-option value="Category2">类目二</tag-select-option>
-              <tag-select-option value="Category3">类目三</tag-select-option>
-              <tag-select-option value="Category4">类目四</tag-select-option>
-              <tag-select-option value="Category5">类目五</tag-select-option>
-              <tag-select-option value="Category6">类目六</tag-select-option>
-              <tag-select-option value="Category7">类目七</tag-select-option>
-              <tag-select-option value="Category8">类目八</tag-select-option>
-              <tag-select-option value="Category9">类目九</tag-select-option>
-              <tag-select-option value="Category10">类目十</tag-select-option>
+              <tag-select-option value="Category1">{{ $t('search.article.catagory.Category 1') }}</tag-select-option>
+              <tag-select-option value="Category2">{{ $t('search.article.catagory.Category 2') }}</tag-select-option>
+              <tag-select-option value="Category3">{{ $t('search.article.catagory.Category 3') }}</tag-select-option>
+              <tag-select-option value="Category4">{{ $t('search.article.catagory.Category 4') }}</tag-select-option>
+              <tag-select-option value="Category5">{{ $t('search.article.catagory.Category 5') }}</tag-select-option>
+              <tag-select-option value="Category6">{{ $t('search.article.catagory.Category 6') }}</tag-select-option>
+              <tag-select-option value="Category7">{{ $t('search.article.catagory.Category 7') }}</tag-select-option>
+              <tag-select-option value="Category8">{{ $t('search.article.catagory.Category 8') }}</tag-select-option>
+              <tag-select-option value="Category9">{{ $t('search.article.catagory.Category 9') }}</tag-select-option>
+              <tag-select-option value="Category10">{{ $t('search.article.catagory.Category 10') }}</tag-select-option>
             </tag-select>
           </a-form-item>
         </standard-form-row>
 
-        <standard-form-row title="其它选项" grid last>
+        <standard-form-row :title="$t('search.article.Other options')" grid last>
           <a-row>
             <a-col :lg="8" :md="10" :sm="10" :xs="24">
-              <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" label="作者">
+              <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" :label="$t('search.project.Author')">
                 <a-select
                   style="max-width: 200px; width: 100%;"
                   mode="multiple"
-                  placeholder="不限"
+                  :placeholder="$t('search.article.Unlimited')"
                   v-decorator="['author']"
                   @change="handleChange"
                 >
-                  <a-select-option value="lisa">王昭君</a-select-option>
+                  <a-select-option value="lisa">{{ $t('search.project.Wang Zhaojun') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :lg="8" :md="10" :sm="10" :xs="24">
-              <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" label="好评度">
+              <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" :label="$t('search.article.Praise of')">
                 <a-select
                   style="max-width: 200px; width: 100%;"
-                  placeholder="不限"
+                  :placeholder="$t('search.article.Unlimited')"
                   v-decorator="['rate']"
                 >
-                  <a-select-option value="good">优秀</a-select-option>
-                  <a-select-option value="normal">普通</a-select-option>
+                  <a-select-option value="good">{{ $t('search.article.excellent') }}</a-select-option>
+                  <a-select-option value="normal">{{ $t('search.project.normal') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
@@ -61,13 +61,13 @@
               </template>
             </a-card-meta>
             <template slot="actions">
-              <a-tooltip title="下载">
+              <a-tooltip :title="$t('search.aplication.download')">
                 <a-icon type="download" />
               </a-tooltip>
-              <a-tooltip title="编辑">
+              <a-tooltip :title="$t('advancedform.table.edit')">
                 <a-icon type="edit" />
               </a-tooltip>
-              <a-tooltip title="分享">
+              <a-tooltip :title="$t('search.aplication.shareit')">
                 <a-icon type="share-alt" />
               </a-tooltip>
               <a-dropdown>
@@ -101,6 +101,7 @@
 import moment from 'moment'
 import { TagSelect, StandardFormRow, Ellipsis, AvatarList } from '@/components'
 import CardInfo from './components/CardInfo'
+import { currentLang } from '@/locales'
 const TagSelectOption = TagSelect.Option
 const AvatarListItem = AvatarList.AvatarItem
 
@@ -128,13 +129,17 @@ export default {
   },
   mounted () {
     this.getList()
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      this.getList()
+    })
   },
   methods: {
     handleChange (value) {
       console.log(`selected ${value}`)
     },
     getList () {
-      this.$http.get('/list/article', { params: { count: 8 } }).then(res => {
+      const url = `${currentLang.isoCode}/list/article`
+      this.$http.get(url, { params: { count: 8 } }).then(res => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
