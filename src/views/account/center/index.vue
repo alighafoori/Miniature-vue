@@ -8,25 +8,25 @@
               <img :src="avatar">
             </div>
             <div class="username">{{ nickname }}</div>
-            <div class="bio">海纳百川，有容乃大</div>
+            <div class="bio">{{ $t('accountcenter.bio') }}</div>
           </div>
           <div class="account-center-detail">
             <p>
-              <i class="title"></i>交互专家
+              <i class="title"></i>{{ $t('accountcenter.Interaction') }}
             </p>
             <p>
-              <i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED
+              <i class="group"></i>{{ $t('accountcenter.group') }}
             </p>
             <p>
               <i class="address"></i>
-              <span>浙江省</span>
-              <span>杭州市</span>
+              <span>{{ $t('accountcenter.Province') }}</span>
+              <span>{{ $t('accountcenter.Hangzhou') }}</span>
             </p>
           </div>
           <a-divider/>
 
           <div class="account-center-tags">
-            <div class="tagsTitle">标签</div>
+            <div class="tagsTitle">{{ $t('accountcenter.label') }}</div>
             <div>
               <template v-for="(tag, index) in tags">
                 <a-tooltip v-if="tag.length > 20" :key="tag" :title="tag">
@@ -62,7 +62,7 @@
           <a-divider :dashed="true"/>
 
           <div class="account-center-team">
-            <div class="teamTitle">团队</div>
+            <div class="teamTitle">{{ $t('accountcenter.team') }}</div>
             <a-spin :spinning="teamSpinning">
               <div class="members">
                 <a-row>
@@ -98,7 +98,7 @@
 <script>
 import { PageView, RouteView } from '@/layouts'
 import { AppPage, ArticlePage, ProjectPage } from './page'
-
+import { i18nRender, currentLang } from '@/locales'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -111,40 +111,52 @@ export default {
   },
   data () {
     return {
-      tags: ['很有想法的', '专注设计', '辣~', '大长腿', '川妹子', '海纳百川'],
-
       tagInputVisible: false,
       tagInputValue: '',
 
       teams: [],
       teamSpinning: true,
 
-      tabListNoTitle: [
-        {
-          key: 'article',
-          tab: '文章(8)'
-        },
-        {
-          key: 'app',
-          tab: '应用(8)'
-        },
-        {
-          key: 'project',
-          tab: '项目(8)'
-        }
-      ],
       noTitleKey: 'app'
     }
   },
   computed: {
-    ...mapGetters(['nickname', 'avatar'])
+    ...mapGetters(['nickname', 'avatar']),
+    tags () {
+      return [i18nRender('accountcenter.tag.thoughtful'),
+       i18nRender('accountcenter.tag.Focus'),
+       i18nRender('accountcenter.tag.Spicy'),
+       i18nRender('accountcenter.tag.Longlegs'),
+       i18nRender('accountcenter.tag.Chuanmeizi'),
+       i18nRender('accountcenter.tag.Heinabaichuan')]
+    },
+    tabListNoTitle () {
+      return [
+        {
+          key: 'article',
+          tab: i18nRender('accountcenter.tab.Article')
+        },
+        {
+          key: 'app',
+          tab: i18nRender('accountcenter.tab.Application')
+        },
+        {
+          key: 'project',
+          tab: i18nRender('accountcenter.tab.Project')
+        }
+      ]
+    }
   },
   mounted () {
     this.getTeams()
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      this.getTeams()
+    })
   },
   methods: {
     getTeams () {
-      this.$http.get('/workplace/teams').then(res => {
+      const url = `${currentLang.isoCode}/workplace/teams`
+      this.$http.get(url).then(res => {
         this.teams = res.result
         this.teamSpinning = false
       })

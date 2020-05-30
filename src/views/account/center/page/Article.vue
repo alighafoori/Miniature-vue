@@ -17,15 +17,15 @@
         <template slot="description">
           <span>
             <a-tag>Ant Design</a-tag>
-            <a-tag>设计语言</a-tag>
-            <a-tag>蚂蚁金服</a-tag>
+            <a-tag>{{ $t('accountcenter.article.Design language') }}</a-tag>
+            <a-tag>{{ $t('accountcenter.article.Ant Financial') }}</a-tag>
           </span>
         </template>
       </a-list-item-meta>
       <article-list-content :description="item.description" :owner="item.owner" :avatar="item.avatar" :href="item.href" :updateAt="item.updatedAt" />
     </a-list-item>
     <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px;">
-      <a-button @click="loadMore" :loading="loadingMore">加载更多</a-button>
+      <a-button @click="loadMore" :loading="loadingMore">{{ $t('accountcenter.article.load more') }}</a-button>
     </div>
   </a-list>
 </template>
@@ -33,6 +33,7 @@
 <script>
 import { ArticleListContent } from '@/components'
 import IconText from '@/views/list/search/components/IconText'
+import { currentLang } from '@/locales'
 
 export default {
   name: 'Article',
@@ -49,10 +50,14 @@ export default {
   },
   mounted () {
     this.getList()
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      this.getList()
+    })
   },
   methods: {
     getList () {
-      this.$http.get('/list/article').then(res => {
+      const url = `${currentLang.isoCode}/list/article`
+      this.$http.get(url).then(res => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
@@ -60,7 +65,8 @@ export default {
     },
     loadMore () {
       this.loadingMore = true
-      this.$http.get('/list/article').then(res => {
+      const url = `${currentLang.isoCode}/list/article`
+      this.$http.get(url).then(res => {
         this.data = this.data.concat(res.result)
       }).finally(() => {
         this.loadingMore = false

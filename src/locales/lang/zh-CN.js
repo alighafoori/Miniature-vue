@@ -520,7 +520,29 @@ const locale = {
   '403.content': '抱歉，您无权访问此页面。',
   '403.Back': '回家',
   '404.content': '抱歉，您访问的页面不存在。',
-  '500.content': '抱歉，服务器报告错误。'
+  '500.content': '抱歉，服务器报告错误。',
+  'accountcenter.bio': '海纳百川，有容乃大',
+  'accountcenter.Interaction': '交互专家',
+  'accountcenter.group': '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+  'accountcenter.Province': '浙江省',
+  'accountcenter.Hangzhou': '杭州市',
+  'accountcenter.label': '标签',
+  'accountcenter.team': '团队',
+  'accountcenter.tag.thoughtful': '很有想法的',
+  'accountcenter.tag.Focus': '专注设计',
+  'accountcenter.tag.Spicy': '辣~',
+  'accountcenter.tag.Longlegs': '大长腿',
+  'accountcenter.tag.Chuanmeizi': '川妹子',
+  'accountcenter.tag.Heinabaichuan': '海纳百川',
+  'accountcenter.tab.Article': '文章(8)',
+  'accountcenter.tab.Application': '应用(8)',
+  'accountcenter.tab.Project': '项目(8)',
+  'accountcenter.page.activeuser': '活跃用户',
+  'accountcenter.page.Tenthousand': '万',
+  'accountcenter.page.Newusers': '新增用户',
+  'accountcenter.article.Design language': '设计语言',
+  'accountcenter.article.Ant Financial': '蚂蚁金服',
+  'accountcenter.article.load more': '加载更多'
 }
 
 export default {

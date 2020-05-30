@@ -520,7 +520,29 @@ const locale = {
   '403.content': 'Sorry, you do not have access to this page.',
   '403.Back': 'Back Home',
   '404.content': 'Sorry, the page you visited does not exist.',
-  '500.content': 'Sorry, the server is reporting an error.'
+  '500.content': 'Sorry, the server is reporting an error.',
+  'accountcenter.bio': 'Be tolerant to diversity, tolerance is a virtue',
+  'accountcenter.Interaction': 'Interaction expert',
+  'accountcenter.group': 'Ant Financial-XX business group-XY platform department-XY technology department-UED',
+  'accountcenter.Province': 'Zhejiang Province',
+  'accountcenter.Hangzhou': 'Hangzhou',
+  'accountcenter.label': 'label',
+  'accountcenter.team': 'team',
+  'accountcenter.tag.thoughtful': 'Very thoughtful',
+  'accountcenter.tag.Focus': 'Focus on design',
+  'accountcenter.tag.Spicy': 'Spicy ~',
+  'accountcenter.tag.Longlegs': 'Long legs',
+  'accountcenter.tag.Chuanmeizi': 'Chuanmeizi',
+  'accountcenter.tag.Heinabaichuan': 'Heinabaichuan',
+  'accountcenter.tab.Article': 'Article(8)',
+  'accountcenter.tab.Application': 'Application(8)',
+  'accountcenter.tab.Project': 'Project(8)',
+  'accountcenter.page.activeuser': 'active user',
+  'accountcenter.page.Tenthousand': 'K',
+  'accountcenter.page.Newusers': 'New users',
+  'accountcenter.article.Design language': 'Design language',
+  'accountcenter.article.Ant Financial': 'Ant Financial',
+  'accountcenter.article.load more': 'load more'
 }
 
 export default {

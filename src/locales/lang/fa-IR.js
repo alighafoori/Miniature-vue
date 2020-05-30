@@ -524,7 +524,29 @@ const locale = {
   '403.content': 'متأسفیم ، شما به این صفحه دسترسی ندارید.',
   '403.Back': 'بازگشت به صفحه اول',
   '404.content': 'متأسفیم ، صفحه‌ای که بازدید کردید وجود ندارد.',
-  '500.content': 'متأسفیم ، سرور خطایی را گزارش می دهد.'
+  '500.content': 'متأسفیم ، سرور خطایی را گزارش می دهد.',
+  'accountcenter.bio': 'در برابر تنوع تحمل کنید ، مدارا یک فضیلت است',
+  'accountcenter.Interaction': 'کارشناس تعامل',
+  'accountcenter.group': 'Ant Financial-XX گروه تجاری XY - بخش پلت فرم XY - بخش فناوری XY-UED',
+  'accountcenter.Province': 'استان ژجیانگ',
+  'accountcenter.Hangzhou': 'هانگزو',
+  'accountcenter.label': 'برچسب',
+  'accountcenter.team': 'تیم',
+  'accountcenter.tag.thoughtful': 'بسیار متفکر',
+  'accountcenter.tag.Focus': 'روی طراحی متمرکز شوید',
+  'accountcenter.tag.Spicy': 'تند ~',
+  'accountcenter.tag.Longlegs': 'لنگ دراز',
+  'accountcenter.tag.Chuanmeizi': 'چوانمایزی',
+  'accountcenter.tag.Heinabaichuan': 'هاینابیچوان',
+  'accountcenter.tab.Article': 'مقاله(8)',
+  'accountcenter.tab.Application': 'برنامه(8)',
+  'accountcenter.tab.Project': 'پروژه(8)',
+  'accountcenter.page.activeuser': 'کاربر فعال',
+  'accountcenter.page.Tenthousand': 'هزار',
+  'accountcenter.page.Newusers': 'کاربران جدید',
+  'accountcenter.article.Design language': 'زبان طراحی',
+  'accountcenter.article.Ant Financial': 'مورچه مالی',
+  'accountcenter.article.load more': 'بارگذاری بیشتر'
 }
 
 export default {
