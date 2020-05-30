@@ -2,21 +2,21 @@
   <a-card :bordered="false">
     <a-result status="error" :title="title" :sub-title="description">
       <template #extra>
-        <a-button type="primary" >返回修改</a-button>
+        <a-button type="primary" >{{ $t('error.Back') }}</a-button>
       </template>
       <div class="desc">
         <div style="font-size: 16px; color: rgba(0, 0, 0, 0.85); font-weight: 500; margin-bottom: 16px">
-          您提交的内容有如下错误：
+          {{ $t('error.content') }}
         </div>
         <div style="margin-bottom: 16px">
           <a-icon type="close-circle-o" style="color: #f5222d; margin-right: 8px"/>
-          您的账户已被冻结
-          <a style="margin-left: 16px">立即解冻 <a-icon type="right" /></a>
+          {{ $t('error.frozen') }}
+          <a style="margin-left: 16px">{{ $t('error.Thawnow') }} <a-icon type="right" /></a>
         </div>
         <div>
           <a-icon type="close-circle-o" style="color: #f5222d; margin-right: 8px"/>
-          您的账户还不具备申请资格
-          <a style="margin-left: 16px">立即升级 <a-icon type="right" /></a>
+          {{ $t('error.eligible') }}
+          <a style="margin-left: 16px">{{ $t('error.upgrade') }} <a-icon type="right" /></a>
         </div>
       </div>
     </a-result>
@@ -24,13 +24,16 @@
 </template>
 
 <script>
+import { i18nRender } from '@/locales'
 
 export default {
   name: 'Error',
-  data () {
-    return {
-      title: '提交失败',
-      description: '请核对并修改以下信息后，再重新提交。'
+  computed: {
+    title () {
+      return i18nRender('error.title')
+    },
+    description () {
+      return i18nRender('error.description')
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <a-result status="404" title="404" sub-title="Sorry, the page you visited does not exist.">
+  <a-result status="404" title="404" :sub-title="$t('404.content')">
     <template #extra>
       <a-button type="primary" @click="toHome">
-        Back Home
+        {{ $t('403.Back') }}
       </a-button>
     </template>
   </a-result>

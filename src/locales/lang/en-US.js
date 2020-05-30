@@ -508,7 +508,19 @@ const locale = {
   'success.Financial review': 'Financial review',
   'success.carry out': 'carry out',
   'success.title': 'Submit successfully',
-  'success.description': 'Submission results page is used to feedback the processing results of a series of operation tasks. If it is only a simple operation, use Message global prompt feedback. This text area can display simple supplementary instructions. If there is a similar need to display "documents", the gray area below can present more complex content. '
+  'success.description': 'Submission results page is used to feedback the processing results of a series of operation tasks. If it is only a simple operation, use Message global prompt feedback. This text area can display simple supplementary instructions. If there is a similar need to display "documents", the gray area below can present more complex content. ',
+  'error.Back': 'Back to modification',
+  'error.content': 'The content you submitted has the following errors:',
+  'error.frozen': 'Your account has been frozen',
+  'error.Thawnow': 'Thaw now',
+  'error.eligible': 'Your account is not yet eligible',
+  'error.upgrade': 'upgrade immediately',
+  'error.title': 'Submission Failed ',
+  'error.description': 'Please check and modify the following information before resubmitting. ',
+  '403.content': 'Sorry, you do not have access to this page.',
+  '403.Back': 'Back Home',
+  '404.content': 'Sorry, the page you visited does not exist.',
+  '500.content': 'Sorry, the server is reporting an error.'
 }
 
 export default {

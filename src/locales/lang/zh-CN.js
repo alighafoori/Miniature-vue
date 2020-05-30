@@ -508,7 +508,19 @@ const locale = {
   'success.Financial review': '财务复核',
   'success.carry out': '完成',
   'success.title': '提交成功',
-  'success.description': '提交结果页用于反馈一系列操作任务的处理结果， 如果仅是简单操作，使用 Message 全局提示反馈即可。 本文字区域可以展示简单的补充说明，如果有类似展示 “单据”的需求，下面这个灰色区域可以呈现比较复杂的内容。'
+  'success.description': '提交结果页用于反馈一系列操作任务的处理结果， 如果仅是简单操作，使用 Message 全局提示反馈即可。 本文字区域可以展示简单的补充说明，如果有类似展示 “单据”的需求，下面这个灰色区域可以呈现比较复杂的内容。',
+  'error.Back': '返回修改',
+  'error.content': '您提交的内容有如下错误：',
+  'error.frozen': '您的账户已被冻结',
+  'error.Thawnow': '立即解冻 ',
+  'error.eligible': '您的账户还不具备申请资格',
+  'error.upgrade': '立即升级 ',
+  'error.title': '提交失败 ',
+  'error.description': '请核对并修改以下信息后，再重新提交。 ',
+  '403.content': '抱歉，您无权访问此页面。',
+  '403.Back': '回家',
+  '404.content': '抱歉，您访问的页面不存在。',
+  '500.content': '抱歉，服务器报告错误。'
 }
 
 export default {
