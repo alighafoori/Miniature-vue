@@ -491,7 +491,24 @@ const locale = {
   'advancedprofile.Create Order': 'Create Order',
   'advancedprofile.Sweaty teeth': 'Sweaty teeth',
   'advancedprofile.success': 'success',
-  'advancedprofile.turn down': 'turn down'
+  'advancedprofile.turn down': 'turn down',
+  'success.Back to list': 'Back to list',
+  'success.View project': 'View project',
+  'success.print': 'print',
+  'success.project name': 'project name',
+  'success.ProjectID': 'Project ID',
+  'success.principal': 'principal',
+  'success.Who is Qu Lili?': 'Who is Qu Lili?',
+  'success.Effective': 'Effective time',
+  'success.Create project': 'Create project',
+  'success.Qu Lili': 'Qu Lili',
+  'success.Departmental': 'Departmental Preliminary Examination',
+  'success.Zhou Maomao': 'Zhou Maomao',
+  'success.Hurry': 'Hurry',
+  'success.Financial review': 'Financial review',
+  'success.carry out': 'carry out',
+  'success.title': 'Submit successfully',
+  'success.description': 'Submission results page is used to feedback the processing results of a series of operation tasks. If it is only a simple operation, use Message global prompt feedback. This text area can display simple supplementary instructions. If there is a similar need to display "documents", the gray area below can present more complex content. '
 }
 
 export default {

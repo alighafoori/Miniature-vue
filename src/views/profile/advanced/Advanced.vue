@@ -157,24 +157,34 @@ export default {
         { key: 'rule', tab: 'advancedprofile.rule' }
       ],
       tabActiveKey: 'detail',
-
-      operationTabList: [
-        {
-          key: '1',
-          tab: i18nRender('advancedprofile.Operation log one')
-        },
-        {
-          key: '2',
-          tab: i18nRender('advancedprofile.Operation log two')
-        },
-        {
-          key: '3',
-          tab: i18nRender('advancedprofile.Operation log three')
-        }
-      ],
-      operationActiveTabKey: '1',
-
-      operationColumns: [
+      operationActiveTabKey: '1'
+    }
+  },
+  filters: {
+    statusFilter (status) {
+      const statusMap = {
+        'agree': i18nRender('advancedprofile.success'),
+        'reject': i18nRender('advancedprofile.turn down')
+      }
+      return statusMap[status]
+    },
+    statusTypeFilter (type) {
+      const statusTypeMap = {
+        'agree': 'success',
+        'reject': 'error'
+      }
+      return statusTypeMap[type]
+    }
+  },
+  methods: {
+    handleTabChange (key) {
+      console.log('')
+      this.tabActiveKey = key
+    }
+  },
+  computed: {
+     operationColumns () {
+       return [
         {
           title: i18nRender('advancedprofile.Operation type'),
           dataIndex: 'type',
@@ -201,8 +211,26 @@ export default {
           dataIndex: 'remark',
           key: 'remark'
         }
-      ],
-      operation1: [
+      ]
+    },
+    operationTabList () {
+      return [
+        {
+          key: '1',
+          tab: i18nRender('advancedprofile.Operation log one')
+        },
+        {
+          key: '2',
+          tab: i18nRender('advancedprofile.Operation log two')
+        },
+        {
+          key: '3',
+          tab: i18nRender('advancedprofile.Operation log three')
+        }
+      ]
+    },
+      operation1 () {
+        return [
         {
           key: 'op1',
           type: i18nRender('advancedprofile.Ordering relationship effective'),
@@ -243,8 +271,10 @@ export default {
           updatedAt: '2017-10-03  19:23:12',
           remark: '-'
         }
-      ],
-      operation2: [
+      ]
+    },
+    operation2 () {
+      return [
         {
           key: 'op2',
           type: i18nRender('advancedprofile.Financial review'),
@@ -269,8 +299,10 @@ export default {
           updatedAt: '2017-10-03  19:23:12',
           remark: i18nRender('advancedprofile.Great')
         }
-      ],
-      operation3: [
+      ]
+    },
+      operation3 () {
+        return [
         {
           key: 'op2',
           type: i18nRender('advancedprofile.Financial review'),
@@ -288,28 +320,6 @@ export default {
           remark: '-'
         }
       ]
-    }
-  },
-  filters: {
-    statusFilter (status) {
-      const statusMap = {
-        'agree': i18nRender('advancedprofile.success'),
-        'reject': i18nRender('advancedprofile.turn down')
-      }
-      return statusMap[status]
-    },
-    statusTypeFilter (type) {
-      const statusTypeMap = {
-        'agree': 'success',
-        'reject': 'error'
-      }
-      return statusTypeMap[type]
-    }
-  },
-  methods: {
-    handleTabChange (key) {
-      console.log('')
-      this.tabActiveKey = key
     }
   }
 }

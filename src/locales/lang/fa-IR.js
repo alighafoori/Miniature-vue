@@ -495,7 +495,24 @@ const locale = {
   'advancedprofile.Create Order': 'ایجاد سفارش',
   'advancedprofile.Sweaty teeth': 'دندانهای عرق دار',
   'advancedprofile.success': 'موفقیت',
-  'advancedprofile.turn down': 'رد کردن'
+  'advancedprofile.turn down': 'رد کردن',
+  'success.Back to list': 'بازگشت به لیست',
+  'success.View project': 'مشاهده پروژه',
+  'success.print': 'چاپ',
+  'success.project name': 'نام پروژه',
+  'success.ProjectID': 'شماره پروژه',
+  'success.principal': 'مدیر',
+  'success.Who is Qu Lili?': 'کو لیلی کیست؟',
+  'success.Effective': 'زمان موثر',
+  'success.Create project': 'ایجاد پروژه',
+  'success.Qu Lili': 'کو لیلی',
+  'success.Departmental': 'امتحان مقدماتی دپارتمان',
+  'success.Zhou Maomao': 'ژو مائوئو',
+  'success.Hurry': 'عجله',
+  'success.Financial review': 'بررسی مالی',
+  'success.carry out': 'انجام دادن',
+  'success.title': 'با موفقیت انجام شد',
+  'success.description': 'صفحه نتایج ارسال برای بازخورد نتایج پردازش یک سری از کارهای عملیاتی استفاده می شود. اگر فقط یک عمل ساده است ، از بازخورد سریع جهانی پیام استفاده کنید. این قسمت متن می تواند دستورالعمل های تکمیلی ساده را نشان دهد. در صورت نیاز به نمایش "اسناد" ، منطقه خاکستری زیر می تواند محتوای پیچیده تری را ارائه دهد.'
 }
 
 export default {

@@ -491,7 +491,24 @@ const locale = {
   'advancedprofile.Create Order': '创建订单',
   'advancedprofile.Sweaty teeth': '汗牙牙',
   'advancedprofile.success': '成功',
-  'advancedprofile.turn down': '驳回'
+  'advancedprofile.turn down': '驳回',
+  'success.Back to list': '返回列表',
+  'success.View project': '查看项目',
+  'success.print': '打印',
+  'success.project name': '项目名称',
+  'success.ProjectID': '项目 ID',
+  'success.principal': '负责人',
+  'success.Who is Qu Lili?': '曲丽丽是谁？',
+  'success.Effective': '生效时间',
+  'success.Create project': '创建项目',
+  'success.Qu Lili': '曲丽丽',
+  'success.Departmental': '部门初审',
+  'success.Zhou Maomao': '周毛毛',
+  'success.Hurry': '催一下',
+  'success.Financial review': '财务复核',
+  'success.carry out': '完成',
+  'success.title': '提交成功',
+  'success.description': '提交结果页用于反馈一系列操作任务的处理结果， 如果仅是简单操作，使用 Message 全局提示反馈即可。 本文字区域可以展示简单的补充说明，如果有类似展示 “单据”的需求，下面这个灰色区域可以呈现比较复杂的内容。'
 }
 
 export default {
