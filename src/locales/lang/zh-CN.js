@@ -553,6 +553,7 @@ const locale = {
   'accountsetting.submit': '提交',
   'accountsetting.save': '保存',
   'accountsetting.bio': '生化',
+  'accountsetting.bio.placeholder': '你不是一个人。',
   'accountsetting.basicsettings': '基本设置',
   'accountsetting.SecuritySettings': '安全设置',
   'accountsetting.personalise': '个性化',
@@ -591,7 +592,12 @@ const locale = {
   'settingconfig.Daybreak': '拂晓蓝（默认）',
   'settingconfig.Geek Blue': '极客蓝',
   'settingconfig.Sauce purple': '酱紫',
-  'settingconfig.loading': '正在切换主题！'
+  'settingconfig.loading': '正在切换主题！',
+  'avatarmodal.Modify avatar': '修改头像',
+  'avatarmodal.Select Image': '选择图片',
+  'avatarmodal.save': '保存',
+  'avatarmodal.finish.success': '上传成功',
+  'avatarmodal.ok.success': '上传头像成功'
 }
 
 export default {

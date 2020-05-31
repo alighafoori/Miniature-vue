@@ -1,7 +1,7 @@
 <template>
 
   <a-modal
-    title="修改头像"
+    :title="$t('avatarmodal.Modify avatar')"
     :visible="visible"
     :maskClosable="false"
     :confirmLoading="confirmLoading"
@@ -32,7 +32,7 @@
     <a-row>
       <a-col :lg="2" :md="2">
         <a-upload name="file" :beforeUpload="beforeUpload" :showUploadList="false">
-          <a-button icon="upload">选择图片</a-button>
+          <a-button icon="upload">{{ $t('avatarmodal.Select Image') }}</a-button>
         </a-upload>
       </a-col>
       <a-col :lg="{span: 1, offset: 2}" :md="2">
@@ -48,13 +48,14 @@
         <a-button icon="redo" @click="rotateRight"/>
       </a-col>
       <a-col :lg="{span: 2, offset: 6}" :md="2">
-        <a-button type="primary" @click="finish('blob')">保存</a-button>
+        <a-button type="primary" @click="finish('blob')">{{ $t('avatarmodal.save') }}</a-button>
       </a-col>
     </a-row>
   </a-modal>
 
 </template>
 <script>
+import { i18nRender } from '@/locales'
 export default {
   data () {
     return {
@@ -78,7 +79,7 @@ export default {
     edit (id) {
       this.visible = true
       this.id = id
-      /* 获取原始头像 */
+      /* Get original avatar */
     },
     close () {
       this.id = null
@@ -99,24 +100,24 @@ export default {
     },
     beforeUpload (file) {
       const reader = new FileReader()
-      // 把Array Buffer转化为blob 如果是base64不需要
-      // 转化为base64
+       // Convert Array Buffer to blob If base64 is not needed
+       // converted to base64
       reader.readAsDataURL(file)
       reader.onload = () => {
         this.options.img = reader.result
       }
-      // 转化为blob
+      // Convert to blob
       // reader.readAsArrayBuffer(file)
 
       return false
     },
 
-    // 上传图片（点击上传按钮）
+    // Upload pictures (click the upload button)
     finish (type) {
       console.log('finish')
       const _this = this
       const formData = new FormData()
-      // 输出
+      // Output
       if (type === 'blob') {
         this.$refs.cropper.getCropBlob((data) => {
           const img = window.URL.createObjectURL(data)
@@ -129,12 +130,12 @@ export default {
               // var res = response.data
               // if (response.status === 'done') {
               //   _this.imgFile = ''
-              //   _this.headImg = res.realPathList[0] // 完整路径
-              //   _this.uploadImgRelaPath = res.relaPathList[0] // 非完整路径
+              //   _this.headImg = res.realPathList[0] // Complete route
+              //   _this.uploadImgRelaPath = res.relaPathList[0] // Incomplete path
               //   _this.$message.success('上传成功')
               //   this.visible = false
               // }
-              _this.$message.success('上传成功')
+              _this.$message.success(i18nRender('avatarmodal.finish.success'))
               _this.$emit('ok', response.url)
               _this.visible = false
             })
@@ -153,7 +154,7 @@ export default {
       setTimeout(() => {
         vm.confirmLoading = false
         vm.close()
-        vm.$message.success('上传头像成功')
+        vm.$message.success(i18nRender('avatarmodal.ok.success'))
       }, 2000)
     },
 

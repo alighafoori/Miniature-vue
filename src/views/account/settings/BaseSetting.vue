@@ -12,7 +12,7 @@
           <a-form-item
             :label="$t('accountsetting.bio')"
           >
-            <a-textarea rows="4" placeholder="You are not alone."/>
+            <a-textarea rows="4" :placeholder="$t('accountsetting.bio.placeholder')"/>
           </a-form-item>
 
           <a-form-item

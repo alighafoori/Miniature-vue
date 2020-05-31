@@ -557,6 +557,7 @@ const locale = {
   'accountsetting.submit': 'ارسال',
   'accountsetting.save': 'صرفه جویی',
   'accountsetting.bio': 'درباره من',
+  'accountsetting.bio.placeholder': 'تو تنها نیستی.',
   'accountsetting.basicsettings': 'تنظیمات پایه',
   'accountsetting.SecuritySettings': 'تنظیمات امنیتی',
   'accountsetting.personalise': 'شخصی سازی',
@@ -595,7 +596,12 @@ const locale = {
   'settingconfig.Daybreak': 'Daybreak Blue (پیش فرض)',
   'settingconfig.Geek Blue': 'گیک آبی',
   'settingconfig.Sauce purple': 'سس بنفش',
-  'settingconfig.loading': 'تغییر موضوع!'
+  'settingconfig.loading': 'تغییر موضوع!',
+  'avatarmodal.Modify avatar': 'نماد را تغییر دهید',
+  'avatarmodal.Select Image': 'تصویر را انتخاب کنید',
+  'avatarmodal.save': 'ذخیره',
+  'avatarmodal.finish.success': 'با موفقیت بارگذاری شد',
+  'avatarmodal.ok.success': 'بارگیری موفق آواتار'
 }
 
 export default {

@@ -553,6 +553,7 @@ const locale = {
   'accountsetting.submit': 'submit',
   'accountsetting.save': 'save',
   'accountsetting.bio': 'bio',
+  'accountsetting.bio.placeholder': 'You are not alone.',
   'accountsetting.basicsettings': 'basic settings',
   'accountsetting.SecuritySettings': 'Security Settings',
   'accountsetting.personalise': 'personalise',
@@ -591,7 +592,12 @@ const locale = {
   'settingconfig.Daybreak': 'Daybreak Blue (default)',
   'settingconfig.Geek Blue': 'Geek Blue',
   'settingconfig.Sauce purple': 'Sauce purple',
-  'settingconfig.loading': 'Switching theme!'
+  'settingconfig.loading': 'Switching theme!',
+  'avatarmodal.Modify avatar': 'Modify avatar',
+  'avatarmodal.Select Image': 'Select Image',
+  'avatarmodal.save': 'save',
+  'avatarmodal.finish.success': 'Uploaded successfully',
+  'avatarmodal.ok.success': 'Successful upload of avatar'
 }
 
 export default {
