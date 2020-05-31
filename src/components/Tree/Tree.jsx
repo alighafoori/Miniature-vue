@@ -1,4 +1,5 @@
 import { Menu, Icon, Input } from 'ant-design-vue'
+import { i18nRender } from '@/locales'
 
 const { Item, ItemGroup, SubMenu } = Menu
 const { Search } = Input
@@ -38,7 +39,7 @@ export default {
     renderSearch () {
       return (
         <Search
-          placeholder="input search text"
+          placeholder={i18nRender('tree.input.placeholder')}
           style="width: 100%; margin-bottom: 1rem"
         />
       )
@@ -70,9 +71,9 @@ export default {
             <a-dropdown>
               <a class="btn"><a-icon type="ellipsis" /></a>
               <a-menu slot="overlay">
-                <a-menu-item key="1">新增</a-menu-item>
-                <a-menu-item key="2">合并</a-menu-item>
-                <a-menu-item key="3">移除</a-menu-item>
+                <a-menu-item key="1">{ i18nRender('tree.Add') }</a-menu-item>
+                <a-menu-item key="2">{ i18nRender('tree.merge') }</a-menu-item>
+                <a-menu-item key="3">{ i18nRender('tree.Remove') }</a-menu-item>
               </a-menu>
             </a-dropdown>
           </template>

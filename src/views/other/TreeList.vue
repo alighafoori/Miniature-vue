@@ -21,22 +21,22 @@
         >
           <span slot="action" slot-scope="text, record">
             <template v-if="$auth('table.update')">
-              <a @click="handleEdit(record)">编辑</a>
+              <a @click="handleEdit(record)">{{ $t('treelist.edit') }}</a>
               <a-divider type="vertical" />
             </template>
             <a-dropdown>
               <a class="ant-dropdown-link">
-                更多 <a-icon type="down" />
+                {{ $t('treelist.More ') }} <a-icon type="down" />
               </a>
               <a-menu slot="overlay">
                 <a-menu-item>
-                  <a href="javascript:;">详情</a>
+                  <a href="javascript:;">{{ $t('treelist.Details') }}</a>
                 </a-menu-item>
                 <a-menu-item v-if="$auth('table.disable')">
-                  <a href="javascript:;">禁用</a>
+                  <a href="javascript:;">{{ $t('treelist.Disable') }}</a>
                 </a-menu-item>
                 <a-menu-item v-if="$auth('table.delete')">
-                  <a href="javascript:;">删除</a>
+                  <a href="javascript:;">{{ $t('treelist.delete') }}</a>
                 </a-menu-item>
               </a-menu>
             </a-dropdown>
@@ -54,6 +54,7 @@ import STree from '@/components/Tree/Tree'
 import { STable } from '@/components'
 import OrgModal from './modules/OrgModal'
 import { getOrgTree, getServiceList } from '@/api/manage'
+import { i18nRender } from '@/locales'
 
 export default {
   name: 'TreeList',
@@ -66,43 +67,8 @@ export default {
     return {
       openKeys: ['key-01'],
 
-      // 查询参数
       queryParam: {},
-      // 表头
-      columns: [
-        {
-          title: '#',
-          dataIndex: 'no'
-        },
-        {
-          title: '成员名称',
-          dataIndex: 'description'
-        },
-        {
-          title: '登录次数',
-          dataIndex: 'callNo',
-          sorter: true,
-          needTotal: true,
-          customRender: (text) => text + ' 次'
-        },
-        {
-          title: '状态',
-          dataIndex: 'status',
-          needTotal: true
-        },
-        {
-          title: '更新时间',
-          dataIndex: 'updatedAt',
-          sorter: true
-        },
-        {
-          title: '操作',
-          dataIndex: 'action',
-          width: '150px',
-          scopedSlots: { customRender: 'action' }
-        }
-      ],
-      // 加载数据方法 必须为 Promise 对象
+      // The load data method must be a Promise object
       loadData: parameter => {
         return getServiceList(Object.assign(parameter, this.queryParam))
           .then(res => {
@@ -118,6 +84,11 @@ export default {
     getOrgTree().then(res => {
       this.orgTree = res.result
     })
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      getOrgTree().then(res => {
+      this.orgTree = res.result
+    })
+    })
   },
   methods: {
     handleClick (e) {
@@ -129,7 +100,7 @@ export default {
     },
     handleAdd (item) {
       console.log('add button, item', item)
-      this.$message.info(`提示：你点了 ${item.key} - ${item.title} `)
+      this.$message.info(`${i18nRender('treelist.add.message')} ${item.key} - ${item.title} `)
       this.$refs.modal.add(item.key)
     },
     handleTitleClick (item) {
@@ -148,6 +119,43 @@ export default {
     onSelectChange (selectedRowKeys, selectedRows) {
       this.selectedRowKeys = selectedRowKeys
       this.selectedRows = selectedRows
+    }
+  },
+  computed: {
+      columns () {
+        return [
+        {
+          title: '#',
+          dataIndex: 'no'
+        },
+        {
+          title: i18nRender('treelist.column.Member name'),
+          dataIndex: 'description'
+        },
+        {
+          title: i18nRender('treelist.column.Logins'),
+          dataIndex: 'callNo',
+          sorter: true,
+          needTotal: true,
+          customRender: (text) => text + i18nRender('treelist.customrender')
+        },
+        {
+          title: i18nRender('treelist.column.status'),
+          dataIndex: 'status',
+          needTotal: true
+        },
+        {
+          title: i18nRender('treelist.column.Update time'),
+          dataIndex: 'updatedAt',
+          sorter: true
+        },
+        {
+          title: i18nRender('treelist.column.operating'),
+          dataIndex: 'action',
+          width: '150px',
+          scopedSlots: { customRender: 'action' }
+        }
+      ]
     }
   }
 }

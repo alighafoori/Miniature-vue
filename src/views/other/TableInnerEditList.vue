@@ -74,7 +74,7 @@
         </a-button>
       </a-dropdown>
     </div>
-
+    <!-- v-if="col.scopedSlots" -->
     <s-table
       ref="table"
       size="default"
@@ -83,7 +83,7 @@
       :alert="{ show: true, clear: true }"
       :rowSelection="{ selectedRowKeys: this.selectedRowKeys, onChange: this.onSelectChange }"
     >
-      <template v-for="(col, index) in columns" v-if="col.scopedSlots" :slot="col.dataIndex" slot-scope="text, record">
+      <template v-for="(col, index) in columns" :slot="col.dataIndex" slot-scope="text, record">
         <div :key="index">
           <a-input
             v-if="record.editable"
@@ -117,6 +117,7 @@
 
 <script>
 import { STable } from '@/components'
+import { currentLang } from '@/locales'
 
 export default {
   name: 'TableList',
@@ -173,7 +174,8 @@ export default {
       ],
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
-        return this.$http.get('/service', {
+        const url = `/${currentLang.isoCode}/service`
+        return this.$http.get(url, {
           params: Object.assign(parameter, this.queryParam)
         }).then(res => {
           return res.result

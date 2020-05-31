@@ -91,17 +91,17 @@ const faOrgTree = () => {
       'group': true,
       children: [{
         'key': 'key-01-01-01',
-        'title': 'JAVA',
+        'title': 'جاوا',
         'icon': null
       },
       {
         'key': 'key-01-01-02',
-        'title': 'PHP',
+        'title': 'پی‌اچ‌پی',
         'icon': null
       },
       {
         'key': 'key-01-01-03',
-        'title': 'Golang',
+        'title': 'گو',
         'icon': null
       }
       ]
@@ -112,17 +112,17 @@ const faOrgTree = () => {
       'group': true,
       children: [{
         'key': 'key-01-02-01',
-        'title': 'React',
+        'title': 'ری‌اکت',
         'icon': null
       },
       {
         'key': 'key-01-02-02',
-        'title': 'Vue',
+        'title': 'ویو',
         'icon': null
       },
       {
         'key': 'key-01-02-03',
-        'title': 'Angular',
+        'title': 'انگولار',
         'icon': null
       }
       ]

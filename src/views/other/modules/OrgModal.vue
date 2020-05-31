@@ -1,6 +1,6 @@
 <template>
   <a-modal
-    title="操作"
+    :title="$t('orgmodal.operating')"
     :width="600"
     :visible="visible"
     :confirmLoading="confirmLoading"
@@ -11,13 +11,13 @@
       <a-form :form="form">
 
         <a-form-item
-          label="父级ID"
+          :label="$t('orgmodal.Parent ID')"
         >
           <a-input v-decorator="['parentId', {}]" disabled />
         </a-form-item>
 
         <a-form-item
-          label="机构名称"
+          :label="$t('orgmodal.institution name')"
         >
           <a-input v-decorator="['orgName', {}]" />
         </a-form-item>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { i18nRender } from '@/locales'
 export default {
   name: 'OrgModal',
   data () {
@@ -68,19 +69,19 @@ export default {
     },
     handleOk () {
       const _this = this
-      // 触发表单验证
+      // Trigger form validation
       this.form.validateFields((err, values) => {
-        // 验证表单没错误
+        // The verification form is correct
         if (!err) {
           console.log('form values', values)
 
           _this.confirmLoading = true
-          // 模拟后端请求 2000 毫秒延迟
+          // Simulate back-end requests with 2000 ms delay
           new Promise((resolve) => {
             setTimeout(() => resolve(), 2000)
           }).then(() => {
             // Do something
-            _this.$message.success('保存成功')
+            _this.$message.success(i18nRender('orgmodal.success'))
             _this.$emit('ok')
           }).catch(() => {
             // Do something

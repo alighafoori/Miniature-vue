@@ -607,7 +607,28 @@ const locale = {
   'icons.Editorial icon': 'Editorial icon',
   'icons.Data icon': 'Data icon',
   'icons.Website universal icons': 'Website universal icons',
-  'icons.Brand and logo': 'Brand and logo'
+  'icons.Brand and logo': 'Brand and logo',
+  'treelist.column.Member name': 'Member name',
+  'treelist.column.Logins': 'Logins',
+  'treelist.column.Times': 'Times',
+  'treelist.column.status': 'status',
+  'treelist.column.Update time': 'Update time',
+  'treelist.column.operating': 'operating',
+  'treelist.add.message': 'Tip: you ordered',
+  'treelist.edit': 'edit',
+  'treelist.More ': 'More ',
+  'treelist.Details': 'Details',
+  'treelist.Disable': 'Disable',
+  'treelist.delete': 'delete',
+  'treelist.customrender': 'Times',
+  'tree.Add': 'Add',
+  'tree.merge': 'merge',
+  'tree.Remove': 'Remove',
+  'tree.input.placeholder': 'input search text',
+  'orgmodal.success': 'Saved successfully',
+  'orgmodal.operating': 'operating',
+  'orgmodal.Parent ID': 'Parent ID',
+  'orgmodal.institution name': 'institution name'
 }
 
 export default {

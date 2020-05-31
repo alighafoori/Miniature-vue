@@ -607,7 +607,28 @@ const locale = {
   'icons.Editorial icon': '编辑类图标',
   'icons.Data icon': '数据类图标',
   'icons.Website universal icons': '网站通用图标',
-  'icons.Brand and logo': '品牌和标识'
+  'icons.Brand and logo': '品牌和标识',
+  'treelist.column.Member name': '成员名称',
+  'treelist.column.Logins': '登录次数',
+  'treelist.column.Times': '次',
+  'treelist.column.status': '状态',
+  'treelist.column.Update time': '更新时间',
+  'treelist.column.operating': '操作',
+  'treelist.add.message': '提示：你点了',
+  'treelist.edit': '编辑',
+  'treelist.More ': '更多 ',
+  'treelist.Details': '详情',
+  'treelist.Disable': '禁用',
+  'treelist.delete': '删除',
+  'treelist.customrender': '次',
+  'tree.Add': '新增',
+  'tree.merge': '合并',
+  'tree.Remove': '移除',
+  'tree.input.placeholder': '输入搜索文字',
+  'orgmodal.success': '保存成功',
+  'orgmodal.operating': '操作',
+  'orgmodal.Parent ID': '父级ID',
+  'orgmodal.institution name': '机构名称'
 }
 
 export default {

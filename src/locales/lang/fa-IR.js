@@ -611,7 +611,28 @@ const locale = {
   'icons.Editorial icon': 'نماد تحریریه',
   'icons.Data icon': 'نماد داده',
   'icons.Website universal icons': 'نمادهای جهانی وب سایت',
-  'icons.Brand and logo': 'مارک و آرم'
+  'icons.Brand and logo': 'مارک و آرم',
+  'treelist.column.Member name': 'نام عضو',
+  'treelist.column.Logins': 'ورود به سیستم',
+  'treelist.column.Times': 'بار',
+  'treelist.column.status': 'وضعیت',
+  'treelist.column.Update time': 'زمان بروزرسانی کنید',
+  'treelist.column.operating': 'عملیاتی',
+  'treelist.add.message': 'نکته: شما سفارش دادید',
+  'treelist.edit': 'ویرایش کنید',
+  'treelist.More ': 'بیشتر ',
+  'treelist.Details': 'جزئیات',
+  'treelist.Disable': 'غیرفعال کردن',
+  'treelist.delete': 'حذف',
+  'treelist.customrender': 'بار',
+  'tree.Add': 'اضافه کردن',
+  'tree.merge': 'ادغام',
+  'tree.Remove': 'برداشتن',
+  'tree.input.placeholder': 'متن جستجوی ورودی',
+  'orgmodal.success': 'با موفقیت ذخیره شد',
+  'orgmodal.operating': 'عملیاتی',
+  'orgmodal.Parent ID': 'شناسه اصلی',
+  'orgmodal.institution name': 'نام موسسه'
 }
 
 export default {
