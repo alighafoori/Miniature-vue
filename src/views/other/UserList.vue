@@ -4,23 +4,23 @@
       <a-form layout="inline">
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
-            <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+            <a-form-item :label="$t('userlist.Role ID')">
+              <a-input :placeholder="$t('userlist.please enter')"/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
-            <a-form-item label="状态">
-              <a-select placeholder="请选择" default-value="0">
-                <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
-                <a-select-option value="2">运行中</a-select-option>
+            <a-form-item :label="$t('userlist.status')">
+              <a-select :placeholder="$t('userlist.please choose')" default-value="0">
+                <a-select-option value="0">{{ $t('userlist.All') }}</a-select-option>
+                <a-select-option value="1">{{ $t('userlist.shut down') }}</a-select-option>
+                <a-select-option value="2">{{ $t('userlist.Running') }}</a-select-option>
               </a-select>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
             <span class="table-page-search-submitButtons">
-              <a-button type="primary">查询</a-button>
-              <a-button style="margin-left: 8px">重置</a-button>
+              <a-button type="primary">{{ $t('userlist.Inquire') }}</a-button>
+              <a-button style="margin-left: 8px">{{ $t('userlist.Reset') }}</a-button>
             </span>
           </a-col>
         </a-row>
@@ -56,21 +56,21 @@
       <a-tag color="blue" slot="status" slot-scope="text">{{ text | statusFilter }}</a-tag>
       <span slot="createTime" slot-scope="text">{{ text | moment }}</span>
       <span slot="action" slot-scope="text, record">
-        <a @click="handleEdit(record)">编辑</a>
+        <a @click="handleEdit(record)">{{ $t('userlist.edit') }}</a>
         <a-divider type="vertical" />
         <a-dropdown>
           <a class="ant-dropdown-link">
-            更多 <a-icon type="down" />
+            {{ $t('userlist.More ') }} <a-icon type="down" />
           </a>
           <a-menu slot="overlay">
             <a-menu-item>
-              <a href="javascript:;">详情</a>
+              <a href="javascript:;">{{ $t('userlist.Details') }}</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">禁用</a>
+              <a href="javascript:;">{{ $t('userlist.Disable') }}</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;">{{ $t('userlist.delete') }}</a>
             </a-menu-item>
           </a-menu>
         </a-dropdown>
@@ -78,7 +78,7 @@
     </s-table>
 
     <a-modal
-      title="操作"
+      :title="$t('userlist.operating')"
       style="top: 20px;"
       :width="800"
       v-model="visible"
@@ -89,12 +89,12 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="唯一识别码"
+          :label="$t('userlist.Unique identifier')"
           hasFeedback
           validateStatus="success"
         >
           <a-input
-            placeholder="唯一识别码"
+            :placeholder="$t('userlist.Unique identifier')"
             disabled="disabled"
             v-decorator="['id']"
           />
@@ -103,12 +103,12 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="角色名称"
+          :label="$t('userlist.Role Name')"
           hasFeedback
           validateStatus="success"
         >
           <a-input
-            placeholder="起一个名字"
+            :placeholder="$t('userlist.Give a name')"
             v-decorator="['name']"
           />
         </a-form-item>
@@ -116,20 +116,20 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="状态"
+          :label="$t('userlist.status')"
           hasFeedback
           validateStatus="warning"
         >
           <a-select v-decorator="['status', { initialValue: 1 }]">
-            <a-select-option :value="1">正常</a-select-option>
-            <a-select-option :value="2">禁用</a-select-option>
+            <a-select-option :value="1">{{ $t('userlist.normal') }}</a-select-option>
+            <a-select-option :value="2">{{ $t('userlist.Disable') }}</a-select-option>
           </a-select>
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="描述"
+          :label="$t('userlist.description')"
           hasFeedback
         >
           <a-textarea
@@ -140,7 +140,7 @@
           />
         </a-form-item>
 
-        <a-divider>拥有权限</a-divider>
+        <a-divider>{{ $t('userlist.Have permissions') }}</a-divider>
         <template v-for="permission in permissions">
           <a-form-item
             class="permission-group"
@@ -150,7 +150,7 @@
             :key="permission.permissionId"
             :label="permission.permissionName"
           >
-            <a-checkbox>全选</a-checkbox>
+            <a-checkbox>{{ $t('userlist.select all') }}</a-checkbox>
             <a-checkbox-group v-decorator="[`permissions.${permission.permissionId}`]" :options="permission.actionsOptions"/>
           </a-form-item>
         </template>
@@ -166,39 +166,12 @@ import pick from 'lodash.pick'
 import { STable } from '@/components'
 import { getRoleList, getServiceList } from '@/api/manage'
 import { PERMISSION_ENUM } from '@/utils/helper/permission'
+import { i18nRender } from '@/locales'
 
 const STATUS = {
-  1: '启用',
-  2: '禁用'
+  1: 'userlist.status.Enable',
+  2: 'userlist.status.Disable'
 }
-
-const columns = [
-  {
-    title: '唯一识别码',
-    dataIndex: 'id'
-  },
-  {
-    title: '角色名称',
-    dataIndex: 'name'
-  },
-  {
-    title: '状态',
-    dataIndex: 'status',
-    scopedSlots: { customRender: 'status' }
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createTime',
-    scopedSlots: { customRender: 'createTime' },
-    sorter: true
-  }, {
-    title: '操作',
-    width: '150px',
-    dataIndex: 'action',
-    scopedSlots: { customRender: 'action' }
-  }
-]
-
 export default {
   name: 'TableList',
   components: {
@@ -206,8 +179,6 @@ export default {
   },
   data () {
     return {
-      description: '列表使用场景：后台管理中的权限管理以及角色管理，可用于基于 RBAC 设计的角色权限控制，颗粒度细到每一个操作类型。',
-
       visible: false,
       labelCol: {
         xs: { span: 24 },
@@ -224,8 +195,6 @@ export default {
       advanced: false,
       // 查询参数
       queryParam: {},
-      // 表头
-      columns,
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
         return getRoleList(parameter)
@@ -244,11 +213,11 @@ export default {
   },
   filters: {
     statusFilter (key) {
-      return STATUS[key]
+      return i18nRender(STATUS[key])
     },
     permissionFilter (key) {
       const permission = PERMISSION_ENUM[key]
-      return permission && permission.label
+      return permission && i18nRender(permission.label)
     }
   },
   created () {
@@ -259,6 +228,15 @@ export default {
     getRoleList().then(res => {
       console.log('getRoleList.call()', res)
     })
+    this.$store.watch(() => this.$store.getters.langObj, () => {
+      getServiceList().then(res => {
+      console.log('getServiceList.call()', res)
+    })
+
+    getRoleList().then(res => {
+      console.log('getRoleList.call()', res)
+    })
+     })
   },
   methods: {
     handleEdit (record) {
@@ -325,6 +303,37 @@ export default {
         })
       }
       */
+  },
+  computed: {
+    columns () {
+      return [
+  {
+    title: i18nRender('userlist.columns.Unique identifier'),
+    dataIndex: 'id'
+  },
+  {
+    title: i18nRender('userlist.columns.Role Name'),
+    dataIndex: 'name'
+  },
+  {
+    title: i18nRender('userlist.columns.status'),
+    dataIndex: 'status',
+    scopedSlots: { customRender: 'status' }
+  },
+  {
+    title: i18nRender('userlist.columns.Creation time'),
+    dataIndex: 'createTime',
+    scopedSlots: { customRender: 'createTime' },
+    sorter: true
+  }, {
+    title: i18nRender('userlist.columns.operating'),
+    width: '150px',
+    dataIndex: 'action',
+    scopedSlots: { customRender: 'action' }
+  }
+]
+    },
+    description () { return i18nRender('userlist.desciption') }
   }
 }
 </script>
