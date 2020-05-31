@@ -50,7 +50,7 @@ const faServerList = (options) => {
     result.push({
       key: tmpKey,
       id: tmpKey,
-      no: 'No ' + tmpKey,
+      no: 'شماره ' + tmpKey,
       description: 'توضیحات',
       callNo: Mock.mock('@integer(1, 999)'),
       status: Mock.mock('@integer(0, 3)'),

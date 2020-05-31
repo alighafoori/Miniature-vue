@@ -4,55 +4,55 @@
       <a-form layout="inline">
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
-            <a-form-item label="规则编号">
+            <a-form-item :label="$t('tableedit.Rule number')">
               <a-input placeholder=""/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
-            <a-form-item label="使用状态">
-              <a-select placeholder="请选择" default-value="0">
-                <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
-                <a-select-option value="2">运行中</a-select-option>
+            <a-form-item :label="$t('tableedit.status of use')">
+              <a-select :placeholder="$t('tableedit.please choose')" default-value="0">
+                <a-select-option value="0">{{ $t('tableedit.All') }}</a-select-option>
+                <a-select-option value="1">{{ $t('tableedit.shut down') }}</a-select-option>
+                <a-select-option value="2">{{ $t('tableedit.Running') }}</a-select-option>
               </a-select>
             </a-form-item>
           </a-col>
           <template v-if="advanced">
             <a-col :md="8" :sm="24">
-              <a-form-item label="调用次数">
+              <a-form-item :label="$t('tableedit.Calls')">
                 <a-input-number style="width: 100%"/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
-              <a-form-item label="更新日期">
-                <a-date-picker style="width: 100%" placeholder="请输入更新日期"/>
+              <a-form-item :label="$t('tableedit.Updated')">
+                <a-date-picker style="width: 100%" :placeholder="$t('tableedit.update date')"/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
-              <a-form-item label="使用状态">
-                <a-select placeholder="请选择" default-value="0">
-                  <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
-                  <a-select-option value="2">运行中</a-select-option>
+              <a-form-item :label="$t('tableedit.status of use')">
+                <a-select :placeholder="$t('tableedit.please choose')" default-value="0">
+                  <a-select-option value="0">{{ $t('tableedit.All') }}</a-select-option>
+                  <a-select-option value="1">{{ $t('tableedit.shut down') }}</a-select-option>
+                  <a-select-option value="2">{{ $t('tableedit.Running') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
-              <a-form-item label="使用状态">
-                <a-select placeholder="请选择" default-value="0">
-                  <a-select-option value="0">全部</a-select-option>
-                  <a-select-option value="1">关闭</a-select-option>
-                  <a-select-option value="2">运行中</a-select-option>
+              <a-form-item :label="$t('tableedit.status of use')">
+                <a-select :placeholder="$t('tableedit.please choose')" default-value="0">
+                  <a-select-option value="0">{{ $t('tableedit.All') }}</a-select-option>
+                  <a-select-option value="1">{{ $t('tableedit.shut down') }}</a-select-option>
+                  <a-select-option value="2">{{ $t('tableedit.Running') }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
           </template>
           <a-col :md="!advanced && 8 || 24" :sm="24">
             <span class="table-page-search-submitButtons" :style="advanced && { float: 'right', overflow: 'hidden' } || {} ">
-              <a-button type="primary">查询</a-button>
-              <a-button style="margin-left: 8px">重置</a-button>
+              <a-button type="primary">{{ $t('tableedit.Inquire') }}</a-button>
+              <a-button style="margin-left: 8px">{{ $t('tableedit.Reset') }}</a-button>
               <a @click="toggleAdvanced" style="margin-left: 8px">
-                {{ advanced ? '收起' : '展开' }}
+                {{ advanced ? $t('tableedit.Collapse') : $t('tableedit.Unfold') }}
                 <a-icon :type="advanced ? 'up' : 'down'"/>
               </a>
             </span>
@@ -62,15 +62,15 @@
     </div>
 
     <div class="table-operator">
-      <a-button type="primary" icon="plus">新建</a-button>
+      <a-button type="primary" icon="plus">{{ $t('tableedit.New') }}</a-button>
       <a-dropdown v-if="selectedRowKeys.length > 0">
         <a-menu slot="overlay">
-          <a-menu-item key="1"><a-icon type="delete" />删除</a-menu-item>
+          <a-menu-item key="1"><a-icon type="delete" />{{ $t('tableedit.delete') }}</a-menu-item>
           <!-- lock | unlock -->
-          <a-menu-item key="2"><a-icon type="lock" />锁定</a-menu-item>
+          <a-menu-item key="2"><a-icon type="lock" />{{ $t('tableedit.locking') }}</a-menu-item>
         </a-menu>
         <a-button style="margin-left: 8px">
-          批量操作 <a-icon type="down" />
+          {{ $t('tableedit.Bulk operations') }} <a-icon type="down" />
         </a-button>
       </a-dropdown>
     </div>
@@ -97,16 +97,16 @@
       <template slot="action" slot-scope="text, record">
         <div class="editable-row-operations">
           <span v-if="record.editable">
-            <a @click="() => save(record)">保存</a>
+            <a @click="() => save(record)">{{ $t('tableedit.save') }}</a>
             <a-divider type="vertical" />
-            <a-popconfirm title="真的放弃编辑吗?" @confirm="() => cancel(record)">
-              <a>取消</a>
+            <a-popconfirm :title="$t('tableedit.give up')" @confirm="() => cancel(record)">
+              <a>{{ $t('tableedit.cancel') }}</a>
             </a-popconfirm>
           </span>
           <span v-else>
-            <a class="edit" @click="() => edit(record)">修改</a>
+            <a class="edit" @click="() => edit(record)">{{ $t('tableedit.modify') }}</a>
             <a-divider type="vertical" />
-            <a class="delete" @click="() => del(record)">删除</a>
+            <a class="delete" @click="() => del(record)">{{ $t('tableedit.delete') }}</a>
           </span>
         </div>
       </template>
@@ -117,7 +117,7 @@
 
 <script>
 import { STable } from '@/components'
-import { currentLang } from '@/locales'
+import { currentLang, i18nRender } from '@/locales'
 
 export default {
   name: 'TableList',
@@ -126,53 +126,11 @@ export default {
   },
   data () {
     return {
-      // 高级搜索 展开/关闭
+      // Advanced Search Expand / Close
       advanced: false,
-      // 查询参数
+      // Query parameters
       queryParam: {},
-      // 表头
-      columns: [
-        {
-          title: '规则编号',
-          dataIndex: 'no',
-          width: 90
-        },
-        {
-          title: '描述',
-          dataIndex: 'description',
-          scopedSlots: { customRender: 'description' }
-        },
-        {
-          title: '服务调用次数',
-          dataIndex: 'callNo',
-          width: '150px',
-          sorter: true,
-          needTotal: true,
-          scopedSlots: { customRender: 'callNo' }
-          // customRender: (text) => text + ' 次'
-        },
-        {
-          title: '状态',
-          dataIndex: 'status',
-          width: '100px',
-          needTotal: true,
-          scopedSlots: { customRender: 'status' }
-        },
-        {
-          title: '更新时间',
-          dataIndex: 'updatedAt',
-          width: '200px',
-          sorter: true,
-          scopedSlots: { customRender: 'updatedAt' }
-        },
-        {
-          table: '操作',
-          dataIndex: 'action',
-          width: '120px',
-          scopedSlots: { customRender: 'action' }
-        }
-      ],
-      // 加载数据方法 必须为 Promise 对象
+      // The load data method must be a Promise object
       loadData: parameter => {
         const url = `/${currentLang.isoCode}/service`
         return this.$http.get(url, {
@@ -199,14 +157,14 @@ export default {
     // eslint-disable-next-line
     del (row) {
       this.$confirm({
-        title: '警告',
-        content: `真的要删除 ${row.no} 吗?`,
-        okText: '删除',
+        title: i18nRender('tableedit.delconfirm.title'),
+        content: `${i18nRender('tableedit.delconfirm.content1')} ${row.no} ${i18nRender('tableedit.delconfirm.content2')}`,
+        okText: i18nRender('tableedit.delconfirm.ok'),
         okType: 'danger',
-        cancelText: '取消',
+        cancelText: i18nRender('tableedit.delconfirm.cancel'),
         onOk () {
           console.log('OK')
-          // 在这里调用删除接口
+          // Call the delete interface here
           return new Promise((resolve, reject) => {
             setTimeout(Math.random() > 0.5 ? resolve : reject, 1000)
           }).catch(() => console.log('Oops errors!'))
@@ -244,6 +202,51 @@ export default {
         })
       }
       */
+  },
+  computed: {
+    columns () {
+      return [
+        {
+          title: i18nRender('tableedit.Rule number'),
+          dataIndex: 'no',
+          width: 90
+        },
+        {
+          title: i18nRender('tableedit.description'),
+          dataIndex: 'description',
+          scopedSlots: { customRender: 'description' }
+        },
+        {
+          title: i18nRender('tableedit.Service calls'),
+          dataIndex: 'callNo',
+          width: '150px',
+          sorter: true,
+          needTotal: true,
+          scopedSlots: { customRender: 'callNo' }
+          // customRender: (text) => text + ' 次'
+        },
+        {
+          title: i18nRender('tableedit.status'),
+          dataIndex: 'status',
+          width: '100px',
+          needTotal: true,
+          scopedSlots: { customRender: 'status' }
+        },
+        {
+          title: i18nRender('tableedit.Update time'),
+          dataIndex: 'updatedAt',
+          width: '200px',
+          sorter: true,
+          scopedSlots: { customRender: 'updatedAt' }
+        },
+        {
+          table: i18nRender('tableedit.operating'),
+          dataIndex: 'action',
+          width: '120px',
+          scopedSlots: { customRender: 'action' }
+        }
+      ]
+    }
   }
 }
 </script>
