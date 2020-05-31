@@ -601,7 +601,17 @@ const locale = {
   'avatarmodal.Select Image': 'تصویر را انتخاب کنید',
   'avatarmodal.save': 'ذخیره',
   'avatarmodal.finish.success': 'با موفقیت بارگذاری شد',
-  'avatarmodal.ok.success': 'بارگیری موفق آواتار'
+  'avatarmodal.ok.success': 'بارگیری موفق آواتار',
+  'iconselector.function': 'عملکرد مدل IconSelector عملکرد v-model',
+  'iconselector.Change Icon-down': 'نماد پایین را تغییر دهید',
+  'iconselector.Change Icon-cloud-download': 'Icon-cloud-download را تغییر دهید',
+  'iconselector.info': 'نماد بررسی',
+  'icons.Directional icons': 'نمادهای جهت دار',
+  'icons.Suggestive icon': 'نماد پیشنهادی',
+  'icons.Editorial icon': 'نماد تحریریه',
+  'icons.Data icon': 'نماد داده',
+  'icons.Website universal icons': 'نمادهای جهانی وب سایت',
+  'icons.Brand and logo': 'مارک و آرم'
 }
 
 export default {

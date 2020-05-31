@@ -14,6 +14,7 @@
 
 <script>
 import icons from './icons'
+import { i18nRender } from '@/locales'
 
 export default {
   name: 'IconSelect',
@@ -30,8 +31,7 @@ export default {
   data () {
     return {
       selectedIcon: this.value || '',
-      currentTab: 'directional',
-      icons
+      currentTab: 'directional'
     }
   },
   watch: {
@@ -55,6 +55,11 @@ export default {
     },
     autoSwitchTab () {
       icons.some(item => item.icons.some(icon => icon === this.value) && (this.currentTab = item.key))
+    }
+  },
+  computed: {
+    icons () {
+      return icons.map(x => Object.assign({}, x, { 'title': i18nRender(x.title) }))
     }
   }
 }

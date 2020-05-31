@@ -597,7 +597,17 @@ const locale = {
   'avatarmodal.Select Image': 'Select Image',
   'avatarmodal.save': 'save',
   'avatarmodal.finish.success': 'Uploaded successfully',
-  'avatarmodal.ok.success': 'Successful upload of avatar'
+  'avatarmodal.ok.success': 'Successful upload of avatar',
+  'iconselector.function': 'Test IconSelector component v-model function',
+  'iconselector.Change Icon-down': 'Change Icon-down',
+  'iconselector.Change Icon-cloud-download': 'Change Icon-cloud-download',
+  'iconselector.info': 'Check icon',
+  'icons.Directional icons': 'Directional icons',
+  'icons.Suggestive icon': 'Suggestive icon',
+  'icons.Editorial icon': 'Editorial icon',
+  'icons.Data icon': 'Data icon',
+  'icons.Website universal icons': 'Website universal icons',
+  'icons.Brand and logo': 'Brand and logo'
 }
 
 export default {

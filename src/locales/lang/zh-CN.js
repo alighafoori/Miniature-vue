@@ -597,7 +597,17 @@ const locale = {
   'avatarmodal.Select Image': '选择图片',
   'avatarmodal.save': '保存',
   'avatarmodal.finish.success': '上传成功',
-  'avatarmodal.ok.success': '上传头像成功'
+  'avatarmodal.ok.success': '上传头像成功',
+  'iconselector.function': '测试 IconSelector 组件 v-model 功能',
+  'iconselector.Change Icon-down': '改变 Icon-down',
+  'iconselector.Change Icon-cloud-download': '改变 Icon-cloud-download',
+  'iconselector.info': '选中图标',
+  'icons.Directional icons': '方向性图标',
+  'icons.Suggestive icon': '提示建议性图标',
+  'icons.Editorial icon': '编辑类图标',
+  'icons.Data icon': '数据类图标',
+  'icons.Website universal icons': '网站通用图标',
+  'icons.Brand and logo': '品牌和标识'
 }
 
 export default {
