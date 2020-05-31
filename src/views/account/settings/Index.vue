@@ -12,34 +12,34 @@
           >
             <a-menu-item key="/account/settings/base">
               <router-link :to="{ name: 'BaseSettings' }">
-                基本设置
+                {{ $t('accountsetting.basicsettings') }}
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/security">
               <router-link :to="{ name: 'SecuritySettings' }">
-                安全设置
+                {{ $t('accountsetting.SecuritySettings') }}
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/custom">
               <router-link :to="{ name: 'CustomSettings' }">
-                个性化
+                {{ $t('accountsetting.personalise') }}
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/binding">
               <router-link :to="{ name: 'BindingSettings' }">
-                账户绑定
+                {{ $t('accountsetting.Accountbinding') }}
               </router-link>
             </a-menu-item>
             <a-menu-item key="/account/settings/notification">
               <router-link :to="{ name: 'NotificationSettings' }">
-                新消息通知
+                {{ $t('accountsetting.Newmessagenotification') }}
               </router-link>
             </a-menu-item>
           </a-menu>
         </div>
         <div class="account-settings-info-right">
           <div class="account-settings-info-title">
-            <span>{{ $route.meta.title }}</span>
+            <span>{{ $t($route.meta.title) }}</span>
           </div>
           <route-view></route-view>
         </div>
@@ -74,11 +74,11 @@ export default {
         outputType: 'jpeg',
         canScale: false,
         autoCrop: true,
-        // 只有自动截图开启 宽度高度才生效
+        // Only when the automatic screenshot is enabled, the width and height will take effect
         autoCropWidth: 180,
         autoCropHeight: 180,
         fixedBox: true,
-        // 开启宽度和高度比例
+        // Turn on width and height ratio
         fixed: true,
         fixedNumber: [1, 1]
       },

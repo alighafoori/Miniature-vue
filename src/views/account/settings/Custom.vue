@@ -3,26 +3,26 @@
     <a-list-item>
       <a-list-item-meta>
         <template v-slot:title>
-          <a>风格配色</a>
+          <a>{{ $t('accountsetting.custom.Stylecolor') }}</a>
         </template>
         <template v-slot:description>
           <span>
-            整体风格配色设置
+            {{ $t('accountsetting.custom.Overall') }}
           </span>
         </template>
       </a-list-item-meta>
       <template v-slot:actions>
-        <a-switch checkedChildren="暗色" unCheckedChildren="白色" :defaultChecked="navTheme === 'dark' && true || false" @change="onChange" />
+        <a-switch :checkedChildren="$t('accountsetting.custom.Dark')" :unCheckedChildren="$t('accountsetting.custom.white')" :defaultChecked="navTheme === 'dark' && true || false" @change="onChange" />
       </template>
     </a-list-item>
     <a-list-item>
       <a-list-item-meta>
         <template v-slot:title>
-          <a>主题色</a>
+          <a>{{ $t('accountsetting.custom.Themecolor') }}</a>
         </template>
         <template v-slot:description>
           <span>
-            页面风格配色： <a>{{ colorFilter(primaryColor) }}</a>
+            {{ $t('accountsetting.custom.Pagestyle') }} <a>{{ colorFilter(primaryColor) }}</a>
           </span>
         </template>
       </a-list-item-meta>
@@ -33,10 +33,11 @@
 import { colorList } from '@/components/SettingDrawer/settingConfig'
 import { baseMixin } from '@/store/app-mixin'
 import { NAV_THEME, TOGGLE_NAV_THEME } from '@/store/mutation-types'
+import { i18nRender } from '@/locales'
 
 const themeMap = {
-  'dark': '暗色',
-  'light': '白色'
+  'dark': 'accountsetting.custom.Dark',
+  'light': 'accountsetting.custom.white'
 }
 
 export default {
@@ -47,12 +48,12 @@ export default {
   },
   filters: {
     themeFilter (theme) {
-      return themeMap[theme]
+      return i18nRender(themeMap[theme])
     }
   },
   methods: {
     colorFilter (color) {
-      const c = colorList.find(o => o.color === color)
+      const c = colorList().find(o => o.color === color)
       return c && c.key
     },
 

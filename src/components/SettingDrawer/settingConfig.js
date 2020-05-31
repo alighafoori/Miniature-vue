@@ -1,37 +1,40 @@
 import message from 'ant-design-vue/es/message'
 // import defaultSettings from '../defaultSettings';
 import themeColor from './themeColor.js'
+import { i18nRender } from '@/locales'
 
 // let lessNodesAppended
-const colorList = [
+function colorList () {
+  return [
   {
-    key: '薄暮', color: '#F5222D'
+    key: i18nRender('settingconfig.dusk'), color: '#F5222D'
   },
   {
-    key: '火山', color: '#FA541C'
+    key: i18nRender('settingconfig.volcanic'), color: '#FA541C'
   },
   {
-    key: '日暮', color: '#FAAD14'
+    key: i18nRender('settingconfig.Sunset'), color: '#FAAD14'
   },
   {
-    key: '明青', color: '#13C2C2'
+    key: i18nRender('settingconfig.Mingqing'), color: '#13C2C2'
   },
   {
-    key: '极光绿', color: '#52C41A'
+    key: i18nRender('settingconfig.Aurora green'), color: '#52C41A'
   },
   {
-    key: '拂晓蓝（默认）', color: '#1890FF'
+    key: i18nRender('settingconfig.Daybreak'), color: '#1890FF'
   },
   {
-    key: '极客蓝', color: '#2F54EB'
+    key: i18nRender('settingconfig.Geek Blue'), color: '#2F54EB'
   },
   {
-    key: '酱紫', color: '#722ED1'
+    key: i18nRender('settingconfig.Sauce purple'), color: '#722ED1'
   }
 ]
+}
 
 const updateTheme = newPrimaryColor => {
-  const hideMessage = message.loading('正在切换主题！', 0)
+  const hideMessage = message.loading(i18nRender('settingconfig.loading'), 0)
   themeColor.changeColor(newPrimaryColor).finally(() => {
     setTimeout(() => {
       hideMessage()
