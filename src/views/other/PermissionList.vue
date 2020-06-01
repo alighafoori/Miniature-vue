@@ -4,23 +4,23 @@
       <a-form layout="inline">
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
-            <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+            <a-form-item :label="$t('permissionlist.Role ID')">
+              <a-input :placeholder="$t('permissionlist.please enter')"/>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
-            <a-form-item label="状态">
-              <a-select placeholder="请选择" default-value="0">
-                <a-select-option value="0">全部</a-select-option>
-                <a-select-option value="1">关闭</a-select-option>
-                <a-select-option value="2">运行中</a-select-option>
+            <a-form-item :label="$t('permissionlist.status')">
+              <a-select placeholder="$t('permissionlist.please choose')" default-value="0">
+                <a-select-option value="0">{{ $t('permissionlist.All') }}</a-select-option>
+                <a-select-option value="1">{{ $t('permissionlist.shut down') }}</a-select-option>
+                <a-select-option value="2">{{ $t('permissionlist.Running') }}</a-select-option>
               </a-select>
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
             <span class="table-page-search-submitButtons">
-              <a-button type="primary">查询</a-button>
-              <a-button style="margin-left: 8px">重置</a-button>
+              <a-button type="primary">{{ $t('permissionlist.Inquire') }}</a-button>
+              <a-button style="margin-left: 8px">{{ $t('permissionlist.Reset') }}</a-button>
             </span>
           </a-col>
         </a-row>
@@ -38,21 +38,21 @@
       </span>
 
       <span slot="action" slot-scope="text, record">
-        <a @click="handleEdit(record)">编辑</a>
+        <a @click="handleEdit(record)">{{ $t('permissionlist.edit') }}</a>
         <a-divider type="vertical" />
         <a-dropdown>
           <a class="ant-dropdown-link">
-            更多 <a-icon type="down" />
+            {{ $t('permissionlist.More ') }} <a-icon type="down" />
           </a>
           <a-menu slot="overlay">
             <a-menu-item>
-              <a href="javascript:;">详情</a>
+              <a href="javascript:;">{{ $t('permissionlist.Details') }}</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">禁用</a>
+              <a href="javascript:;">{{ $t('permissionlist.Disable') }}</a>
             </a-menu-item>
             <a-menu-item>
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;">{{ $t('permissionlist.delete') }}</a>
             </a-menu-item>
           </a-menu>
         </a-dropdown>
@@ -60,7 +60,7 @@
     </s-table>
 
     <a-modal
-      title="操作"
+      :title="$t('permissionlist.operating')"
       :width="800"
       v-model="visible"
       @ok="handleOk"
@@ -70,40 +70,40 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="唯一识别码"
+          :label="$t('permissionlist.Unique identifier')"
           hasFeedback
           validateStatus="success"
         >
-          <a-input placeholder="唯一识别码" v-model="mdl.id" id="no" disabled="disabled" />
+          <a-input :placeholder="$t('permissionlist.Unique identifier')" v-model="mdl.id" id="no" disabled="disabled" />
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="权限名称"
+          :label="$t('permissionlist.Permission name')"
           hasFeedback
           validateStatus="success"
         >
-          <a-input placeholder="起一个名字" v-model="mdl.name" id="permission_name" />
+          <a-input :placeholder="$t('permissionlist.Give a name')" v-model="mdl.name" id="permission_name" />
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="状态"
+          :label="$t('permissionlist.status')"
           hasFeedback
           validateStatus="warning"
         >
           <a-select v-model="mdl.status">
-            <a-select-option value="1">正常</a-select-option>
-            <a-select-option value="2">禁用</a-select-option>
+            <a-select-option value="1">{{ $t('permissionlist.normal') }}</a-select-option>
+            <a-select-option value="2">{{ $t('permissionlist.Disable') }}</a-select-option>
           </a-select>
         </a-form-item>
 
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="描述"
+          :label="$t('permissionlist.description')"
           hasFeedback
         >
           <a-textarea :rows="5" v-model="mdl.describe" placeholder="..." id="describe"/>
@@ -114,7 +114,7 @@
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
-          label="赋予权限"
+          :label="$t('permissionlist.Give permissions')"
           hasFeedback
         >
           <a-select
@@ -135,6 +135,7 @@
 
 <script>
 import { STable } from '@/components'
+import { i18nRender, currentLang } from '@/locales'
 
 export default {
   name: 'TableList',
@@ -143,8 +144,6 @@ export default {
   },
   data () {
     return {
-      description: '列表使用场景：后台管理中的权限管理以及角色管理，可用于基于 RBAC 设计的角色权限控制，颗粒度细到每一个操作类型。',
-
       visible: false,
       labelCol: {
         xs: { span: 24 },
@@ -157,42 +156,16 @@ export default {
       form: null,
       mdl: {},
 
-      // 高级搜索 展开/关闭
+      // Advanced Search Expand / Close
       advanced: false,
-      // 查询参数
+      // Query parameters
       queryParam: {},
-      // 表头
-      columns: [
-        {
-          title: '唯一识别码',
-          dataIndex: 'id'
-        },
-        {
-          title: '权限名称',
-          dataIndex: 'name'
-        },
-        {
-          title: '可操作权限',
-          dataIndex: 'actions',
-          scopedSlots: { customRender: 'actions' }
-        },
-        {
-          title: '状态',
-          dataIndex: 'status',
-          scopedSlots: { customRender: 'status' }
-        },
-        {
-          title: '操作',
-          width: '150px',
-          dataIndex: 'action',
-          scopedSlots: { customRender: 'action' }
-        }
-      ],
-      // 向后端拉取可以用的操作列表
+       // Pull the list of available operations to the backend
       permissionList: null,
-      // 加载数据方法 必须为 Promise 对象
+      // The load data method must be a Promise object
       loadData: parameter => {
-        return this.$http.get('/permission', {
+        const url = `${currentLang.isoCode}/permission`
+        return this.$http.get(url, {
           params: Object.assign(parameter, this.queryParam)
         }).then(res => {
           const result = res.result
@@ -211,10 +184,10 @@ export default {
   filters: {
     statusFilter (status) {
       const statusMap = {
-        1: '正常',
-        2: '禁用'
+        1: 'permissionlist.statusmap.normal',
+        2: 'permissionlist.statusmap.Disable'
       }
-      return statusMap[status]
+      return i18nRender(statusMap[status])
     }
   },
   created () {
@@ -225,13 +198,13 @@ export default {
       // permissionList
       new Promise(resolve => {
         const data = [
-          { label: '新增', value: 'add', defaultChecked: false },
-          { label: '查询', value: 'get', defaultChecked: false },
-          { label: '修改', value: 'update', defaultChecked: false },
-          { label: '列表', value: 'query', defaultChecked: false },
-          { label: '删除', value: 'delete', defaultChecked: false },
-          { label: '导入', value: 'import', defaultChecked: false },
-          { label: '导出', value: 'export', defaultChecked: false }
+          { label: i18nRender('permissionlist.data.Add'), value: 'add', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.Inquire'), value: 'get', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.modify'), value: 'update', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.List'), value: 'query', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.delete'), value: 'delete', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.Import'), value: 'import', defaultChecked: false },
+          { label: i18nRender('permissionlist.data.Export'), value: 'export', defaultChecked: false }
         ]
         setTimeout(resolve(data), 1500)
       }).then(res => {
@@ -267,6 +240,39 @@ export default {
         })
       }
       */
+  },
+  computed: {
+      columns () {
+        return [
+        {
+          title: i18nRender('permissionlist.columns.Unique identifier'),
+          dataIndex: 'id'
+        },
+        {
+          title: i18nRender('permissionlist.columns.Permission name'),
+          dataIndex: 'name'
+        },
+        {
+          title: i18nRender('permissionlist.columns.Operable authority'),
+          dataIndex: 'actions',
+          scopedSlots: { customRender: 'actions' }
+        },
+        {
+          title: i18nRender('permissionlist.columns.status'),
+          dataIndex: 'status',
+          scopedSlots: { customRender: 'status' }
+        },
+        {
+          title: i18nRender('permissionlist.columns.operating'),
+          width: '150px',
+          dataIndex: 'action',
+          scopedSlots: { customRender: 'action' }
+        }
+      ]
+    },
+    description () {
+      return i18nRender('permissionlist.description.content')
+    }
   }
 }
 </script>
