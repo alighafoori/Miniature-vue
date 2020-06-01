@@ -699,7 +699,31 @@ const locale = {
   'permission.Enable': '启用',
   'permission.Disable': '禁用',
   'permission.Import': '导入',
-  'permission.Export': '导出'
+  'permission.Export': '导出',
+  'rolelist.Role ID': '角色ID',
+  'rolelist.please enter': '请输入',
+  'rolelist.status': '状态',
+  'rolelist.please choose': '请选择',
+  'rolelist.All': '全部',
+  'rolelist.normal': '正常',
+  'rolelist.Disable': '禁用',
+  'rolelist.Inquire': '查询',
+  'rolelist.Reset': '重置',
+  'rolelist.edit': '编辑',
+  'rolelist.More ': '更多 ',
+  'rolelist.Details': '详情',
+  'rolelist.delete': '删除',
+  'rolelist.columns.Unique identifier': '唯一识别码',
+  'rolelist.columns.Role Name': '角色名称',
+  'rolelist.columns.status': '状态',
+  'rolelist.columns.Creation time': '创建时间',
+  'rolelist.columns.operating': '操作',
+  'rolelist.description': '列表使用场景：后台管理中的权限管理以及角色管理，可用于基于 RBAC 设计的角色权限控制，颗粒度细到每一个操作类型。',
+  'rolemodal.title': '操作',
+  'rolemodal.description': '这是一个描述。',
+  'rolemodal.progress.title': '进行中',
+  'rolemodal.wating.title': '等候',
+  'rolemodal.success': '保存成功'
 }
 
 export default {

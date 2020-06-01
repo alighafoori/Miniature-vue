@@ -703,7 +703,31 @@ const locale = {
   'permission.Enable': 'فعال کردن',
   'permission.Disable': 'غیرفعال کردن',
   'permission.Import': 'وارد كردن',
-  'permission.Export': 'صادرات'
+  'permission.Export': 'صادرات',
+  'rolelist.Role ID': 'شناسه نقش',
+  'rolelist.please enter': 'لطفا وارد کنید',
+  'rolelist.status': 'وضعیت',
+  'rolelist.please choose': 'لطفا انتخاب کنید',
+  'rolelist.All': 'همه',
+  'rolelist.normal': 'طبیعی',
+  'rolelist.Disable': 'غیرفعال کردن',
+  'rolelist.Inquire': 'جویا شدن',
+  'rolelist.Reset': 'تنظیم مجدد',
+  'rolelist.edit': 'ویرایش کنید',
+  'rolelist.More ': 'بیشتر ',
+  'rolelist.Details': 'جزئیات',
+  'rolelist.delete': 'حذف',
+  'rolelist.columns.Unique identifier': 'شناسه منحصر به فرد',
+  'rolelist.columns.Role Name': 'نام نقش',
+  'rolelist.columns.status': 'وضعیت',
+  'rolelist.columns.Creation time': 'زمان ایجاد',
+  'rolelist.columns.operating': 'عملیاتی',
+  'rolelist.description': 'سناریوهای استفاده از لیست: مدیریت مجوز و مدیریت نقش در مدیریت پس زمینه می تواند برای کنترل اجازه نقش بر اساس طرح RBAC ، میزان انبوه به هر نوع عملیات مورد استفاده قرار گیرد.',
+  'rolemodal.title': 'عملیاتی',
+  'rolemodal.description': 'این یک توضیحات است.',
+  'rolemodal.progress.title': 'در حال پیش رفت',
+  'rolemodal.wating.title': 'در انتظار',
+  'rolemodal.success': 'با موفقیت ذخیره شد'
 }
 
 export default {

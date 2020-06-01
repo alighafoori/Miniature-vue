@@ -699,7 +699,31 @@ const locale = {
   'permission.Enable': 'Enable',
   'permission.Disable': 'Disable',
   'permission.Import': 'Import',
-  'permission.Export': 'Export'
+  'permission.Export': 'Export',
+  'rolelist.Role ID': 'Role ID',
+  'rolelist.please enter': 'please enter',
+  'rolelist.status': 'status',
+  'rolelist.please choose': 'please choose',
+  'rolelist.All': 'All',
+  'rolelist.normal': 'normal',
+  'rolelist.Disable': 'Disable',
+  'rolelist.Inquire': 'Inquire',
+  'rolelist.Reset': 'Reset',
+  'rolelist.edit': 'edit',
+  'rolelist.More ': 'More ',
+  'rolelist.Details': 'Details',
+  'rolelist.delete': 'delete',
+  'rolelist.columns.Unique identifier': 'Unique identifier',
+  'rolelist.columns.Role Name': 'Role Name',
+  'rolelist.columns.status': 'status',
+  'rolelist.columns.Creation time': 'Creation time',
+  'rolelist.columns.operating': 'operating',
+  'rolelist.description': 'List usage scenarios: Permission management and role management in background management can be used for role permission control based on RBAC design, granularity down to each operation type.',
+  'rolemodal.title': 'operating',
+  'rolemodal.description': 'This is a description.',
+  'rolemodal.progress.title': 'In Progress',
+  'rolemodal.wating.title': 'Waiting',
+  'rolemodal.success': 'Saved successfully'
 }
 
 export default {
