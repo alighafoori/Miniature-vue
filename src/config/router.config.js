@@ -45,7 +45,21 @@ export const asyncRouterMap = [
           }
         ]
       },
-
+      // applications
+      {
+        path: '/apps',
+        redirect: '/apps/chat',
+        component: RouteView,
+        meta: { title: 'menu.apps', icon: 'form', permission: ['form'] },
+        children: [
+          {
+            path: '/apps/chat',
+            name: 'ChatApplication',
+            component: () => import('@/views/applications/Chat'),
+            meta: { title: 'menu.apps.chat', keepAlive: true, permission: ['form'] }
+          }
+        ]
+      },
       // forms
       {
         path: '/form',
