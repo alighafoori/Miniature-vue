@@ -15,6 +15,7 @@ import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
 import './mock'
 
 import bootstrap from './core/bootstrap'
+import './main.css'
 import './core/lazy_use'
 import './permission' // permission control
 import './utils/filter' // global filter
