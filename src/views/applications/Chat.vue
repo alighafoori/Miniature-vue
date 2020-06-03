@@ -1,3 +1,4 @@
+<!-- base from https://tailwindcomponents.com/component/tailwindcss-messenger-clone -->
 <template>
   <div class="h-screen w-full flex antialiased text-gray-800 bg-white overflow-hidden">
     <div class="flex-1 flex flex-col">

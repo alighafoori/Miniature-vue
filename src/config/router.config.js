@@ -60,6 +60,21 @@ export const asyncRouterMap = [
           }
         ]
       },
+      // ecommerce
+      {
+        path: '/ecommerce',
+        redirect: '/ecommerce/shoppingcart',
+        component: RouteView,
+        meta: { title: 'menu.ecommerce', icon: 'form', permission: ['form'] },
+        children: [
+          {
+            path: '/ecommerce/shoppingcart',
+            name: 'ShoppingCart',
+            component: () => import('@/views/ecommerce/ShoppingCart'),
+            meta: { title: 'menu.ecommerce.shoppingcart', keepAlive: true, permission: ['form'] }
+          }
+        ]
+      },
       // forms
       {
         path: '/form',
