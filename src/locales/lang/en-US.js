@@ -759,7 +759,22 @@ const locale = {
   'permissionlist.data.Import': 'Import',
   'permissionlist.data.Export': 'Export',
   'permissionlist.statusmap.normal': 'normal',
-  'permissionlist.statusmap.Disable': 'Disable'
+  'permissionlist.statusmap.Disable': 'Disable',
+  'menu.blog.gallery': 'Gallery',
+  'menu.blog.author': 'Author',
+  'menu.blog.instagram': 'Instagram',
+  'menu.blog.blog': 'Blog',
+  'menu.blog': 'Blog',
+  'menu.landings.business': 'Business',
+  'menu.landings.shop': 'Shop',
+  'menu.landings': 'Landings',
+  'menu.ecommerce.productdetail': 'Product Detail',
+  'menu.ecommerce.shoppingcart': 'Shopping Cart',
+  'menu.ecommerce': 'Ecommerce',
+  'menu.apps.slack': 'Slack',
+  'menu.apps.chat': 'Chat',
+  'menu.apps': 'Applications',
+  'menu.ecommerce.shop': 'Shop'
 }
 
 export default {

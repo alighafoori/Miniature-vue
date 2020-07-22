@@ -2,16 +2,6 @@
 <template>
   <!-- component -->
   <div class="w-screen h-screen flex justify-center items-center">
-    <style>
-      button {
-      background-color: #6617cb;
-      background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
-      box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 30px #6617cb;
-      }
-      button:hover {
-      box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 60px #6617cb;
-      }
-    </style>
     <div class="container mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
       <div class="relative mb-6">
         <img
@@ -51,3 +41,13 @@
     </div>
   </div>
 </template>
+<style scoped>
+  button {
+  background-color: #6617cb;
+  background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+  box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 30px #6617cb;
+  }
+  button:hover {
+  box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 60px #6617cb;
+  }
+</style>

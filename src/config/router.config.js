@@ -57,21 +57,93 @@ export const asyncRouterMap = [
             name: 'ChatApplication',
             component: () => import('@/views/applications/Chat'),
             meta: { title: 'menu.apps.chat', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/apps/slack',
+            name: 'SlackApplication',
+            component: () => import('@/views/applications/Slack'),
+            meta: { title: 'menu.apps.slack', keepAlive: true, permission: ['form'] }
           }
         ]
       },
       // ecommerce
       {
         path: '/ecommerce',
-        redirect: '/ecommerce/shoppingcart',
+        redirect: '/ecommerce/shop',
         component: RouteView,
         meta: { title: 'menu.ecommerce', icon: 'form', permission: ['form'] },
         children: [
+          {
+            path: '/ecommerce/shop',
+            name: 'Shop',
+            component: () => import('@/views/ecommerce/Shop'),
+            meta: { title: 'menu.ecommerce.shop', keepAlive: true, permission: ['form'] }
+          },
           {
             path: '/ecommerce/shoppingcart',
             name: 'ShoppingCart',
             component: () => import('@/views/ecommerce/ShoppingCart'),
             meta: { title: 'menu.ecommerce.shoppingcart', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/ecommerce/productdetail',
+            name: 'ProductDetail',
+            component: () => import('@/views/ecommerce/ProductDetail'),
+            meta: { title: 'menu.ecommerce.productdetail', keepAlive: true, permission: ['form'] }
+          }
+        ]
+      },
+      // landings
+      {
+        path: '/landings',
+        redirect: '/landings/shop',
+        component: RouteView,
+        meta: { title: 'menu.landings', icon: 'form', permission: ['form'] },
+        children: [
+          {
+            path: '/landings/shop',
+            name: 'ShopLanding',
+            component: () => import('@/views/landing/Shop'),
+            meta: { title: 'menu.landings.shop', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/landings/business',
+            name: 'business',
+            component: () => import('@/views/landing/business'),
+            meta: { title: 'menu.landings.business', keepAlive: true, permission: ['form'] }
+          }
+        ]
+      },
+      // blog
+      {
+        path: '/blog',
+        redirect: '/blog/blog',
+        component: RouteView,
+        meta: { title: 'menu.blog', icon: 'form', permission: ['form'] },
+        children: [
+          {
+            path: '/blog/blog',
+            name: 'Blog',
+            component: () => import('@/views/Blog/BlogPosts'),
+            meta: { title: 'menu.blog.blog', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/blog/instagram',
+            name: 'Instagram',
+            component: () => import('@/views/Blog/Instagram'),
+            meta: { title: 'menu.blog.instagram', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/blog/author',
+            name: 'Author',
+            component: () => import('@/views/Blog/Author'),
+            meta: { title: 'menu.blog.author', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/blog/gallery',
+            name: 'Gallery',
+            component: () => import('@/views/Blog/Gallery'),
+            meta: { title: 'menu.blog.gallery', keepAlive: true, permission: ['form'] }
           }
         ]
       },

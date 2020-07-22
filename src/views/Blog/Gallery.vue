@@ -2,7 +2,7 @@
 <template>
   <!-- component -->
   <!-- This is an example component -->
-  <body
+  <div
     x-data="imageGallery()"
     x-init="fetch('https://pixabay.com/api/?key=15819227-ef2d84d1681b9442aaa9755b8&q=woman+girl+food&image_type=all&per_page=52&')
       .then(response => response.json())
@@ -76,7 +76,9 @@
         </footer>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+  </div>
+</template>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
     <script>
       function imageGallery() {
       return {
@@ -99,4 +101,3 @@
       };
       }
     </script>
-  </body></template>
