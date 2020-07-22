@@ -40,7 +40,7 @@
             <form onsubmit="">
               <div class="relative">
                 <label>
-                  <input class="rounded-full py-2 pr-6 pl-10 w-full border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none text-gray-600 focus:shadow-md transition duration-300 ease-in" type="text" value="" placeholder="Search Messenger">
+                  <input v-model="searchTerm" class="rounded-full py-2 pr-6 pl-10 w-full border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none text-gray-600 focus:shadow-md transition duration-300 ease-in" type="text" value="" placeholder="Search Messenger">
                   <span class="absolute top-0 left-0 mt-2 ml-3 inline-block">
                     <svg viewBox="0 0 24 24" class="w-6 h-6">
                       <path fill="#bbb" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
@@ -51,7 +51,7 @@
             </form>
           </div>
           <div class="contacts p-2 flex-1 overflow-y-scroll">
-            <div class="flex justify-between items-center p-3 hover:bg-gray-100 rounded-lg relative" v-for="chat in chats" :key="chat.id">
+            <div class="flex justify-between items-center p-3 hover:bg-gray-100 rounded-lg relative" v-for="chat in filterdChat" :key="chat.id">
               <div class="w-16 h-16 relative flex flex-shrink-0" v-if="chat.users.length === 1">
                 <img class="shadow-md rounded-full w-full h-full object-cover" :src="chat.users[0].avatar" alt="">
                 <div v-if="chat.users[0].online" class="absolute bg-white p-1 rounded-full bottom-0 right-0">
@@ -169,7 +169,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
           </div>
           <div class="chat-footer flex-none">
             <div class="flex flex-row items-center p-4">
-              <button type="button" class="flex flex-shrink-0 focus:outline-none mx-2 block text-blue-600 hover:text-blue-700 w-6 h-6">
+              <button type="button" @click="sendMessage" class="flex flex-shrink-0 focus:outline-none mx-2 block text-blue-600 hover:text-blue-700 w-6 h-6">
                 <svg viewBox="0 0 20 20" class="w-full h-full fill-current">
                   <path d="M10,1.6c-4.639,0-8.4,3.761-8.4,8.4s3.761,8.4,8.4,8.4s8.4-3.761,8.4-8.4S14.639,1.6,10,1.6z M15,11h-4v4H9  v-4H5V9h4V5h2v4h4V11z"></path>
                 </svg>
@@ -191,7 +191,13 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
               </button>
               <div class="relative flex-grow">
                 <label>
-                  <input class="rounded-full py-2 pl-3 pr-10 w-full border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none text-gray-600 focus:shadow-md transition duration-300 ease-in" type="text" value="" placeholder="Aa">
+                  <input
+                    v-model="newMessage"
+                    @keyup.enter="sendMessage"
+                    class="rounded-full py-2 pl-3 pr-10 w-full border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none text-gray-600 focus:shadow-md transition duration-300 ease-in"
+                    type="text"
+                    value=""
+                    placeholder="Aa">
                   <button type="button" class="absolute top-0 right-0 mt-2 mr-3 flex flex-shrink-0 focus:outline-none block text-blue-600 hover:text-blue-700 w-6 h-6">
                     <svg viewBox="0 0 20 20" class="w-full h-full fill-current">
                       <path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM6.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm7 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.16 3a6 6 0 0 1-11.32 0h11.32z"></path>
@@ -229,7 +235,9 @@ export default {
       chatMessages: [],
       currentUser: {
         id: 0
-      }
+      },
+      searchTerm: '',
+      newMessage: ''
     }
   },
   computed: {
@@ -263,9 +271,26 @@ export default {
         result.push(currentGroup)
       }
       return result
+    },
+    filterdChat () {
+      let result
+      if (this.searchTerm) result = this.chats
+      const re = new RegExp(this.searchTerm, 'gi')
+      result = this.chats.filter(x => x.title.search(re) > -1)
+      // console.log('filterdChat', result)
+      return result
     }
   },
   methods: {
+    sendMessage () {
+      if (this.newMessage) {
+        const obj = { messageType: 'text', message: this.newMessage }
+        obj.id = Math.max.apply(Math, this.chatMessages.map(x => x.id)) + 1
+        obj.sender = { id: 0 }
+        this.chatMessages.push(obj)
+        this.newMessage = null
+      }
+    },
     like () {
       this.likes = 1
       this.dislikes = 0
